@@ -1,0 +1,18 @@
+# Cloudflare Pages _headers file
+# Cache HTML short (changes often), assets long
+
+/*.html
+  Cache-Control: public, max-age=3600, must-revalidate
+  X-Content-Type-Options: nosniff
+  X-Frame-Options: DENY
+  Referrer-Policy: strict-origin-when-cross-origin
+
+/pages/*.html
+  Cache-Control: public, max-age=86400, must-revalidate
+  X-Content-Type-Options: nosniff
+
+/*.xml
+  Cache-Control: public, max-age=86400
+
+/*.txt
+  Cache-Control: public, max-age=86400
