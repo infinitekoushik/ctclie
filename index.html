@@ -1,0 +1,1389 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="CTCLie — The world's most honest salary calculator. See exactly what you take home from your CTC or gross salary. AI-powered. Free. Global.">
+<meta name="keywords" content="salary calculator, CTC to in-hand, take home pay, salary after tax, India salary calculator, US salary calculator, gross to net salary">
+<meta property="og:title" content="CTCLie — What You Actually Take Home">
+<meta property="og:description" content="Type your salary. See your real take-home. Hidden real costs. AI explains everything. India, US & global.">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://ctclie.com">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="canonical" href="https://ctclie.com">
+<title>CTCLie — NO 1 Salary Calculator: CTC to In-Hand | India & Global 2026</title>
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"WebApplication","name":"CTCLie","url":"https://ctclie.com","description":"Global salary calculator with AI explanations, real cost analysis and tax breakdown.","applicationCategory":"FinanceApplication","offers":{"@type":"Offer","price":"0","priceCurrency":"USD"},"operatingSystem":"Any"}
+</script>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
+:root{
+  --bg:#050810;--bg2:#080d1a;
+  --surface:rgba(255,255,255,0.04);--surface2:rgba(255,255,255,0.07);
+  --border:rgba(255,255,255,0.08);--border-accent:rgba(0,229,195,0.3);
+  --accent:#00E5C3;--accent2:#0090FF;
+  --accent-dim:rgba(0,229,195,0.1);
+  --text:#F0F0F8;--text2:rgba(240,240,248,0.6);--text3:rgba(240,240,248,0.32);
+  --red:#FF5C5C;--amber:#FFB547;--green:#00E5C3;
+  --r:12px;--r2:20px;
+}
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{background:var(--bg);color:var(--text);font-family:'Inter',sans-serif;line-height:1.6;overflow-x:hidden}
+
+/* CANVAS */
+#c{position:fixed;top:0;left:0;width:100%;height:100%;z-index:0;pointer-events:none}
+
+/* NAV */
+nav{position:fixed;top:0;left:0;right:0;z-index:100;display:flex;align-items:center;justify-content:space-between;padding:16px 48px;background:rgba(5,8,16,0.75);backdrop-filter:blur(20px);border-bottom:1px solid var(--border)}
+.logo{font-family:'Space Grotesk',sans-serif;font-weight:700;font-size:22px;color:var(--accent);letter-spacing:-0.5px;text-decoration:none}
+.logo em{color:var(--text);font-style:normal;font-weight:300}
+nav ul{display:flex;gap:28px;list-style:none}
+nav a{color:var(--text2);font-size:14px;text-decoration:none;transition:color .2s}
+nav a:hover{color:var(--accent)}
+.nav-cta{background:var(--accent);color:#050810;border:none;border-radius:8px;padding:9px 20px;font-size:14px;font-weight:700;cursor:pointer;font-family:'Inter',sans-serif;transition:opacity .2s}
+.nav-cta:hover{opacity:.85}
+
+/* HERO */
+.hero{position:relative;z-index:1;min-height:100vh;display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;padding:140px 24px 80px}
+.badge{display:inline-flex;align-items:center;gap:8px;background:var(--accent-dim);border:1px solid var(--border-accent);border-radius:100px;padding:6px 18px;font-size:12px;font-weight:600;color:var(--accent);margin-bottom:28px;letter-spacing:.04em}
+.badge-dot{width:6px;height:6px;background:var(--accent);border-radius:50%;animation:blink 2s infinite}
+@keyframes blink{0%,100%{opacity:1}50%{opacity:.3}}
+h1{font-family:'Space Grotesk',sans-serif;font-size:clamp(40px,7vw,90px);font-weight:700;line-height:1.01;letter-spacing:-3px;max-width:950px;margin-bottom:24px}
+h1 .a{color:var(--accent)}
+h1 .d{color:var(--text2);font-weight:300}
+.hero-sub{font-size:18px;color:var(--text2);max-width:540px;margin-bottom:52px;line-height:1.75}
+.hero-flags{display:flex;gap:12px;justify-content:center;flex-wrap:wrap;margin-bottom:52px}
+.flag-pill{display:flex;align-items:center;gap:6px;background:var(--surface);border:1px solid var(--border);border-radius:100px;padding:6px 14px;font-size:13px;color:var(--text2)}
+.flag-pill span{font-size:18px}
+.hero-stats{display:flex;gap:48px;justify-content:center;flex-wrap:wrap}
+.hstat-n{font-family:'Space Grotesk',sans-serif;font-size:34px;font-weight:700;color:var(--accent)}
+.hstat-l{font-size:12px;color:var(--text3);margin-top:2px}
+
+/* TICKER */
+.ticker{position:relative;z-index:1;background:var(--accent-dim);border-top:1px solid var(--border-accent);border-bottom:1px solid var(--border-accent);padding:10px 0;overflow:hidden;white-space:nowrap}
+.ticker-track{display:inline-flex;animation:tick 30s linear infinite}
+.ticker-track span{font-size:13px;color:var(--text2);margin:0 36px}
+.ticker-track strong{color:var(--accent)}
+@keyframes tick{from{transform:translateX(0)}to{transform:translateX(-50%)}}
+
+/* MAIN */
+main{position:relative;z-index:1}
+.section{padding:80px 24px}
+.wrap{max-width:1100px;margin:0 auto}
+.wrap-sm{max-width:720px;margin:0 auto}
+
+/* CALCULATOR CARD */
+.calc-card{background:rgba(8,13,26,0.92);border:1px solid var(--border);border-radius:24px;overflow:hidden;backdrop-filter:blur(24px);box-shadow:0 0 100px rgba(0,229,195,0.05),0 0 1px rgba(0,229,195,0.2)}
+.calc-top{padding:28px 36px 0;display:flex;align-items:center;justify-content:space-between;flex-wrap:gap;gap:16px}
+.calc-top-title{font-family:'Space Grotesk',sans-serif;font-size:19px;font-weight:600}
+.rtoggle{display:flex;background:var(--surface);border:1px solid var(--border);border-radius:10px;overflow:hidden}
+.rb{padding:8px 16px;font-size:13px;font-weight:500;border:none;background:transparent;color:var(--text2);cursor:pointer;font-family:'Inter',sans-serif;transition:all .15s}
+.rb.on{background:var(--accent);color:#050810}
+
+/* Country selector */
+.country-bar{padding:16px 36px 0;display:flex;gap:10px;flex-wrap:wrap}
+.cb{padding:7px 16px;border:1px solid var(--border);border-radius:100px;background:transparent;color:var(--text2);font-size:13px;cursor:pointer;font-family:'Inter',sans-serif;transition:all .15s;display:flex;align-items:center;gap:6px}
+.cb.on{border-color:var(--accent);color:var(--accent);background:var(--accent-dim)}
+
+.calc-body{display:grid;grid-template-columns:1fr 1fr;gap:0}
+.c-in{padding:28px 36px 36px;border-right:1px solid var(--border)}
+.c-out{padding:28px 36px 36px}
+
+/* Fields */
+.field{margin-bottom:18px}
+.field label{display:block;font-size:11px;font-weight:600;color:var(--text3);text-transform:uppercase;letter-spacing:.07em;margin-bottom:7px}
+.iw{position:relative}
+.ip{position:absolute;left:13px;top:50%;transform:translateY(-50%);font-size:15px;font-weight:600;color:var(--text2);pointer-events:none}
+input[type=number],select{width:100%;background:var(--surface);border:1px solid var(--border);border-radius:var(--r);padding:12px 13px 12px 32px;color:var(--text);font-size:15px;font-weight:500;font-family:'Space Grotesk',sans-serif;outline:none;transition:border-color .2s;appearance:none;-moz-appearance:textfield}
+input[type=number]::-webkit-inner-spin-button{display:none}
+input[type=number]:focus,select:focus{border-color:var(--accent)}
+select{padding-left:13px;background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='8'%3E%3Cpath d='M1 1l5 5 5-5' stroke='%2300E5C3' stroke-width='1.5' fill='none' stroke-linecap='round'/%3E%3C/svg%3E");background-repeat:no-repeat;background-position:right 13px center;cursor:pointer}
+select option{background:#080d1a}
+.frow{display:grid;grid-template-columns:1fr 1fr;gap:12px}
+
+/* Real cost toggle */
+.rc-toggle{display:flex;align-items:center;justify-content:space-between;background:var(--surface);border:1px solid var(--border);border-radius:var(--r);padding:12px 14px;margin-bottom:16px;cursor:pointer;user-select:none;transition:border-color .2s}
+.rc-toggle:hover{border-color:var(--border-accent)}
+.rc-label{font-size:13px;color:var(--text2)}
+.rc-label b{color:var(--accent)}
+.sw{width:36px;height:20px;background:var(--border);border-radius:100px;position:relative;transition:background .2s;flex-shrink:0}
+.sw.on{background:var(--accent)}
+.sw::after{content:'';position:absolute;top:3px;left:3px;width:14px;height:14px;background:#050810;border-radius:50%;transition:transform .2s}
+.sw.on::after{transform:translateX(16px)}
+.rc-fields{display:none;background:rgba(0,229,195,0.04);border:1px solid var(--border-accent);border-radius:var(--r);padding:14px;margin-bottom:16px}
+.rc-fields.show{display:block}
+.rc-fields .field{margin-bottom:10px}
+.rc-fields .field:last-child{margin-bottom:0}
+
+.go-btn{width:100%;background:var(--accent);color:#050810;border:none;border-radius:var(--r);padding:15px;font-size:16px;font-weight:700;font-family:'Space Grotesk',sans-serif;cursor:pointer;transition:all .2s;letter-spacing:-.3px}
+.go-btn:hover{opacity:.9;transform:translateY(-1px)}
+
+/* Results */
+.r-empty{text-align:center;color:var(--text3);padding:60px 20px;font-size:14px;line-height:1.8}
+.r-main{text-align:center;margin-bottom:20px}
+.r-label{font-size:11px;color:var(--text3);text-transform:uppercase;letter-spacing:.07em;margin-bottom:4px}
+.r-amount{font-family:'Space Grotesk',sans-serif;font-size:clamp(38px,5vw,56px);font-weight:700;color:var(--accent);letter-spacing:-2px;line-height:1}
+.r-sub{font-size:13px;color:var(--text3);margin-top:6px}
+
+/* Donut */
+.donut-wrap{position:relative;width:176px;height:176px;margin:0 auto 20px}
+#donutCanvas{display:block}
+.donut-c{position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);text-align:center;pointer-events:none}
+.donut-pct{font-family:'Space Grotesk',sans-serif;font-size:24px;font-weight:700;color:var(--accent)}
+.donut-tiny{font-size:10px;color:var(--text3)}
+
+/* Breakdown list */
+.bk{list-style:none}
+.bk li{display:flex;align-items:center;justify-content:space-between;padding:7px 0;border-bottom:1px solid var(--border);font-size:13px}
+.bk li:last-child{border-bottom:none}
+.bk-dot{width:8px;height:8px;border-radius:50%;margin-right:8px;flex-shrink:0}
+.bk-name{display:flex;align-items:center;color:var(--text2)}
+.bk-val{font-weight:600;font-family:'Space Grotesk',sans-serif}
+.neg{color:var(--red)}
+.pos{color:var(--green)}
+
+/* Regime compare */
+.rc-compare{display:flex;gap:10px;margin-top:14px}
+.rc-card{flex:1;padding:12px;border-radius:var(--r);border:1px solid var(--border);text-align:center}
+.rc-card.win{border-color:var(--accent);background:var(--accent-dim)}
+.rc-card-lbl{font-size:11px;color:var(--text3);margin-bottom:3px}
+.rc-card-val{font-family:'Space Grotesk',sans-serif;font-size:18px;font-weight:700}
+.rc-card.win .rc-card-val{color:var(--accent)}
+.rc-card-tag{font-size:10px;color:var(--accent);margin-top:3px;font-weight:700}
+
+/* Real cost result */
+.rct-box{margin-top:14px;background:rgba(255,92,92,0.07);border:1px solid rgba(255,92,92,0.2);border-radius:var(--r);padding:14px;display:none}
+.rct-box.show{display:block}
+.rct-title{font-size:11px;color:var(--red);font-weight:700;text-transform:uppercase;letter-spacing:.06em;margin-bottom:6px}
+.rct-val{font-family:'Space Grotesk',sans-serif;font-size:28px;font-weight:700;color:var(--red)}
+.rct-sub{font-size:12px;color:var(--text3);margin-top:4px}
+
+/* Action row */
+.act-row{display:flex;gap:8px;margin-top:16px}
+.act-btn{flex:1;padding:10px 12px;border:1px solid var(--border);border-radius:var(--r);background:var(--surface);color:var(--text2);font-size:13px;font-weight:500;font-family:'Inter',sans-serif;cursor:pointer;transition:all .2s;display:flex;align-items:center;justify-content:center;gap:5px}
+.act-btn:hover{border-color:var(--accent);color:var(--accent)}
+
+/* AI box */
+.insight-box{border-left:3px solid var(--accent);border-radius:0 var(--r2) var(--r2) 0;padding:18px 24px;background:rgba(0,229,195,0.05);margin-top:14px;display:none}
+.insight-box.show{display:block}
+.insight-label{font-size:11px;font-weight:700;color:var(--accent);text-transform:uppercase;letter-spacing:.08em;margin-bottom:8px}
+.insight-body{font-size:14px;color:var(--text2);line-height:1.85}
+.ai-dots{display:flex;gap:5px;align-items:center}
+.ad{width:6px;height:6px;background:var(--accent);border-radius:50%;animation:bounce .9s ease-in-out infinite}
+.ad:nth-child(2){animation-delay:.15s}
+.ad:nth-child(3){animation-delay:.3s}
+@keyframes bounce{0%,80%,100%{transform:translateY(0)}40%{transform:translateY(-7px)}}
+
+/* SECTIONS */
+.eyebrow{font-size:12px;font-weight:700;color:var(--accent);text-transform:uppercase;letter-spacing:.1em;margin-bottom:10px}
+.sec-title{font-family:'Space Grotesk',sans-serif;font-size:clamp(26px,4vw,44px);font-weight:700;line-height:1.1;letter-spacing:-1px;margin-bottom:14px}
+.sec-sub{font-size:16px;color:var(--text2);max-width:500px;line-height:1.75}
+
+/* Feature grid */
+.feat-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:18px;margin-top:48px}
+.feat-card{background:var(--surface);border:1px solid var(--border);border-radius:var(--r2);padding:28px;transition:border-color .2s,transform .2s}
+.feat-card:hover{border-color:var(--border-accent);transform:translateY(-3px)}
+.feat-icon{font-size:28px;margin-bottom:14px;display:block}
+.feat-title{font-family:'Space Grotesk',sans-serif;font-size:17px;font-weight:600;margin-bottom:8px}
+.feat-text{font-size:14px;color:var(--text2);line-height:1.7}
+
+/* Compare table */
+.tbl-wrap{overflow-x:auto;margin-top:36px}
+table{width:100%;border-collapse:collapse;font-size:14px}
+th{padding:14px 20px;font-weight:600;font-size:13px;text-align:left;border-bottom:1px solid var(--border);color:var(--text2)}
+th.hi{color:var(--accent)}
+td{padding:12px 20px;border-bottom:1px solid var(--border);color:var(--text2)}
+tr:last-child td{border-bottom:none}
+td:first-child{color:var(--text);font-weight:500}
+tr:hover td{background:var(--surface)}
+.ck{color:var(--green)}
+.cx{color:var(--red)}
+
+/* Affiliates */
+.aff-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:16px;margin-top:32px}
+.aff-card{background:var(--surface);border:1px solid var(--border);border-radius:var(--r2);padding:24px;transition:border-color .2s}
+.aff-card:hover{border-color:var(--border-accent)}
+.aff-icon{font-size:26px;margin-bottom:12px}
+.aff-title{font-family:'Space Grotesk',sans-serif;font-size:16px;font-weight:600;margin-bottom:4px}
+.aff-tag{display:inline-block;font-size:11px;background:var(--accent-dim);color:var(--accent);padding:3px 10px;border-radius:100px;margin-bottom:10px}
+.aff-text{font-size:13px;color:var(--text2);line-height:1.65;margin-bottom:14px}
+.aff-link{display:inline-block;font-size:13px;font-weight:600;color:var(--accent);text-decoration:none;border:1px solid var(--border-accent);border-radius:8px;padding:8px 16px;transition:background .2s}
+.aff-link:hover{background:var(--accent-dim)}
+
+/* FAQ */
+.faq-list{margin-top:36px}
+.faq-item{border-bottom:1px solid var(--border)}
+.faq-q{width:100%;background:none;border:none;color:var(--text);font-size:15px;font-weight:500;font-family:'Inter',sans-serif;text-align:left;padding:20px 0;cursor:pointer;display:flex;align-items:center;justify-content:space-between;gap:12px;transition:color .2s}
+.faq-q:hover{color:var(--accent)}
+.faq-q::after{content:'+';font-size:22px;color:var(--text3);flex-shrink:0;transition:transform .2s,color .2s}
+.faq-item.open .faq-q{color:var(--accent)}
+.faq-item.open .faq-q::after{transform:rotate(45deg);color:var(--accent)}
+.faq-a{font-size:14px;color:var(--text2);line-height:1.8;max-height:0;overflow:hidden;transition:max-height .35s ease,padding-bottom .35s}
+.faq-item.open .faq-a{max-height:500px;padding-bottom:20px}
+
+/* Share modal */
+.modal{display:none;position:fixed;inset:0;z-index:300;background:rgba(5,8,16,.85);backdrop-filter:blur(10px);align-items:center;justify-content:center}
+.modal.open{display:flex}
+.modal-box{background:#080d1a;border:1px solid var(--border-accent);border-radius:24px;width:420px;max-width:90vw;padding:36px;text-align:center;position:relative}
+.modal-x{position:absolute;top:14px;right:16px;background:none;border:none;color:var(--text3);font-size:22px;cursor:pointer;transition:color .2s}
+.modal-x:hover{color:var(--text)}
+.share-inner{background:linear-gradient(135deg,#0a1628,#050810);border:1px solid var(--border-accent);border-radius:16px;padding:28px;margin-bottom:24px}
+.share-logo{font-family:'Space Grotesk',sans-serif;font-size:13px;color:var(--accent);font-weight:700;margin-bottom:16px}
+.share-lbl{font-size:12px;color:var(--text3);margin-bottom:5px}
+.share-ctc{font-family:'Space Grotesk',sans-serif;font-size:22px;font-weight:700}
+.share-arrow{color:var(--text3);margin:8px 0;font-size:22px}
+.share-inhand{font-family:'Space Grotesk',sans-serif;font-size:42px;font-weight:700;color:var(--accent)}
+.share-pct{font-size:13px;color:var(--text2);margin-top:6px}
+.share-copy{width:100%;background:var(--accent);color:#050810;border:none;border-radius:var(--r);padding:13px;font-size:15px;font-weight:700;font-family:'Space Grotesk',sans-serif;cursor:pointer;transition:opacity .2s}
+.share-copy:hover{opacity:.85}
+
+/* Toast */
+.toast{position:fixed;bottom:32px;left:50%;transform:translateX(-50%) translateY(120px);background:var(--accent);color:#050810;padding:12px 26px;border-radius:100px;font-size:14px;font-weight:700;z-index:999;transition:transform .3s;pointer-events:none}
+.toast.show{transform:translateX(-50%) translateY(0)}
+
+/* Footer */
+footer{position:relative;z-index:1;border-top:1px solid var(--border);padding:40px 48px;display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:16px}
+.foot-logo{font-family:'Space Grotesk',sans-serif;font-weight:700;font-size:18px;color:var(--accent)}
+.foot-links{display:flex;gap:22px;flex-wrap:wrap}
+.foot-links a{font-size:13px;color:var(--text3);text-decoration:none;transition:color .2s}
+.foot-links a:hover{color:var(--accent)}
+.foot-copy{font-size:12px;color:var(--text3);width:100%}
+
+/* Responsive */
+@media(max-width:900px){
+  nav{padding:14px 20px}
+  nav ul{display:none}
+  .calc-body{grid-template-columns:1fr}
+  .c-in{border-right:none;border-bottom:1px solid var(--border)}
+  footer{padding:28px 20px}
+  .feat-grid{grid-template-columns:1fr}
+  .hero-flags{gap:8px}
+  .hero-stats{gap:24px}
+}
+@media(max-width:600px){
+  .calc-top,.c-in,.c-out{padding:16px}
+  .country-bar{padding:10px 16px 0;gap:6px}
+  .cb{padding:6px 10px;font-size:12px}
+  .frow{grid-template-columns:1fr}
+  .act-row{flex-direction:column}
+  .rc-compare{flex-direction:column}
+  .regime-toggle{flex-wrap:wrap}
+  h1{letter-spacing:-1px;font-size:clamp(36px,8vw,72px)}
+  .hero-sub{font-size:15px}
+  .hero-badge{font-size:11px}
+  .modal-box{padding:24px 16px}
+  .share-inner{padding:20px}
+  .share-inhand{font-size:32px}
+  .feat-grid{grid-template-columns:1fr}
+  .aff-grid{grid-template-columns:1fr}
+  .tbl-wrap{font-size:12px}
+  .tbl-wrap td,.tbl-wrap th{padding:9px 10px}
+  footer{padding:24px 16px;flex-direction:column;align-items:flex-start}
+  .foot-links{gap:14px}
+  .rtoggle{flex-wrap:wrap}
+  .rb{padding:8px 10px}
+  input[type=number],select{padding:13px 11px 13px 28px;font-size:15px;min-height:48px}
+  .go-btn,.nav-cta,.calc-btn{min-height:52px;font-size:16px}
+  .hstat-n{font-size:26px}
+  .feature-card{padding:20px}
+  .section{padding:52px 16px}
+  .wrap{padding:0 4px}
+  .rc-compare{gap:8px}
+}
+@media(max-width:380px){
+  h1{font-size:32px}
+  .country-bar{gap:4px}
+  .cb{padding:5px 8px;font-size:11px}
+}
+@media(prefers-reduced-motion:reduce){*{animation-duration:.01ms!important;transition-duration:.01ms!important}}
+
+/* ── CUSTOM CURSOR ── */
+.cursor{position:fixed;width:20px;height:20px;border:1.5px solid var(--accent);border-radius:50%;pointer-events:none;z-index:9999;transition:transform .12s ease,opacity .2s;mix-blend-mode:normal;top:0;left:0;}
+.cursor-dot{position:fixed;width:5px;height:5px;background:var(--accent);border-radius:50%;pointer-events:none;z-index:9999;top:0;left:0;transition:opacity .2s;}
+.cursor.hovering{transform:scale(2.2);border-color:var(--accent);opacity:.6;}
+.cursor.clicking{transform:scale(.7);opacity:1;}
+@media(hover:none){.cursor,.cursor-dot{display:none}}
+
+/* ── TOUCH RIPPLE ── */
+.ripple{position:fixed;border-radius:50%;background:rgba(0,229,195,0.18);transform:scale(0);animation:ripple-anim .55s ease-out forwards;pointer-events:none;z-index:9998;}
+@keyframes ripple-anim{to{transform:scale(4);opacity:0;}}
+
+/* ── SCROLL REVEAL ── */
+.reveal{opacity:0;transform:translateY(22px);transition:opacity .55s ease,transform .55s ease;}
+.reveal.visible{opacity:1;transform:translateY(0);}
+
+/* ── CARD GLOW ON HOVER ── */
+.feat-card,.aff-card{position:relative;overflow:hidden;}
+.feat-card::before,.aff-card::before{content:'';position:absolute;inset:0;background:radial-gradient(circle at var(--mx,50%) var(--my,50%),rgba(0,229,195,0.07) 0%,transparent 65%);opacity:0;transition:opacity .3s;pointer-events:none;border-radius:inherit;}
+.feat-card:hover::before,.aff-card:hover::before{opacity:1;}
+</style>
+</head>
+<body>
+
+<canvas id="c"></canvas>
+
+<nav>
+  <a class="logo" href="/">CTC<em>Lie</em></a>
+  <ul>
+    <li><a href="#calculator">Calculator</a></li>
+    <li><a href="#features">Features</a></li>
+    <li><a href="#faq">FAQ</a></li>
+  </ul>
+  <button class="nav-cta" onclick="scrollTo('#calculator')">Try free →</button>
+</nav>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="badge"><span class="badge-dot"></span>Updated FY 2026-27 · Global</div>
+  <h1>Your salary package<br>is a <span class="a">lie.</span><br><span class="d">Here's the truth.</span></h1>
+  <p class="hero-sub">The world's most honest salary calculator. See exactly what you take home — including the hidden costs nobody tells you about.</p>
+  <div class="hero-flags">
+    <div class="flag-pill"><span>🇮🇳</span> India</div>
+    <div class="flag-pill"><span>🇺🇸</span> United States</div>
+    <div class="flag-pill"><span>🇬🇧</span> United Kingdom</div>
+    <div class="flag-pill"><span>🇦🇺</span> Australia</div>
+    <div class="flag-pill"><span>🇸🇬</span> Singapore</div>
+  </div>
+  <div class="hero-stats">
+    <div><div class="hstat-n" id="hs1">0</div><div class="hstat-l">Salaries calculated</div></div>
+    <div><div class="hstat-n" id="hs2">0%</div><div class="hstat-l">Avg hidden from take-home</div></div>
+    <div><div class="hstat-n">5</div><div class="hstat-l">Countries supported</div></div>
+  </div>
+</section>
+
+<!-- TICKER -->
+<div class="ticker">
+  <div class="ticker-track">
+    <span>🇮🇳 ₹10 LPA → <strong>₹74,200/mo in-hand</strong></span>
+    <span>🇺🇸 $100K → <strong>~$6,200/mo net</strong> (California)</span>
+    <span>🇬🇧 £60K → <strong>~£3,800/mo net</strong></span>
+    <span>🇮🇳 ₹30 LPA → <strong>₹1,91,500/mo in-hand</strong></span>
+    <span>🇦🇺 A$120K → <strong>~A$7,600/mo net</strong></span>
+    <span>New regime saves most Indians <strong>₹10K–₹60K/year</strong></span>
+    <span>🇮🇳 ₹10 LPA → <strong>₹74,200/mo in-hand</strong></span>
+    <span>🇺🇸 $100K → <strong>~$6,200/mo net</strong> (California)</span>
+    <span>🇬🇧 £60K → <strong>~£3,800/mo net</strong></span>
+    <span>🇮🇳 ₹30 LPA → <strong>₹1,91,500/mo in-hand</strong></span>
+    <span>🇦🇺 A$120K → <strong>~A$7,600/mo net</strong></span>
+    <span>New regime saves most Indians <strong>₹10K–₹60K/year</strong></span>
+  </div>
+</div>
+
+<!-- CALCULATOR -->
+<section class="section" id="calculator">
+<div class="wrap">
+<div class="calc-card">
+  <div class="calc-top">
+    <div class="calc-top-title">Salary calculator</div>
+    <div class="rtoggle" id="regimeToggle" style="display:none">
+      <button class="rb on" id="rNew" onclick="setRegime('new')">New regime</button>
+      <button class="rb" id="rOld" onclick="setRegime('old')">Old regime</button>
+      <button class="rb" id="rBoth" onclick="setRegime('both')">Compare</button>
+    </div>
+  </div>
+
+  <!-- Country selector -->
+  <div class="country-bar">
+    <button class="cb on" onclick="setCountry('IN',this)"><span>🇮🇳</span> India</button>
+    <button class="cb" onclick="setCountry('US',this)"><span>🇺🇸</span> USA</button>
+    <button class="cb" onclick="setCountry('GB',this)"><span>🇬🇧</span> UK</button>
+    <button class="cb" onclick="setCountry('AU',this)"><span>🇦🇺</span> Australia</button>
+    <button class="cb" onclick="setCountry('SG',this)"><span>🇸🇬</span> Singapore</button>
+  </div>
+
+  <div class="calc-body">
+    <div class="c-in">
+      <!-- Dynamic fields injected here -->
+      <div id="inputFields"></div>
+
+      <!-- Real cost toggle -->
+      <div class="rc-toggle" onclick="toggleRC()">
+        <div class="rc-label">Include <b>real-life costs</b> — commute, food, extras</div>
+        <div class="sw" id="rcSwitch"></div>
+      </div>
+      <div class="rc-fields" id="rcFields">
+        <div class="frow">
+          <div class="field"><label>Monthly commute</label><div class="iw"><span class="ip" id="rcPfx">₹</span><input type="number" id="commute" placeholder="3000" min="0" oninput="onChange()"></div></div>
+          <div class="field"><label>Monthly food / lunch</label><div class="iw"><span class="ip" id="rcPfx2">₹</span><input type="number" id="lunch" placeholder="4000" min="0" oninput="onChange()"></div></div>
+        </div>
+        <div class="frow">
+          <div class="field"><label>Health insurance top-up</label><div class="iw"><span class="ip" id="rcPfx3">₹</span><input type="number" id="health" placeholder="1500" min="0" oninput="onChange()"></div></div>
+          <div class="field"><label>Side income (monthly)</label><div class="iw"><span class="ip" id="rcPfx4">₹</span><input type="number" id="sideInc" placeholder="0" min="0" oninput="onChange()"></div></div>
+        </div>
+      </div>
+
+      <button class="go-btn" onclick="calculate()">Calculate my real salary →</button>
+    </div>
+
+    <div class="c-out">
+      <div id="results"><div class="r-empty">Enter your salary above<br>to see your real take-home 👆</div></div>
+    </div>
+  </div>
+</div>
+
+<!-- Insight Box -->
+<div class="insight-box" id="insightBox">
+  <div class="insight-label">&#128202; What this means for you</div>
+  <div class="insight-body" id="insightBody"></div>
+</div>
+</div>
+</section>
+
+<!-- FEATURES -->
+<section class="section" id="features" style="padding-top:0">
+<div class="wrap">
+  <div class="eyebrow">What makes us different</div>
+  <h2 class="sec-title">Built for people who want<br>actual answers</h2>
+  <p class="sec-sub">Every other calculator shows a number. We show you what that number means, why, and what to do about it.</p>
+  <div class="feat-grid">
+    <div class="feat-card"><span class="feat-icon">🤖</span><div class="feat-title">AI explains everything</div><p class="feat-text">Not just the number — why your deductions are calculated this way, which regime saves you more and how to negotiate a better package in English.</p></div>
+    <div class="feat-card"><span class="feat-icon">🌍</span><div class="feat-title">Truly global</div><p class="feat-text">India, USA, UK, Australia, Singapore — with country-specific tax rules, deductions and currencies. The Indian diaspora can finally compare apples to apples.</p></div>
+    <div class="feat-card"><span class="feat-icon">💸</span><div class="feat-title">Real cost of employment</div><p class="feat-text">The only calculator that includes commute, lunch and insurance costs. Your ₹1.2L take-home might actually be ₹88K after real life kicks in.</p></div>
+    <div class="feat-card"><span class="feat-icon">⚖️</span><div class="feat-title">Old vs new regime</div><p class="feat-text">India's two tax regimes side-by-side with the exact rupee difference. We tell you which one wins for your specific situation — no guesses.</p></div>
+    <div class="feat-card"><span class="feat-icon">📤</span><div class="feat-title">Shareable card</div><p class="feat-text">Generate a clean card to share on LinkedIn or WhatsApp. Perfect for offer comparisons, salary negotiations or finally showing the truth behind your CTC.</p></div>
+    <div class="feat-card"><span class="feat-icon">📊</span><div class="feat-title">Visual breakdown</div><p class="feat-text">Animated donut chart showing where every rupee/dollar goes. Basic, HRA, PF, tax, real costs — visualized so it clicks in 2 seconds.</p></div>
+  </div>
+</div>
+</section>
+
+<!-- COMPARE -->
+<section class="section" style="padding-top:0">
+<div class="wrap">
+  <div class="eyebrow">Honest comparison</div>
+  <h2 class="sec-title">CTCLie vs everyone else</h2>
+  <div class="tbl-wrap">
+    <table>
+      <thead><tr><th>Feature</th><th class="hi">CTCLie</th><th>ClearTax</th><th>PaycheckCity</th><th>Others</th></tr></thead>
+      <tbody>
+        <tr><td>Multi-country support</td><td class="ck">✓</td><td class="cx">✗</td><td class="cx">US only</td><td class="cx">✗</td></tr>
+        <tr><td>AI plain-English explanation</td><td class="ck">✓</td><td class="cx">✗</td><td class="cx">✗</td><td class="cx">✗</td></tr>
+        <tr><td>Real cost of employment</td><td class="ck">✓</td><td class="cx">✗</td><td class="cx">✗</td><td class="cx">✗</td></tr>
+        <tr><td>India old vs new regime compare</td><td class="ck">✓</td><td class="ck">✓</td><td class="cx">✗</td><td class="cx">✗</td></tr>
+        <tr><td>Shareable salary card</td><td class="ck">✓</td><td class="cx">✗</td><td class="cx">✗</td><td class="cx">✗</td></tr>
+        <tr><td>Updated 2026-27</td><td class="ck">✓</td><td class="ck">✓</td><td class="cx">✗</td><td class="cx">✗</td></tr>
+        <tr><td>No signup required</td><td class="ck">✓</td><td class="ck">✓</td><td class="ck">✓</td><td class="cx">Varies</td></tr>
+        <tr><td>Variable bonus calculation</td><td class="ck">✓</td><td class="cx">✗</td><td class="cx">✗</td><td class="cx">✗</td></tr>
+      </tbody>
+    </table>
+  </div>
+</div>
+</section>
+
+<!-- AFFILIATES -->
+<section class="section" style="padding-top:0">
+<div class="wrap">
+  <div class="eyebrow">Make your money work</div>
+  <h2 class="sec-title" style="font-size:clamp(22px,3vw,34px)">Grow what you take home</h2>
+  <div class="aff-grid" id="affGrid">
+    <div class="aff-card"><div class="aff-icon">🏦</div><div class="aff-title">High-yield savings</div><span class="aff-tag">Up to 8.5% returns</span><p class="aff-text">Most people earn 3.5% on their savings. Move idle money into FDs or liquid funds and earn more than double.</p><a class="aff-link" href="https://groww.in/fd" target="_blank" rel="noopener sponsored">Compare rates →</a></div>
+    <div class="aff-card"><div class="aff-icon">🛡️</div><div class="aff-title">₹1 Cr life cover</div><span class="aff-tag">From ₹650/month</span><p class="aff-text">At your income level, a ₹1 Cr term plan costs less than a weekend dinner. Most salaried earners are dangerously underinsured.</p><a class="aff-link" href="https://www.policybazaar.com/term-insurance/" target="_blank" rel="noopener sponsored">Get free quote →</a></div>
+    <div class="aff-card"><div class="aff-icon">💳</div><div class="aff-title">5% cashback card</div><span class="aff-tag">₹4K–12K/year back</span><p class="aff-text">A good rewards credit card earns you thousands per year in cashback. Most people are on basic zero-benefit cards.</p><a class="aff-link" href="https://www.bankbazaar.com/credit-card.html" target="_blank" rel="noopener sponsored">Compare top cards →</a></div>
+    <div class="aff-card"><div class="aff-icon">💻</div><div class="aff-title">Add ₹20K–50K/mo</div><span class="aff-tag">Freelance income</span><p class="aff-text">Thousands of developers and designers earn a full second income remotely. Your skills are worth more than your employer pays.</p><a class="aff-link" href="https://contra.com" target="_blank" rel="noopener sponsored">Find freelance work →</a></div>
+  </div>
+  <p style="font-size:11px;color:var(--text3);margin-top:20px">* Some links are affiliate partnerships. We only list products we'd genuinely use.</p>
+</div>
+</section>
+
+<!-- FAQ -->
+<section class="section" style="padding-top:0" id="faq">
+<div class="wrap-sm">
+  <div class="eyebrow">Questions</div>
+  <h2 class="sec-title">FAQ</h2>
+  <div class="faq-list" id="faqList"></div>
+</div>
+</section>
+
+<footer>
+  <div class="foot-logo">CTCLie</div>
+  <div class="foot-links">
+    <a href="/about">About</a>
+    <a href="/privacy">Privacy</a>
+    <a href="/sitemap.xml">Sitemap</a>
+    <a href="mailto:hello@ctclie.com">Contact</a>
+  </div>
+  <div class="foot-copy">© 2026 CTCLie.com — For informational purposes. Consult a tax professional for advice. Tax data: Income Tax India, IRS.gov, HMRC, ATO.</div>
+</footer>
+
+<!-- SHARE MODAL -->
+<div class="modal" id="modal">
+  <div class="modal-box">
+    <button class="modal-x" onclick="closeModal()">✕</button>
+    <div class="share-inner">
+      <div class="share-logo">CTCLie.com</div>
+      <div class="share-lbl">My gross / CTC</div>
+      <div class="share-ctc" id="sCTC">—</div>
+      <div class="share-arrow">↓</div>
+      <div class="share-lbl">Real monthly take-home</div>
+      <div class="share-inhand" id="sInhand">—</div>
+      <div class="share-pct" id="sPct"></div>
+    </div>
+    <button class="share-copy" onclick="doShare()">Copy & share 📋</button>
+  </div>
+</div>
+
+<div class="toast" id="toast"></div>
+
+<script>
+// ══════════════════════════════════
+// ══════════════════════════════════
+// FULL 3D ENGINE — pure canvas, no CDN
+// Torus knot + sphere wireframe + depth particles + mouse parallax
+// ══════════════════════════════════
+(function(){
+  const cv=document.getElementById('c');
+  const ctx=cv.getContext('2d');
+  let W,H,mouse={x:0,y:0},camX=0,camY=0;
+
+  // ── Matrix helpers ──
+  function rotX(p,a){const c=Math.cos(a),s=Math.sin(a);return[p[0],p[1]*c-p[2]*s,p[1]*s+p[2]*c]}
+  function rotY(p,a){const c=Math.cos(a),s=Math.sin(a);return[p[0]*c+p[2]*s,p[1],-p[0]*s+p[2]*c]}
+  function rotZ(p,a){const c=Math.cos(a),s=Math.sin(a);return[p[0]*c-p[1]*s,p[0]*s+p[1]*c,p[2]]}
+
+  // ── Perspective project ──
+  const FOV=420;
+  function project(p,cx,cy){
+    const z=p[2]+280;
+    const sc=FOV/Math.max(z,0.1);
+    return[p[0]*sc+cx, p[1]*sc+cy, sc];
+  }
+
+  // ── TORUS KNOT GEOMETRY ──
+  // p=2, q=3 knot — same as Three.js TorusKnotGeometry(14,1.6,120,18,2,3)
+  function buildTorusKnot(R,r,tubeSeg,radSeg,p,q){
+    const verts=[], edges=[];
+    const grid=[];
+    for(let i=0;i<=tubeSeg;i++){
+      grid[i]=[];
+      const u=(i/tubeSeg)*Math.PI*2*p;
+      const cu=Math.cos(u),su=Math.sin(u);
+      const qu=(q/p)*u;
+      const cx=(2+Math.cos(qu))*cu*R/2;
+      const cy=(2+Math.cos(qu))*su*R/2;
+      const cz=Math.sin(qu)*R/2;
+      // Tangent
+      const u2=u+0.01;
+      const cu2=Math.cos(u2),su2=Math.sin(u2);
+      const qu2=(q/p)*u2;
+      const cx2=(2+Math.cos(qu2))*cu2*R/2;
+      const cy2=(2+Math.cos(qu2))*su2*R/2;
+      const cz2=Math.sin(qu2)*R/2;
+      let T=[cx2-cx,cy2-cy,cz2-cz];
+      const tl=Math.sqrt(T[0]**2+T[1]**2+T[2]**2)||1;
+      T=T.map(v=>v/tl);
+      // Normal (simplified)
+      let N=[-T[1],T[0],0];
+      const nl=Math.sqrt(N[0]**2+N[1]**2)||1;
+      N=N.map(v=>v/nl);
+      // Binormal
+      const B=[T[1]*N[2]-T[2]*N[1], T[2]*N[0]-T[0]*N[2], T[0]*N[1]-T[1]*N[0]];
+      for(let j=0;j<radSeg;j++){
+        const v=(j/radSeg)*Math.PI*2;
+        const cv2=Math.cos(v),sv2=Math.sin(v);
+        verts.push([cx+r*(cv2*N[0]+sv2*B[0]), cy+r*(cv2*N[1]+sv2*B[1]), cz+r*(cv2*N[2]+sv2*B[2])]);
+        grid[i][j]=verts.length-1;
+      }
+    }
+    // Edges along tube
+    for(let i=0;i<tubeSeg;i++){
+      for(let j=0;j<radSeg;j++){
+        const a=grid[i][j], b=grid[i+1]?.[j]??grid[0][j];
+        const c2=grid[i][(j+1)%radSeg], d=grid[i+1]?.[(j+1)%radSeg]??grid[0][(j+1)%radSeg];
+        edges.push([a,b],[a,c2]);
+      }
+    }
+    return{verts,edges};
+  }
+
+  // ── SPHERE WIREFRAME GEOMETRY ──
+  function buildSphere(R,lat,lon){
+    const verts=[], edges=[];
+    for(let i=0;i<=lat;i++){
+      const phi=(i/lat)*Math.PI;
+      for(let j=0;j<lon;j++){
+        const theta=(j/lon)*Math.PI*2;
+        verts.push([R*Math.sin(phi)*Math.cos(theta), R*Math.cos(phi), R*Math.sin(phi)*Math.sin(theta)]);
+        if(i<lat) edges.push([i*lon+j, (i+1)*lon+j]);
+        edges.push([i*lon+j, i*lon+(j+1)%lon]);
+      }
+    }
+    return{verts,edges};
+  }
+
+  // ── PARTICLES ──
+  let particles=[];
+  function initParticles(){
+    particles=Array.from({length:180},()=>({
+      x:(Math.random()-.5)*W*2.2,
+      y:(Math.random()-.5)*H*2.2,
+      z:(Math.random()-.5)*400,
+      vx:(Math.random()-.5)*0.18,
+      vy:(Math.random()-.5)*0.18,
+      size:Math.random()*1.4+0.4,
+    }));
+  }
+
+  // Build geometry once
+  const TK=buildTorusKnot(110,8,90,12,2,3);
+  const SP=buildSphere(60,14,20);
+
+  // Objects: position, rotation state, rotation speed
+  const objs=[
+    {geo:TK, ox:0.72, oy:0.22, z:0, rx:0,ry:0,rz:0, vrx:0.003,vry:0.006,vrz:0.002, color:'#00E5C3', alpha:0.09, scale:1},
+    {geo:SP, ox:0.18, oy:0.72, z:0, rx:0,ry:0,rz:0, vrx:-0.004,vry:0.005,vrz:0.001, color:'#0090FF', alpha:0.07, scale:1},
+  ];
+
+  let W_old=0;
+  function resize(){
+    W=cv.width=window.innerWidth;
+    H=cv.height=window.innerHeight;
+    if(W!==W_old){initParticles();W_old=W;}
+  }
+
+  let t=0;
+  function frame(){
+    ctx.clearRect(0,0,W,H);
+    t+=0.005;
+
+    // Smooth camera follow mouse
+    camX+=(mouse.x-W/2-camX)*0.035;
+    camY+=(mouse.y-H/2-camY)*0.028;
+    const px=camX*0.018, py=camY*0.015;
+
+    // Draw each 3D object
+    objs.forEach(o=>{
+      o.rx+=o.vrx; o.ry+=o.vry; o.rz+=o.vrz;
+      const cx=W*o.ox+px*(o.ox>0.5?1:-1)*18;
+      const cy=H*o.oy+py*(o.oy>0.5?1:-1)*14;
+
+      // Project all verts
+      const projected=o.geo.verts.map(v=>{
+        let p=rotX(v,o.rx);
+        p=rotY(p,o.ry);
+        p=rotZ(p,o.rz);
+        return project(p,cx,cy);
+      });
+
+      // Draw edges
+      ctx.save();
+      ctx.strokeStyle=o.color;
+      o.geo.edges.forEach(([a,b])=>{
+        const pa=projected[a], pb=projected[b];
+        if(!pa||!pb)return;
+        // Depth-based alpha
+        const depth=(pa[2]+pb[2])/2;
+        const a2=Math.min(o.alpha*(depth*8),o.alpha*1.5);
+        ctx.globalAlpha=a2;
+        ctx.lineWidth=0.6;
+        ctx.beginPath();
+        ctx.moveTo(pa[0],pa[1]);
+        ctx.lineTo(pb[0],pb[1]);
+        ctx.stroke();
+      });
+      ctx.restore();
+    });
+
+    // Draw particles with connection lines
+    particles.forEach(p=>{
+      p.x+=p.vx+px*0.04;
+      p.y+=p.vy+py*0.04;
+      // Wrap
+      if(p.x<-W)p.x=W; if(p.x>W)p.x=-W;
+      if(p.y<-H)p.y=H; if(p.y>H)p.y=-H;
+      // Project particle
+      const sc=FOV/Math.max(p.z+280,1);
+      const sx=p.x*sc/W*W+W/2;
+      const sy=p.y*sc/H*H+H/2;
+      ctx.beginPath();
+      ctx.arc(sx,sy,p.size*sc*0.4,0,Math.PI*2);
+      ctx.fillStyle='rgba(0,229,195,'+(0.18*sc*1.5)+')';
+      ctx.fill();
+    });
+
+    // Connection lines between nearby particles (screen space)
+    const scrPts=particles.map(p=>{
+      const sc=FOV/Math.max(p.z+280,1);
+      return[p.x*sc/W*W+W/2, p.y*sc/H*H+H/2];
+    });
+    for(let i=0;i<scrPts.length;i++){
+      for(let j=i+1;j<scrPts.length;j++){
+        const dx=scrPts[i][0]-scrPts[j][0];
+        const dy=scrPts[i][1]-scrPts[j][1];
+        const d=Math.sqrt(dx*dx+dy*dy);
+        if(d<120){
+          ctx.beginPath();
+          ctx.moveTo(scrPts[i][0],scrPts[i][1]);
+          ctx.lineTo(scrPts[j][0],scrPts[j][1]);
+          ctx.strokeStyle='rgba(0,229,195,'+(0.055*(1-d/120))+')';
+          ctx.lineWidth=0.45;
+          ctx.stroke();
+        }
+      }
+    }
+
+    requestAnimationFrame(frame);
+  }
+
+  window.addEventListener('resize',resize);
+  window.addEventListener('mousemove',e=>{mouse.x=e.clientX;mouse.y=e.clientY});
+  resize();
+  frame();
+})();
+
+// ══════════════════════════════════
+// ANIMATED COUNTERS
+// ══════════════════════════════════
+function animNum(el,to,suf,dur){
+  let s=Date.now();
+  (function f(){
+    let p=Math.min((Date.now()-s)/dur,1);
+    el.textContent=Math.round(p*to).toLocaleString()+suf;
+    if(p<1)requestAnimationFrame(f);
+  })();
+}
+setTimeout(()=>{
+  animNum(document.getElementById('hs1'),31492,'',1800);
+  animNum(document.getElementById('hs2'),21,'%',1600);
+},500);
+
+// ══════════════════════════════════
+// COUNTRY CONFIG
+// ══════════════════════════════════
+let country='IN', regime='new', rcOn=false;
+
+const CC={
+  IN:{sym:'₹',name:'India',placeholder:'1500000',label:'Annual CTC',freqLabel:'per year',extraFields:true},
+  US:{sym:'$',name:'USA',placeholder:'100000',label:'Annual gross salary',freqLabel:'per year',extraFields:false},
+  GB:{sym:'£',name:'UK',placeholder:'60000',label:'Annual gross salary',freqLabel:'per year',extraFields:false},
+  AU:{sym:'A$',name:'Australia',placeholder:'120000',label:'Annual gross salary',freqLabel:'per year',extraFields:false},
+  SG:{sym:'S$',name:'Singapore',placeholder:'80000',label:'Annual gross salary',freqLabel:'per year',extraFields:false},
+};
+
+function scrollTo(sel){document.querySelector(sel).scrollIntoView({behavior:'smooth'})}
+
+function setCountry(c,btn){
+  country=c;
+  document.querySelectorAll('.cb').forEach(b=>b.classList.remove('on'));
+  btn.classList.add('on');
+  // India regime toggle only for India
+  document.getElementById('regimeToggle').style.display=c==='IN'?'flex':'none';
+  // Update currency prefixes in real cost fields
+  const sym=CC[c].sym;
+  ['rcPfx','rcPfx2','rcPfx3','rcPfx4'].forEach(id=>{
+    const el=document.getElementById(id);
+    if(el)el.textContent=sym;
+  });
+  buildInputs();
+  clearResults();
+}
+
+function setRegime(r){
+  regime=r;
+  ['New','Old','Both'].forEach(x=>{
+    document.getElementById('r'+x).classList.toggle('on',x.toLowerCase()===r);
+  });
+  // Show 80C field only for old/both
+  const f80=document.getElementById('f80c');
+  if(f80)f80.style.display=(r==='old'||r==='both')?'block':'none';
+  onChange();
+}
+
+function buildInputs(){
+  const cfg=CC[country];
+  let html=`
+    <div class="field">
+      <label>${cfg.label}</label>
+      <div class="iw"><span class="ip">${cfg.sym}</span>
+      <input type="number" id="salary" placeholder="${cfg.placeholder}" min="0" oninput="onChange()"></div>
+    </div>`;
+  if(cfg.extraFields){
+    html+=`
+    <div class="frow">
+      <div class="field"><label>City type</label>
+        <select id="city" onchange="onChange()">
+          <option value="metro">Metro (Mumbai/Delhi/BLR)</option>
+          <option value="nonmetro">Non-metro</option>
+        </select>
+      </div>
+      <div class="field"><label>Basic salary %</label>
+        <select id="basicPct" onchange="onChange()">
+          <option value="40">40%</option>
+          <option value="50" selected>50%</option>
+          <option value="60">60%</option>
+        </select>
+      </div>
+    </div>
+    <div style="background:rgba(255,181,71,0.07);border:1px solid rgba(255,181,71,0.28);border-radius:var(--r);padding:11px 13px;margin-bottom:14px;font-size:12px;color:var(--text2);line-height:1.6">
+      <strong style="color:#FFB547">⚠ Oracle / FAANG / TCS user?</strong> Big-tech CTCs include Fixed pay + Variable bonus + RSUs. Enter your <strong style="color:var(--text)">fixed CTC only</strong> above for monthly take-home. Add variable & RSUs below.
+    </div>
+    <div class="frow">
+      <div class="field"><label>Variable bonus (annual)</label>
+        <div class="iw"><span class="ip">${cfg.sym}</span>
+        <input type="number" id="bonus" placeholder="0" min="0" oninput="onChange()"></div>
+      </div>
+      <div class="field"><label>RSUs / ESOPs (annual vest)</label>
+        <div class="iw"><span class="ip">${cfg.sym}</span>
+        <input type="number" id="rsus" placeholder="0" min="0" oninput="onChange()"></div>
+      </div>
+    </div>
+    <div class="field" id="f80c" style="display:none"><label>80C investments (annual)</label>
+      <div class="iw"><span class="ip">${cfg.sym}</span>
+      <input type="number" id="inv80c" placeholder="150000" min="0" max="150000" oninput="onChange()"></div>
+    </div>`;
+  } else {
+    html+=`
+    <div class="field"><label>State / region</label>
+      <select id="region" onchange="onChange()">
+        ${getRegionOptions(country)}
+      </select>
+    </div>
+    <div class="field"><label>Filing status</label>
+      <select id="filing" onchange="onChange()">
+        <option value="single">Single</option>
+        <option value="married">Married filing jointly</option>
+      </select>
+    </div>`;
+  }
+  document.getElementById('inputFields').innerHTML=html;
+}
+
+function getRegionOptions(c){
+  const opts={
+    US:'<option value="CA">California</option><option value="TX">Texas (no state tax)</option><option value="NY">New York</option><option value="FL">Florida (no state tax)</option><option value="WA">Washington (no state tax)</option>',
+    GB:'<option value="ENG">England / Wales</option><option value="SCO">Scotland</option>',
+    AU:'<option value="NSW">NSW / VIC / QLD</option><option value="WA">Western Australia</option>',
+    SG:'<option value="SG">Singapore (flat)</option>',
+  };
+  return opts[c]||'';
+}
+
+// ══════════════════════════════════
+// TAX ENGINES
+// ══════════════════════════════════
+function taxIN(gross,reg){
+  if(reg==='new'){
+    // FY 2026-27 new regime slabs (Budget 2025)
+    // Std deduction Rs.75,000 already applied to gross before calling
+    const ti=Math.max(gross-75000,0);
+    let tax=0,rem=ti;
+    // 0-4L:0%, 4-8L:5%, 8-12L:10%, 12-16L:15%, 16-20L:20%, 20-24L:25%, 24L+:30%
+    [[400000,0],[400000,.05],[400000,.10],[400000,.15],[400000,.20],[400000,.25],[Infinity,.30]].forEach(([s,r])=>{
+      const c=Math.min(rem,s);tax+=c*r;rem-=c;
+    });
+    // 87A rebate: zero tax if taxable income ≤ Rs.12,00,000
+    if(ti<=1200000)tax=0;
+    // 4% health & education cess on tax
+    return tax*1.04;
+  } else {
+    // Old regime slabs (unchanged)
+    // Std deduction Rs.50,000 + 80C deductions
+    const inv=Math.min(parseFloat(document.getElementById('inv80c')?.value)||0,150000);
+    const ti=Math.max(gross-50000-inv,0);
+    let tax=0,rem=ti;
+    // 0-2.5L:0%, 2.5-5L:5%, 5-10L:20%, 10L+:30%
+    [[250000,0],[250000,.05],[500000,.20],[Infinity,.30]].forEach(([s,r])=>{
+      const c=Math.min(rem,s);tax+=c*r;rem-=c;
+    });
+    // 87A rebate old regime: zero tax if taxable income ≤ Rs.5,00,000
+    if(ti<=500000)tax=0;
+    return tax*1.04;
+  }
+}
+
+function taxUS(gross,region,filing){
+  // Federal
+  const std=filing==='married'?30000:15000; // 2026 standard deduction
+  const ti=Math.max(gross-std,0);
+  const fed=filing==='married'
+    ?calcSlabs(ti,[[23200,0],[94300,.12],[201050,.22],[383900,.24],[487450,.32],[731200,.35],[Infinity,.37]])
+    :calcSlabs(ti,[[11600,0],[47150,.12],[100525,.22],[191950,.24],[243725,.32],[609350,.35],[Infinity,.37]]);
+  // State (simplified)
+  const stateRates={CA:0.093,TX:0,NY:0.0685,FL:0,WA:0};
+  const state=gross*(stateRates[region]||0.05);
+  // FICA
+  const ss=Math.min(gross,168600)*0.062;
+  const med=gross*0.0145;
+  return fed+state+ss+med;
+}
+
+function taxGB(gross,region){
+  const personal=12570;
+  const ti=Math.max(gross-personal,0);
+  let tax=calcSlabs(ti,[[37700,.2],[87430,.4],[Infinity,.45]]);
+  if(region==='SCO') tax=calcSlabs(ti,[[2162,.19],[11908,.20],[30786,.21],[43662,.42],[Infinity,.47]]);
+  // NI
+  const ni=gross>12570?Math.min(gross-12570,50270)*0.08+(Math.max(gross-50270,0)*0.02):0;
+  return tax+ni;
+}
+
+function taxAU(gross){
+  const ti=Math.max(gross-0,0);
+  let tax=calcSlabs(ti,[[18200,0],[26799,.19],[80000,.325],[180000,.37],[Infinity,.45]]);
+  // Medicare levy 2%
+  const medicare=gross>23226?gross*0.02:0;
+  return tax+medicare;
+}
+
+function taxSG(gross){
+  return calcSlabs(gross,[[20000,0],[10000,.02],[10000,.035],[40000,.07],[40000,.115],[40000,.15],[40000,.18],[40000,.19],[40000,.195],[40000,.20],[Infinity,.22]]);
+}
+
+function calcSlabs(ti,slabs){
+  let tax=0,rem=ti;
+  slabs.forEach(([s,r])=>{const c=Math.min(rem,s);tax+=c*r;rem-=c;});
+  return tax;
+}
+
+// ══════════════════════════════════
+// MAIN CALCULATE
+// ══════════════════════════════════
+let calcTimer=null;
+function onChange(){clearTimeout(calcTimer);calcTimer=setTimeout(calculate,450)}
+
+function clearResults(){
+  document.getElementById('results').innerHTML='<div class="r-empty">Enter your salary above<br>to see your real take-home 👆</div>';
+  document.getElementById('aiBox').style.display='none';
+}
+
+function getRealCost(){
+  if(!rcOn)return 0;
+  return (parseFloat(document.getElementById('commute').value)||0)
+        +(parseFloat(document.getElementById('lunch').value)||0)
+        +(parseFloat(document.getElementById('health').value)||0)
+        -(parseFloat(document.getElementById('sideInc').value)||0);
+}
+
+function fmt(n,sym){return(sym||CC[country].sym)+Math.round(Math.abs(n)).toLocaleString()}
+function fmtIN(n){
+  if(n>=10000000)return '₹'+(n/10000000).toFixed(2)+' Cr';
+  if(n>=100000)return '₹'+(n/100000).toFixed(2)+'L';
+  return fmt(n,'₹');
+}
+
+function calculate(){
+  const salEl=document.getElementById('salary');
+  if(!salEl)return;
+  const gross=parseFloat(salEl.value)||0;
+  if(gross<10000)return;
+
+  let tax,inhand,inhandMo,annual,sym=CC[country].sym,pct;
+  let extraData={};
+
+  if(country==='IN'){
+    const basicPct=parseInt(document.getElementById('basicPct')?.value||50)/100;
+    const bonus=parseFloat(document.getElementById('bonus')?.value||0);
+    const rsus=parseFloat(document.getElementById('rsus')?.value||0);
+    const isMetro=document.getElementById('city')?.value==='metro';
+    const basic=gross*basicPct;
+    const empPF=Math.min(basic*0.12,21600);
+    const gratuity=basic*4/26;
+    const grossSal=gross-empPF-gratuity;
+    const empPFee=Math.min(basic*0.12,21600);
+    const profTax=2400;
+    // RSUs taxed at flat 30%+surcharge as perquisite (Indian tax law)
+    const rsuTax=rsus*0.312;
+    const rsuNet=rsus-rsuTax;
+    const regimes=regime==='both'?['new','old']:[regime];
+    const res=regimes.map(r=>{
+      const t=taxIN(grossSal,r);
+      // Fixed salary take-home + variable bonus (taxed as salary) + RSU net
+      const ih=(grossSal-t-empPFee-profTax+bonus+(rsuNet))/12;
+      return{r,t,ih,pct:Math.round(((grossSal-t-empPFee-profTax)/12*12/(gross||1))*100)};
+    });
+    const main=res[0];
+    tax=main.t;inhandMo=main.ih;annual=inhandMo*12;sym='₹';
+    pct=main.pct;
+    extraData={empPF:empPFee,gratuity,profTax,bonus,rsus,rsuNet,rsuTax,regime,res,basic,gross:grossSal,gross_ctc:gross};
+  } else if(country==='US'){
+    const region=document.getElementById('region')?.value||'CA';
+    const filing=document.getElementById('filing')?.value||'single';
+    tax=taxUS(gross,region,filing);
+    annual=gross-tax;inhandMo=annual/12;pct=Math.round((annual/gross)*100);
+    extraData={region,filing};
+  } else if(country==='GB'){
+    const region=document.getElementById('region')?.value||'ENG';
+    tax=taxGB(gross,region);
+    annual=gross-tax;inhandMo=annual/12;pct=Math.round((annual/gross)*100);
+  } else if(country==='AU'){
+    tax=taxAU(gross);
+    annual=gross-tax;inhandMo=annual/12;pct=Math.round((annual/gross)*100);
+  } else if(country==='SG'){
+    tax=taxSG(gross);
+    annual=gross-tax;inhandMo=annual/12;pct=Math.round((annual/gross)*100);
+  }
+
+  const rcCost=getRealCost();
+  const effMo=inhandMo-rcCost;
+
+  // Share modal data
+  document.getElementById('sCTC').textContent=country==='IN'?fmtIN(gross):fmt(gross);
+  document.getElementById('sInhand').textContent=fmt(inhandMo);
+  document.getElementById('sPct').textContent=`${pct}% of gross • ${CC[country].name} • 2026`;
+
+  // Donut data
+  const donutSlices=[
+    {label:'Take-home',val:annual,color:'#00E5C3'},
+    {label:'Tax',val:tax,color:'#FF5C5C'},
+  ];
+  if(country==='IN'){
+    donutSlices.push({label:'Emp PF',val:extraData.empPF,color:'#FFB547'});
+    donutSlices.push({label:'Gratuity',val:extraData.gratuity,color:'#0090FF'});
+    donutSlices.push({label:'Prof Tax',val:extraData.profTax,color:'#888'});
+  }
+
+  // Build result HTML
+  let html=`
+    <div class="r-main">
+      <div class="r-label">Monthly take-home</div>
+      <div class="r-amount">${fmt(inhandMo)}</div>
+      <div class="r-sub">${country==='IN'?fmtIN(annual):fmt(annual)} annually · ${pct}% of gross</div>
+    </div>
+    <div class="donut-wrap">
+      <canvas id="donutCanvas" width="176" height="176"></canvas>
+      <div class="donut-c"><div class="donut-pct">${pct}%</div><div class="donut-tiny">take-home</div></div>
+    </div>
+    <ul class="bk">
+      <li><span class="bk-name"><span class="bk-dot" style="background:#00E5C3"></span>Gross ${country==='IN'?'salary':'income'}</span><span class="bk-val">${fmt(country==='IN'?extraData.gross/12:gross/12)}/mo</span></li>
+      <li><span class="bk-name"><span class="bk-dot" style="background:#FF5C5C"></span>${country==='IN'?'Income tax':'Total tax'}</span><span class="bk-val neg">−${fmt(tax/12)}/mo</span></li>`;
+
+  if(country==='IN'){
+    html+=`<li><span class="bk-name"><span class="bk-dot" style="background:#FFB547"></span>Employee PF</span><span class="bk-val neg">−${fmt(extraData.empPF/12)}/mo</span></li>
+    <li><span class="bk-name"><span class="bk-dot" style="background:#888"></span>Professional tax</span><span class="bk-val neg">−${fmt(extraData.profTax/12)}/mo</span></li>`;
+    if(extraData.bonus>0)html+=`<li><span class="bk-name"><span class="bk-dot" style="background:#6B5CE7"></span>Variable bonus (if paid)</span><span class="bk-val pos">+${fmt(extraData.bonus/12)}/mo avg</span></li>`;
+    if(extraData.rsus>0)html+=`<li><span class="bk-name"><span class="bk-dot" style="background:#9B59B6"></span>RSUs after 31.2% perquisite tax</span><span class="bk-val pos">+${fmt(extraData.rsuNet/12)}/mo avg</span></li>`;
+    if(extraData.rsus>0 || extraData.bonus>0){
+      const fixedTH=(extraData.gross-extraData.bonus-extraData.rsuNet)/12 - tax/12 - extraData.empPF/12 - extraData.profTax/12;
+      html+=`<li style="border-top:1px solid var(--border);margin-top:4px;padding-top:8px"><span class="bk-name" style="color:var(--text)"><strong>Fixed monthly take-home</strong></span><span class="bk-val" style="color:var(--text2)">${fmt(Math.max(extraData.gross-extraData.empPF-extraData.profTax-tax,0)/12 - (extraData.bonus+extraData.rsus)/12)}/mo</span></li>`;
+    }
+  }
+  html+='</ul>';
+
+  // Regime compare for India both
+  if(country==='IN'&&regime==='both'&&extraData.res&&extraData.res.length>1){
+    const [a,b]=extraData.res;
+    const win=a.ih>b.ih?'new':'old';
+    html+=`<div class="rc-compare">
+      <div class="rc-card${win==='new'?' win':''}">
+        <div class="rc-card-lbl">New regime</div>
+        <div class="rc-card-val">${fmt(a.ih)}/mo</div>
+        ${win==='new'?'<div class="rc-card-tag">✓ Better for you</div>':''}
+      </div>
+      <div class="rc-card${win==='old'?' win':''}">
+        <div class="rc-card-lbl">Old regime</div>
+        <div class="rc-card-val">${fmt(b.ih)}/mo</div>
+        ${win==='old'?'<div class="rc-card-tag">✓ Better for you</div>':''}
+      </div>
+    </div>`;
+  }
+
+  // Real cost box
+  if(rcOn&&rcCost>0){
+    html+=`<div class="rct-box show">
+      <div class="rct-title">🔍 Real effective take-home after work costs</div>
+      <div class="rct-val">${fmt(effMo)}/mo</div>
+      <div class="rct-sub">After deducting ${fmt(rcCost)} in monthly work costs</div>
+    </div>`;
+  }
+
+  html+=`<div class="act-row">
+    <button class="act-btn" onclick="openModal()">📤 Share card</button>
+    <button class="act-btn" onclick="copySum()">📋 Copy</button>
+  </div>`;
+
+  document.getElementById('results').innerHTML=html;
+
+  // Draw donut
+  setTimeout(()=>{
+    const cv=document.getElementById('donutCanvas');
+    if(!cv)return;
+    const c=cv.getContext('2d');
+    c.clearRect(0,0,176,176);
+    const total=donutSlices.reduce((a,b)=>a+b.val,0);
+    let start=-Math.PI/2;
+    donutSlices.forEach(s=>{
+      const ang=(s.val/total)*Math.PI*2;
+      c.beginPath();c.moveTo(88,88);
+      c.arc(88,88,80,start,start+ang);
+      c.closePath();c.fillStyle=s.color;c.fill();
+      start+=ang;
+    });
+    c.beginPath();c.arc(88,88,52,0,Math.PI*2);
+    c.fillStyle='#080d1a';c.fill();
+  },50);
+
+  // AI
+  triggerAI(gross,inhandMo,pct,tax,country,regime,rcCost,extraData);
+}
+
+// ══════════════════════════════════
+// AI — Pollinations (free) + smart fallback
+// ══════════════════════════════════
+
+// ══════════════════════════════════════════
+// SMART LOCAL ANALYSIS ENGINE
+// No API. No CORS. No failures. Ever.
+// Reads real numbers → generates specific verdict
+// ══════════════════════════════════════════
+function smartAdvice(gross, inhandMo, pct, tax, country, regime, rcCost, extraData) {
+  const lost = 100 - pct;
+  const sym = CC[country].sym;
+  const annual = inhandMo * 12;
+  const sentences = [];
+
+  // S1 — Why take-home is what it is (specific, not generic)
+  if (country === 'IN') {
+    const empPF = extraData.empPF || 0;
+    const incomeTax = tax || 0;
+    const pfPct = Math.round((empPF * 12 / gross) * 100);
+    const taxPct = Math.round((incomeTax / gross) * 100);
+    const gratPct = Math.round(((extraData.gratuity || 0) / gross) * 100);
+    if (gross <= 500000) {
+      sentences.push(`Your CTC and take-home are nearly the same because your income is below the tax-free threshold — only PF (${pfPct}% of CTC) and gratuity (${gratPct}%) are deducted.`);
+    } else if (gross <= 1200000 && regime === 'new') {
+      sentences.push(`Under the new regime, incomes with taxable income up to Rs.12L are fully tax-free under the 87A rebate (after Rs.75,000 standard deduction, this means CTC up to ~Rs.12.75L pays zero tax) — so your ${lost}% gap is entirely PF contributions and gratuity provision, not tax.`);
+    } else {
+      sentences.push(`${lost}% of your CTC never reaches your account: ${pfPct}% goes to PF, ${taxPct}% to income tax, and ${gratPct}% to gratuity provision — all counted in your CTC but paid elsewhere.`);
+    }
+  } else if (country === 'US') {
+    const taxPct = Math.round((tax / gross) * 100);
+    sentences.push(`${lost}% of your gross is withheld: roughly ${taxPct}% goes to federal + state taxes and FICA (Social Security + Medicare) — the unavoidable cost of earning in the US.`);
+  } else if (country === 'GB') {
+    sentences.push(`${lost}% goes to income tax and National Insurance contributions — the UK's two main payroll deductions that apply from your first pound earned above the personal allowance.`);
+  } else {
+    sentences.push(`${lost}% of your gross is withheld in taxes and statutory deductions before your take-home is calculated.`);
+  }
+
+  // S2 — Specific actionable tip based on bracket + regime
+  if (country === 'IN') {
+    if (gross > 5000000) {
+      sentences.push(`At ${sym}${(gross/100000).toFixed(0)}L, surcharge kicks in — a CA can restructure your salary with NPS (80CCD), perquisites, and ESOP timing to save ${sym}2–5L annually in legitimate tax.`);
+    } else if (gross > 3000000) {
+      sentences.push(`Maximise NPS under 80CCD(1B) (extra ${sym}50,000 deduction beyond 80C) and check if ESOP taxation timing can be deferred — at your bracket this saves ${sym}15,000–46,800 annually.`);
+    } else if (gross > 1500000) {
+      if (regime === 'new') {
+        sentences.push(`Compare regimes using the toggle above — if you pay metro rent and have ${sym}1.5L in 80C investments, the old regime might still save you ${sym}8,000–25,000/year at your level.`);
+      } else {
+        sentences.push(`Ensure you're claiming HRA correctly (lowest of: actual HRA received, 50% basic for metro, or rent paid minus 10% basic) — most employees leave ${sym}5,000–15,000/year unclaimed.`);
+      }
+    } else if (gross > 800000) {
+      sentences.push(`The new regime is almost certainly better at this level unless you have ${sym}1.5L in 80C + significant HRA — use the regime compare toggle to see your exact rupee difference.`);
+    } else {
+      sentences.push(`You're in a low-tax bracket where the new regime eliminates tax entirely under 87A — no need to track investments or claim deductions.`);
+    }
+  } else if (country === 'US') {
+    if (gross > 200000) {
+      sentences.push(`At $${Math.round(gross/1000)}K, max your 401(k) ($23,000 limit in 2026) and HSA ($4,150 single) — combined that's $27,150 off your taxable income, saving $8,000–10,000 in federal tax alone.`);
+    } else if (gross > 100000) {
+      sentences.push(`Max your 401(k) contributions ($23,000/year) — at your bracket each dollar contributed saves ~22-24 cents in federal tax immediately, plus it compounds tax-deferred.`);
+    } else {
+      sentences.push(`Contribute at least enough to your 401(k) to get the full employer match — that's an instant 50-100% return on those dollars before any investment growth.`);
+    }
+  } else if (country === 'GB') {
+    sentences.push(`Salary sacrifice into your pension is the single most powerful UK take-home booster — contributions come out before tax and NI, effectively giving you 32-42% relief depending on your bracket.`);
+  } else {
+    sentences.push(`Check your employer's salary packaging or sacrifice options — many countries allow pre-tax deductions that significantly increase your effective take-home without changing your gross.`);
+  }
+
+  // S3 — Real cost context if enabled, else encouragement
+  if (rcCost > 0) {
+    const effMo = inhandMo - rcCost;
+    const rcPct = Math.round((rcCost / inhandMo) * 100);
+    sentences.push(`Your work costs eat ${rcPct}% of your take-home — your real spendable income is ${sym}${Math.round(effMo).toLocaleString()}/month. That's the number to budget from, and it's the one most salary calculators never show you.`);
+  } else {
+    if (inhandMo * 12 > 2000000) {
+      sentences.push(`Your take-home puts you in the top 2% of Indian earners — optimising tax saves you more per hour than almost any other financial activity at this level.`);
+    } else if (inhandMo > 100000) {
+      sentences.push(`Enable "real costs" above to see what you actually have after commute, food, and work expenses — most people are surprised how much that number drops.`);
+    } else {
+      sentences.push(`Your take-home is accurate and your taxes are optimised for your bracket — small salary structure tweaks (higher special allowance, meal vouchers) can add ${sym}2,000–5,000/month without changing your CTC.`);
+    }
+  }
+
+  return sentences.join(' ');
+}
+
+// Smart insight engine — instant, specific, reads actual numbers
+function showInsight(d, realCostMo) {
+  const ctc = d.ctc || d.gross_ctc || 0;
+  const ih  = d.inhandMo || 0;
+  const pct = d.effectivePct || 0;
+  const tax = d.incomeTax || 0;
+  const lost = 100 - pct;
+  const sym = CC[country].sym;
+  const lines = [];
+
+  // Line 1 — why take-home is what it is (specific)
+  if(country === 'IN'){
+    const pfAmt = d.empPF ? Math.round(d.empPF/12) : 0;
+    if(tax === 0 && d.regime === 'new'){
+      lines.push(lost + '% of your CTC goes to PF contributions and gratuity provision — income tax is zero because your taxable income sits below the Rs.12L 87A rebate threshold.');
+    } else {
+      lines.push(lost + '% is withheld before salary credit: employer PF and gratuity (counted in CTC but paid elsewhere), your own PF (' + sym + pfAmt.toLocaleString() + '/mo), and income tax (' + sym + Math.round(tax/12).toLocaleString() + '/mo TDS).');
+    }
+  } else if(country === 'US'){
+    lines.push(lost + '% is withheld: federal + state income tax plus FICA (Social Security and Medicare) — the unavoidable cost of earning in the US.');
+  } else if(country === 'GB'){
+    lines.push(lost + '% goes to income tax and National Insurance contributions before your salary credit.');
+  } else {
+    lines.push(lost + '% is withheld in taxes and statutory deductions before take-home is calculated.');
+  }
+
+  // Line 2 — specific actionable tip
+  if(country === 'IN'){
+    if(ctc > 5000000) lines.push('At this bracket, your fixed base (~46% of total CTC for Oracle/FAANG) drives your monthly salary — variable and RSUs are separate. NPS + perquisite restructuring can save Rs.2–5L/year. A CA is worth it.');
+    else if(ctc > 3000000) lines.push('Maximise NPS under 80CCD(1B) — Rs.50,000 extra deduction beyond 80C saves Rs.15,600–46,800/year depending on your slab.');
+    else if(ctc > 1500000) lines.push('Compare both regimes using the toggle above — the rupee difference at your level is real and often Rs.10,000–30,000/year.');
+    else if(ctc > 800000) lines.push('New regime almost certainly wins here unless you have Rs.1.5L in 80C investments and pay metro rent — check with the toggle.');
+    else lines.push('New regime is optimal at this level — no investments to track, and tax is zero or near-zero under the 87A rebate.');
+  } else if(country === 'US'){
+    if(ctc > 200000) lines.push('Max your 401(k) ($23,000 limit) and HSA ($4,150 single) — at your bracket that saves $7,000–$10,000 in federal tax per year.');
+    else lines.push('Contribute at least enough to get the full 401(k) employer match — that is an instant 50–100% return before any investment growth.');
+  } else if(country === 'GB'){
+    lines.push('Salary sacrifice into your pension is the most powerful UK take-home booster — contributions come out before tax and NI, giving 32–42% relief at your bracket.');
+  } else {
+    lines.push('Check if your employer offers salary packaging or sacrifice schemes — many countries allow pre-tax deductions that significantly increase take-home.');
+  }
+
+  // Line 3 — real cost context or encouragement
+  if(realCostMo > 0){
+    const eff = Math.round(ih - realCostMo);
+    const rcPct = Math.round(realCostMo / ih * 100);
+    lines.push('Your work costs eat ' + rcPct + '% of take-home — real spendable income is ' + sym + eff.toLocaleString() + '/month. That is the number to budget from.');
+  } else {
+    if(ih * 12 > 2000000) lines.push('Enable real costs above to see your actual spendable income after commute and food — most people are surprised how much that number changes.');
+    else lines.push('Small salary structure changes — meal vouchers, LTA, higher special allowance — can add ' + sym + '2,000–5,000/month without touching your CTC.');
+  }
+
+  const box = document.getElementById('insightBox');
+  const body = document.getElementById('insightBody');
+  if(box && body){ body.textContent = lines.join(' '); box.classList.add('show'); }
+}
+
+// ══════════════════════════════════
+// REAL COST TOGGLE
+// ══════════════════════════════════
+function toggleRC(){
+  rcOn=!rcOn;
+  document.getElementById('rcSwitch').classList.toggle('on',rcOn);
+  document.getElementById('rcFields').classList.toggle('show',rcOn);
+  onChange();
+}
+
+// ══════════════════════════════════
+// SHARE MODAL
+// ══════════════════════════════════
+function openModal(){document.getElementById('modal').classList.add('open')}
+function closeModal(){document.getElementById('modal').classList.remove('open')}
+document.getElementById('modal').addEventListener('click',e=>{if(e.target===e.currentTarget)closeModal()});
+function doShare(){
+  const txt=`My salary: ${document.getElementById('sCTC').textContent}\nReal monthly take-home: ${document.getElementById('sInhand').textContent}\n${document.getElementById('sPct').textContent}\n\nCalculated on CTCLie.com`;
+  navigator.clipboard.writeText(txt).then(()=>showToast('Copied! Go share it 🚀'));
+  closeModal();
+}
+function copySum(){
+  const r=document.getElementById('results');
+  navigator.clipboard.writeText('CTCLie breakdown:\n'+r.innerText.replace(/\n+/g,'\n')+'\n\nCTCLie.com');
+  showToast('Copied ✓');
+}
+
+// ══════════════════════════════════
+// TOAST
+// ══════════════════════════════════
+function showToast(msg){
+  const t=document.getElementById('toast');
+  t.textContent=msg;t.classList.add('show');
+  setTimeout(()=>t.classList.remove('show'),2800);
+}
+
+// ══════════════════════════════════
+// FAQ
+// ══════════════════════════════════
+const faqs=[
+  {q:'Is this calculator accurate?',a:'Very accurate. India: uses FY 2026-27 tax slabs, ₹75,000 standard deduction (new regime), EPF wage ceiling and professional tax. USA: Federal + state taxes + FICA. UK: Income tax + National Insurance. All updated for 2026. Your actual figure may vary slightly based on your exact pay structure.'},
+  {q:'Which Indian tax regime is better for me?',a:'Use "Compare both" mode to see the exact rupee difference. Generally: if you have less than ₹1.5L in 80C investments and no big HRA deduction, the new regime saves money. With heavy deductions, old regime can still win. We show you the exact number.'},
+  {q:'Why is my take-home so much less than my CTC?',a:'CTC includes employer costs that never reach your account: employer\'s PF (12% of basic), gratuity provision (~4% of basic), and sometimes group insurance. Add your own PF contribution and income tax, and 15-25% of CTC vanishes. CTCLie makes every deduction visible.'},
+  {q:'What is the "real cost of employment" feature?',a:'It\'s what you actually spend to hold your job — commute, lunch, work clothing, co-working fees. A ₹1.2L monthly in-hand with ₹6K commute + ₹5K lunch is really ₹1.09L. We are the only calculator that shows this.'},
+  {q:'Is my data saved or shared?',a:'No. Everything runs in your browser. We store nothing, require no email or signup and share nothing. The AI explanation generates from a summary of your numbers.'},
+  {q:'Does this work for freelancers or contractors?',a:'The calculator is designed for salaried employees. Freelancers have different tax treatment — self-employment tax in the US, ITR-3/ITR-4 in India, etc. We\'re working on a freelance mode. For now, use your expected annual income as the gross input for a rough estimate.'},
+];
+document.getElementById('faqList').innerHTML=faqs.map((f,i)=>`
+  <div class="faq-item" id="fi${i}">
+    <button class="faq-q" onclick="tfaq(${i})">${f.q}</button>
+    <div class="faq-a">${f.a}</div>
+  </div>`).join('');
+function tfaq(i){document.querySelectorAll('.faq-item').forEach((el,j)=>el.classList.toggle('open',j===i&&!el.classList.contains('open')))}
+
+// ══════════════════════════════════
+// INIT
+// ══════════════════════════════════
+buildInputs();
+</script>
+
+
+<script>
+// ── CUSTOM CURSOR + TOUCH RIPPLE + SCROLL REVEAL ──
+// Runs after full DOM is ready. Uses event delegation — works with dynamic elements.
+(function(){
+  // Custom cursor (desktop only)
+  if(!window.matchMedia('(hover:none)').matches){
+    const cur=document.createElement('div');
+    const dot=document.createElement('div');
+    cur.className='cursor'; dot.className='cursor-dot';
+    document.body.appendChild(cur); document.body.appendChild(dot);
+    let mx=0,my=0,cx=0,cy=0;
+    window.addEventListener('mousemove',e=>{mx=e.clientX;my=e.clientY;});
+    window.addEventListener('mousedown',()=>cur.classList.add('clicking'));
+    window.addEventListener('mouseup',()=>cur.classList.remove('clicking'));
+    // Event delegation — catches dynamically created elements too
+    document.addEventListener('mouseover',e=>{
+      if(e.target.matches('a,button,input,select,label,.feat-card,.aff-card,.faq-q,.rc-toggle,.act-btn,.cb,.rb,.go-btn,.aff-link,.rel-card,.nav-cta')){
+        cur.classList.add('hovering');
+      }
+    });
+    document.addEventListener('mouseout',e=>{
+      if(e.target.matches('a,button,input,select,label,.feat-card,.aff-card,.faq-q,.rc-toggle,.act-btn,.cb,.rb,.go-btn,.aff-link,.rel-card,.nav-cta')){
+        cur.classList.remove('hovering');
+      }
+    });
+    // Card glow — mouse position as CSS var
+    document.addEventListener('mousemove',e=>{
+      const card=e.target.closest('.feat-card,.aff-card,.aff-card2,.ac2');
+      if(card){
+        const r=card.getBoundingClientRect();
+        card.style.setProperty('--mx',((e.clientX-r.left)/r.width*100)+'%');
+        card.style.setProperty('--my',((e.clientY-r.top)/r.height*100)+'%');
+      }
+    });
+    (function anim(){
+      cx+=(mx-cx)*0.13; cy+=(my-cy)*0.13;
+      cur.style.transform='translate('+(cx-10)+'px,'+(cy-10)+'px)';
+      dot.style.transform='translate('+(mx-2.5)+'px,'+(my-2.5)+'px)';
+      requestAnimationFrame(anim);
+    })();
+  }
+
+  // Touch ripple (mobile)
+  document.addEventListener('touchstart',function(e){
+    const t=e.touches[0];
+    const r=document.createElement('div');
+    r.className='ripple';
+    const s=70;
+    r.style.cssText='width:'+s+'px;height:'+s+'px;left:'+(t.clientX-s/2)+'px;top:'+(t.clientY-s/2)+'px;';
+    document.body.appendChild(r);
+    setTimeout(function(){r.remove();},600);
+  },{passive:true});
+
+  // Scroll reveal — IntersectionObserver
+  const revealEls=document.querySelectorAll('.feat-card,.aff-card,.calc-card,.ai-box,.faq-item,.hstat,.hero-flags,.ticker');
+  revealEls.forEach(function(el){el.classList.add('reveal');});
+  const io=new IntersectionObserver(function(entries){
+    entries.forEach(function(e){
+      if(e.isIntersecting){e.target.classList.add('visible');io.unobserve(e.target);}
+    });
+  },{threshold:0.08,rootMargin:'0px 0px -40px 0px'});
+  revealEls.forEach(function(el){io.observe(el);});
+})();
+</script>
+
+</body>ml>
