@@ -1,0 +1,15 @@
+# CTCLie robots.txt
+User-agent: *
+Allow: /
+
+# Block low-value crawl paths (none on a static site, but good practice)
+Disallow: /cdn-cgi/
+
+# Sitemap location
+Sitemap: https://ctclie.com/sitemap.xml
+
+# Crawl delay for aggressive bots
+User-agent: AhrefsBot
+Crawl-delay: 10
+User-agent: SemrushBot
+Crawl-delay: 10
