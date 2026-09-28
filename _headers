@@ -1,0 +1,32 @@
+# CTCLie _headers — Cloudflare Pages
+
+/*
+  X-Frame-Options: DENY
+  X-Content-Type-Options: nosniff
+  Referrer-Policy: strict-origin-when-cross-origin
+  Permissions-Policy: camera=(), microphone=(), geolocation=()
+  X-XSS-Protection: 1; mode=block
+
+/*.html
+  Cache-Control: public, max-age=3600, must-revalidate
+  Content-Type: text/html; charset=utf-8
+
+/sitemap.xml
+  Cache-Control: public, max-age=86400
+  Content-Type: application/xml; charset=utf-8
+
+/robots.txt
+  Cache-Control: public, max-age=86400
+
+/ads.txt
+  Cache-Control: public, max-age=86400
+  Content-Type: text/plain; charset=utf-8
+
+/*.svg
+  Cache-Control: public, max-age=604800
+
+/*.css
+  Cache-Control: public, max-age=604800
+
+/*.js
+  Cache-Control: public, max-age=604800
