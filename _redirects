@@ -1,0 +1,32 @@
+# CTCLie _redirects — Cloudflare Pages
+# Valid status codes: 200, 301, 302, 303, 307, 308 ONLY (no 404)
+
+# Canonical trailing-slash redirects
+/about/          /about.html      301
+/privacy/        /privacy.html    301
+/contact/        /contact.html    301
+/support/        /support.html    301
+
+# Old paths if any
+/pages/india-vs-usa-salary-comparison  /india-vs-usa-salary-comparison.html  301
+
+# Clean URL rewrites (serve HTML without extension)
+/about           /about.html      200
+/privacy         /privacy.html    200
+/contact         /contact.html    200
+/support         /support.html    200
+/india-vs-usa    /india-vs-usa-salary-comparison.html  200
+
+# LPA clean URLs
+/5-lpa           /pages/5-lpa-in-hand-salary.html    200
+/7-lpa           /pages/7-lpa-in-hand-salary.html    200
+/8-lpa           /pages/8-lpa-in-hand-salary.html    200
+/10-lpa          /pages/10-lpa-in-hand-salary.html   200
+/12-lpa          /pages/12-lpa-in-hand-salary.html   200
+/15-lpa          /pages/15-lpa-in-hand-salary.html   200
+/18-lpa          /pages/18-lpa-in-hand-salary.html   200
+/20-lpa          /pages/20-lpa-in-hand-salary.html   200
+/25-lpa          /pages/25-lpa-in-hand-salary.html   200
+/30-lpa          /pages/30-lpa-in-hand-salary.html   200
+/40-lpa          /pages/40-lpa-in-hand-salary.html   200
+/50-lpa          /pages/50-lpa-in-hand-salary.html   200
