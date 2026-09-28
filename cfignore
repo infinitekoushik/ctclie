@@ -1,0 +1,9 @@
+.git
+.gitignore
+.wrangler
+node_modules
+*.log
+*.md
+DEPLOY_GUIDE.md
+.DS_Store
+Thumbs.db
