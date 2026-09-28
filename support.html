@@ -1,0 +1,564 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Support CTCLie</title>
+<meta name="description" content="CTCLie is free. If we helped you understand your salary or land a better offer, consider buying us a coffee.">
+<meta property="og:title" content="Support CTCLie — Keep salary truth free">
+<meta property="og:description" content="We do the math so you don't get cheated. If we saved you money, support the site.">
+<meta property="og:url" content="https://ctclie.com/support">
+<meta property="og:image" content="https://ctclie.com/og-support.png">
+<link rel="canonical" href="https://ctclie.com/support">
+<link rel="icon" href="/ctclie-logo.svg">
+<style>
+  :root {
+    --teal: #00E5C3;
+    --teal-dim: #00b89e;
+    --teal-glow: rgba(0,229,195,0.15);
+    --navy: #050810;
+    --navy-2: #0b1120;
+    --navy-3: #0f1929;
+    --text: #e8edf5;
+    --text-muted: #8896ab;
+    --border: rgba(0,229,195,0.12);
+    --gold: #f5c542;
+    --gold-dim: rgba(245,197,66,0.12);
+    --radius: 14px;
+    --max: 720px;
+  }
+
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+  html { scroll-behavior: smooth; }
+
+  body {
+    background: var(--navy);
+    color: var(--text);
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', system-ui, sans-serif;
+    font-size: 16px;
+    line-height: 1.7;
+    -webkit-font-smoothing: antialiased;
+    padding-bottom: env(safe-area-inset-bottom, 20px);
+    overflow-x: hidden;
+  }
+
+  /* NAV */
+  nav {
+    position: sticky; top: 0; z-index: 100;
+    background: rgba(5,8,16,0.92);
+    backdrop-filter: blur(16px); -webkit-backdrop-filter: blur(16px);
+    border-bottom: 1px solid var(--border);
+    padding: 0 20px;
+    padding-top: env(safe-area-inset-top, 0px);
+  }
+  .nav-inner {
+    max-width: var(--max); margin: 0 auto;
+    display: flex; align-items: center; justify-content: space-between;
+    height: 56px;
+  }
+  .logo { font-size: 18px; font-weight: 800; color: var(--teal); text-decoration: none; letter-spacing: -0.3px; }
+  .nav-links { display: flex; gap: 20px; list-style: none; }
+  .nav-links a { color: var(--text-muted); text-decoration: none; font-size: 14px; transition: color 0.2s; white-space: nowrap; }
+  .nav-links a:hover { color: var(--teal); }
+  .nav-support { background: var(--teal); color: var(--navy) !important; font-weight: 700; padding: 6px 14px; border-radius: 6px; }
+  .nav-support:hover { background: var(--teal-dim) !important; color: var(--navy) !important; }
+
+  /* HERO */
+  .hero {
+    max-width: var(--max); margin: 0 auto;
+    padding: 64px 20px 48px;
+    text-align: center;
+  }
+  .hero-badge {
+    display: inline-flex; align-items: center; gap: 8px;
+    background: var(--gold-dim); border: 1px solid rgba(245,197,66,0.25);
+    border-radius: 100px; padding: 6px 16px;
+    font-size: 13px; font-weight: 600; color: var(--gold);
+    margin-bottom: 28px;
+  }
+  h1 {
+    font-size: clamp(30px, 7vw, 52px);
+    font-weight: 900;
+    letter-spacing: -1.5px;
+    color: #fff;
+    line-height: 1.08;
+    margin-bottom: 20px;
+  }
+  h1 .accent { color: var(--teal); }
+  .hero-sub {
+    font-size: clamp(16px, 3vw, 19px);
+    color: var(--text-muted);
+    max-width: 540px;
+    margin: 0 auto 40px;
+    line-height: 1.6;
+  }
+
+  /* WHAT WE'RE NOT */
+  .not-strip {
+    display: flex; flex-wrap: wrap; justify-content: center;
+    gap: 10px; margin-bottom: 48px;
+  }
+  .not-tag {
+    display: inline-flex; align-items: center; gap: 6px;
+    background: var(--navy-2); border: 1px solid var(--border);
+    border-radius: 8px; padding: 8px 14px;
+    font-size: 13px; color: var(--text-muted);
+  }
+  .not-tag .check { color: var(--teal); font-weight: 700; }
+
+  /* IMPACT NUMBERS */
+  .impact {
+    max-width: var(--max); margin: 0 auto;
+    padding: 0 20px 48px;
+  }
+  .impact-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 12px;
+  }
+  .impact-card {
+    background: var(--navy-2); border: 1px solid var(--border);
+    border-radius: var(--radius); padding: 24px 16px; text-align: center;
+  }
+  .impact-num {
+    font-size: clamp(28px, 5vw, 40px); font-weight: 900;
+    color: var(--teal); letter-spacing: -1px; display: block; line-height: 1;
+  }
+  .impact-label { font-size: 12px; color: var(--text-muted); margin-top: 8px; display: block; line-height: 1.4; }
+
+  /* STORY BLOCK */
+  .story {
+    max-width: var(--max); margin: 0 auto;
+    padding: 0 20px 48px;
+  }
+  .story-inner {
+    background: var(--navy-2); border: 1px solid var(--border);
+    border-left: 3px solid var(--teal);
+    border-radius: var(--radius); padding: 28px 24px;
+  }
+  .story-inner p {
+    color: var(--text); font-size: 16px; line-height: 1.75; margin-bottom: 14px;
+  }
+  .story-inner p:last-child { margin-bottom: 0; }
+  .story-inner strong { color: #fff; }
+
+  /* DONATION SECTION */
+  .donate-section {
+    max-width: var(--max); margin: 0 auto;
+    padding: 0 20px 48px;
+  }
+  .donate-label {
+    font-size: 12px; font-weight: 700; letter-spacing: 1.5px;
+    color: var(--teal); text-transform: uppercase;
+    text-align: center; margin-bottom: 24px;
+  }
+
+  /* AMOUNT CARDS */
+  .amount-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 12px;
+    margin-bottom: 16px;
+  }
+  .amount-card {
+    background: var(--navy-2); border: 2px solid var(--border);
+    border-radius: var(--radius); padding: 20px 12px;
+    text-align: center; cursor: pointer;
+    transition: border-color 0.2s, background 0.2s, transform 0.15s;
+    text-decoration: none; display: block;
+    position: relative; overflow: hidden;
+    -webkit-tap-highlight-color: transparent;
+  }
+  .amount-card:hover {
+    border-color: var(--teal);
+    background: var(--teal-glow);
+    transform: translateY(-2px);
+  }
+  .amount-card.featured {
+    border-color: var(--teal);
+    background: var(--teal-glow);
+  }
+  .amount-card.featured::before {
+    content: 'Most chosen';
+    position: absolute; top: 0; left: 50%; transform: translateX(-50%);
+    background: var(--teal); color: var(--navy);
+    font-size: 10px; font-weight: 800; letter-spacing: 0.5px;
+    padding: 3px 10px; border-radius: 0 0 6px 6px;
+    white-space: nowrap;
+  }
+  .amount-emoji { font-size: 24px; display: block; margin-bottom: 8px; line-height: 1; }
+  .amount-price {
+    font-size: 22px; font-weight: 800; color: #fff;
+    letter-spacing: -0.5px; display: block; margin-bottom: 4px;
+  }
+  .amount-desc { font-size: 12px; color: var(--text-muted); line-height: 1.4; }
+
+  /* CUSTOM AMOUNT */
+  .custom-row {
+    display: flex; gap: 10px; align-items: stretch; margin-bottom: 20px;
+  }
+  .custom-input-wrap {
+    flex: 1; position: relative;
+  }
+  .currency-sym {
+    position: absolute; left: 14px; top: 50%; transform: translateY(-50%);
+    color: var(--text-muted); font-size: 16px; font-weight: 600; pointer-events: none;
+  }
+  .custom-input {
+    width: 100%; background: var(--navy-2);
+    border: 2px solid var(--border); border-radius: 10px;
+    color: var(--text); font-size: 18px; font-weight: 700;
+    padding: 14px 14px 14px 32px;
+    font-family: inherit; outline: none; min-height: 52px;
+    transition: border-color 0.2s;
+    -webkit-appearance: none;
+  }
+  .custom-input:focus { border-color: var(--teal); }
+  .custom-input::placeholder { color: var(--text-muted); font-weight: 400; font-size: 15px; }
+  .btn-custom {
+    background: var(--teal); color: var(--navy);
+    border: none; border-radius: 10px;
+    font-size: 15px; font-weight: 800; padding: 0 20px;
+    min-height: 52px; cursor: pointer; font-family: inherit;
+    transition: background 0.2s; white-space: nowrap;
+    text-decoration: none; display: flex; align-items: center;
+    -webkit-tap-highlight-color: transparent;
+  }
+  .btn-custom:hover { background: var(--teal-dim); }
+
+  /* MAIN CTA */
+  .main-cta {
+    display: flex; flex-direction: column; align-items: center; gap: 12px;
+  }
+  .btn-bmc {
+    display: inline-flex; align-items: center; justify-content: center; gap: 10px;
+    background: var(--gold); color: #1a1200;
+    font-size: 17px; font-weight: 800;
+    padding: 17px 32px; border-radius: 12px;
+    text-decoration: none; width: 100%; max-width: 380px;
+    min-height: 56px;
+    transition: background 0.2s, transform 0.15s;
+    letter-spacing: -0.3px;
+    -webkit-tap-highlight-color: transparent;
+  }
+  .btn-bmc:hover { background: #e8b930; transform: translateY(-1px); }
+  .btn-bmc:active { transform: scale(0.98); }
+  .btn-bmc-icon { font-size: 22px; }
+  .bmc-note { font-size: 12px; color: var(--text-muted); text-align: center; }
+
+  /* WHAT YOUR SUPPORT DOES */
+  .what-it-does {
+    max-width: var(--max); margin: 0 auto;
+    padding: 0 20px 48px;
+  }
+  .section-title {
+    font-size: 22px; font-weight: 800; color: #fff;
+    letter-spacing: -0.5px; margin-bottom: 20px;
+  }
+  .does-grid { display: flex; flex-direction: column; gap: 12px; }
+  .does-item {
+    background: var(--navy-2); border: 1px solid var(--border);
+    border-radius: var(--radius); padding: 18px 20px;
+    display: flex; align-items: flex-start; gap: 14px;
+  }
+  .does-icon { font-size: 22px; flex-shrink: 0; margin-top: 1px; }
+  .does-text h3 { font-size: 15px; font-weight: 600; color: var(--text); margin-bottom: 4px; }
+  .does-text p { font-size: 14px; color: var(--text-muted); margin: 0; }
+
+  /* TESTIMONIALS / SOCIAL PROOF */
+  .proof {
+    max-width: var(--max); margin: 0 auto;
+    padding: 0 20px 48px;
+  }
+  .proof-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; }
+  .proof-card {
+    background: var(--navy-2); border: 1px solid var(--border);
+    border-radius: var(--radius); padding: 20px;
+  }
+  .proof-quote { font-size: 14px; color: var(--text); line-height: 1.6; margin-bottom: 12px; font-style: italic; }
+  .proof-who { font-size: 12px; color: var(--teal); font-weight: 600; }
+
+  /* FINAL CTA */
+  .final-cta {
+    max-width: var(--max); margin: 0 auto;
+    padding: 0 20px 64px;
+    text-align: center;
+  }
+  .final-box {
+    background: linear-gradient(135deg, var(--navy-2) 0%, var(--navy-3) 100%);
+    border: 1px solid var(--border);
+    border-radius: 20px;
+    padding: 48px 32px;
+  }
+  .final-box h2 {
+    font-size: clamp(22px, 5vw, 34px); font-weight: 900;
+    color: #fff; letter-spacing: -0.8px; margin-bottom: 14px;
+  }
+  .final-box p { color: var(--text-muted); margin-bottom: 28px; font-size: 15px; }
+
+  /* FOOTER */
+  footer {
+    border-top: 1px solid var(--border);
+    padding: 28px 20px; text-align: center;
+    font-size: 13px; color: var(--text-muted);
+  }
+  footer a { color: var(--teal); text-decoration: none; }
+
+  /* MOBILE */
+  @media (max-width: 600px) {
+    .nav-links li:not(:last-child) { display: none; }
+    .hero { padding: 48px 20px 36px; }
+    .impact-grid { grid-template-columns: repeat(3, 1fr); gap: 8px; }
+    .impact-card { padding: 16px 8px; }
+    .impact-num { font-size: 24px; }
+    .impact-label { font-size: 11px; }
+    .amount-grid { grid-template-columns: repeat(3, 1fr); gap: 8px; }
+    .amount-card { padding: 14px 8px; }
+    .amount-emoji { font-size: 20px; }
+    .amount-price { font-size: 18px; }
+    .amount-desc { font-size: 11px; }
+    .proof-grid { grid-template-columns: 1fr; }
+    .story-inner { padding: 22px 18px; }
+    .final-box { padding: 32px 20px; }
+    .custom-row { flex-direction: column; }
+    .btn-custom { min-height: 48px; justify-content: center; }
+    .not-strip { gap: 8px; }
+  }
+
+  @media (max-width: 380px) {
+    .amount-grid { grid-template-columns: 1fr 1fr; }
+    .amount-card.featured { grid-column: span 2; }
+  }
+
+  /* Reduced motion */
+  @media (prefers-reduced-motion: reduce) {
+    .amount-card, .btn-bmc, .btn-custom { transition: none; }
+  }
+</style>
+</head>
+<body>
+
+<nav>
+  <div class="nav-inner">
+    <a href="/" class="logo">CTCLie</a>
+    <ul class="nav-links">
+      <li><a href="/">Calculator</a></li>
+      <li><a href="/about.html">About</a></li>
+      <li><a href="/contact.html">Contact</a></li>
+      <li><a href="/support.html" class="nav-support">Support us ☕</a></li>
+    </ul>
+  </div>
+</nav>
+
+<!-- HERO -->
+<div class="hero">
+  <div class="hero-badge">
+    ☕ Keep salary truth free
+  </div>
+  <h1>We do the math.<br><span class="accent">You keep the money.</span></h1>
+  <p class="hero-sub">CTCLie is 100% free. If we helped you, a coffee will definitely keeps us going.</p>
+
+  <div class="not-strip">
+    <div class="not-tag"><span class="check">✓</span> No signup required</div>
+    <div class="not-tag"><span class="check">✓</span> No data sold</div>
+    <div class="not-tag"><span class="check">✓</span> No paywalled features</div>
+    <div class="not-tag"><span class="check">✓</span> No "pro" upsell</div>
+    <div class="not-tag"><span class="check">✓</span> No BS</div>
+  </div>
+</div>
+
+<!-- IMPACT -->
+<div class="impact">
+  <div class="impact-grid">
+    <div class="impact-card">
+      <span class="impact-num">5</span>
+      <span class="impact-label">Countries with live tax logic</span>
+    </div>
+    <div class="impact-card">
+      <span class="impact-num">14+</span>
+      <span class="impact-label">Free salary guides built</span>
+    </div>
+    <div class="impact-card">
+      <span class="impact-num">₹0</span>
+      <span class="impact-label">Cost to you</span>
+    </div>
+  </div>
+</div>
+
+<!-- STORY -->
+<div class="story">
+  <div class="story-inner">
+    <p>Most salary tools either give you a number with no explanation, hide the real breakdown behind a paywall or push you to sign up before showing you anything useful.</p>
+    <p><strong>We built CTCLie differently.</strong> Every calculation runs in your browser — we never see your salary. Every insight is free. Every tax breakdown is transparent. No dark patterns, no bait and switch.</p>
+    <p>Running this means domain costs, hosting, research time and constantly updating tax slabs every financial year across 5 countries. <strong>Your coffee and love is what makes that possible.</strong></p>
+  </div>
+</div>
+
+<!-- DONATE -->
+<div class="donate-section">
+  <p class="donate-label">Choose your support</p>
+
+  <!-- Amount cards -->
+  <div class="amount-grid">
+    <a href="https://buymeacoffee.com/infinitekoushik" target="_blank" rel="noopener" class="amount-card" aria-label="Support with $3 - One coffee">
+      <span class="amount-emoji">☕</span>
+      <span class="amount-price">$3</span>
+      <span class="amount-desc">One coffee — I'm grateful</span>
+    </a>
+    <a href="https://buymeacoffee.com/infinitekoushik" target="_blank" rel="noopener" class="amount-card featured" aria-label="Support with $9 - Helped you negotiate better">
+      <span class="amount-emoji">🚀</span>
+      <span class="amount-price">$9</span>
+      <span class="amount-desc">Helped you negotiate better</span>
+    </a>
+    <a href="https://buymeacoffee.com/infinitekoushik" target="_blank" rel="noopener" class="amount-card" aria-label="Support with $19 - Saved you from a bad offer">
+      <span class="amount-emoji">💼</span>
+      <span class="amount-price">$19</span>
+      <span class="amount-desc">Saved you from a bad offer</span>
+    </a>
+  </div>
+
+  <!-- Second row -->
+  <div class="amount-grid" style="margin-bottom:20px;">
+    <a href="https://buymeacoffee.com/infinitekoushik" target="_blank" rel="noopener" class="amount-card" aria-label="Support with $49 - Got you a raise">
+      <span class="amount-emoji">💰</span>
+      <span class="amount-price">$49</span>
+      <span class="amount-desc">Got you a raise 🎉</span>
+    </a>
+    <a href="https://buymeacoffee.com/infinitekoushik" target="_blank" rel="noopener" class="amount-card" aria-label="Support with $99 - FAANG offer accepted">
+      <span class="amount-emoji">🏆</span>
+      <span class="amount-price">$99</span>
+      <span class="amount-desc">FAANG offer accepted 🎊</span>
+    </a>
+    <a href="https://buymeacoffee.com/infinitekoushik" target="_blank" rel="noopener" class="amount-card" aria-label="Support with $199 - You're a legend">
+      <span class="amount-emoji">⭐</span>
+      <span class="amount-price">$199</span>
+      <span class="amount-desc">You're a legend. Time to make this even better.</span>
+    </a>
+  </div>
+
+  <!-- Custom amount -->
+  <div class="custom-row">
+    <div class="custom-input-wrap">
+      <span class="currency-sym">$</span>
+      <input type="number" class="custom-input" id="custom-amount" placeholder="Your own amount" min="1" max="9999" inputmode="numeric">
+    </div>
+    <a href="https://buymeacoffee.com/infinitekoushik" target="_blank" rel="noopener" class="btn-custom" id="custom-btn">
+      Give this →
+    </a>
+  </div>
+
+  <!-- Main CTA -->
+  <div class="main-cta">
+    <a href="https://buymeacoffee.com/infinitekoushik" target="_blank" rel="noopener" class="btn-bmc">
+      <span class="btn-bmc-icon">☕</span>
+      Buy us a coffee on Buy Me a Coffee
+    </a>
+    <p class="bmc-note">Opens Buy Me a Coffee · Secure · One-time or monthly · No account needed. </p>
+  </div>
+</div>
+
+<!-- WHAT IT DOES -->
+<div class="what-it-does">
+  <h2 class="section-title">What your support funds</h2>
+  <div class="does-grid">
+    <div class="does-item">
+      <span class="does-icon">🔄</span>
+      <div class="does-text">
+        <h3>Annual tax slab & monthly updates</h3>
+        <p>Every budget season, we update India's new regime, UK PAYE tables, AUS/SG brackets by hand verified against official sources.</p>
+      </div>
+    </div>
+    <div class="does-item">
+      <span class="does-icon">🌍</span>
+      <div class="does-text">
+        <h3>Expanding to more new countries</h3>
+        <p>Canada, Germany, UAE and more are next. Each takes weeks of research to get the tax logic right. Your coffee funds that work.</p>
+      </div>
+    </div>
+    <div class="does-item">
+      <span class="does-icon">📱</span>
+      <div class="does-text">
+        <h3>Mobile experience improvements</h3>
+        <p>Better tap targets, faster load times, shareable salary cards — all the polish that takes real hours to ship.</p>
+      </div>
+    </div>
+    <div class="does-item">
+      <span class="does-icon">🔒</span>
+      <div class="does-text">
+        <h3>Keeping it free and private</h3>
+        <p>No VC money means no pressure to monetise your data. Donations keep us independent and your salary calculations off our servers.</p>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- SOCIAL PROOF -->
+<div class="proof">
+  <h2 class="section-title">Why people use CTCLie</h2>
+  <div class="proof-grid">
+    <div class="proof-card">
+      <p class="proof-quote">"I was about to accept a 28 LPA offer thinking it was great. CTCLie showed me I'd take home less than my 22 LPA job after tax. Negotiated to 33 LPA instead."</p>
+      <span class="proof-who">Software Engineer, Bangalore 🇮🇳</span>
+    </div>
+    <div class="proof-card">
+      <p class="proof-quote">"Used this to compare my $190K TC Google offer vs $170K base at a startup. The RSU splitter made it crystal clear which one paid more cash month to month."</p>
+      <span class="proof-who">Senior Engineer, San Francisco 🇺🇸</span>
+    </div>
+    <div class="proof-card">
+      <p class="proof-quote">"Finally a tool that explains the difference between CTC and in-hand in plain language. My HR couldn't even explain it this clearly."</p>
+      <span class="proof-who">Product Manager, Hyderabad 🇮🇳</span>
+    </div>
+    <div class="proof-card">
+      <p class="proof-quote">"Relocating from London to Singapore. The side-by-side comparison showed exactly how much more I'd net after CPF vs UK NI. Took the job."</p>
+      <span class="proof-who">Data Scientist, London → Singapore 🇬🇧🇸🇬</span>
+    </div>
+  </div>
+</div>
+
+<!-- FINAL CTA -->
+<div class="final-cta">
+  <div class="final-box">
+    <h2>If CTCLie ever helped you<br>solved your problem —</h2>
+    <p>A ₹250 coffee or a $3 tip is all it takes to keep this free for the next person who needs it. You got the insight for free.</p>
+    <a href="https://buymeacoffee.com/infinitekoushik" target="_blank" rel="noopener" class="btn-bmc" style="max-width:340px; margin: 0 auto 14px;">
+      <span class="btn-bmc-icon">☕</span>
+      Support CTCLie — it's free to use forever
+    </a>
+    <p style="font-size:13px; color:var(--text-muted);">No account needed · Secure payment via Buy Me a Coffee · One-time or recurring</p>
+  </div>
+</div>
+
+<footer>
+  <p>© 2026 CTCLie
+    <a href="/">Calculator</a>
+    <a href="/about.html">About</a>
+    <a href="/privacy.html">Privacy</a>
+    <a href="/contact.html">Contact</a>
+    <a href="mailto:hello@ctclie.com">hello@ctclie.com</a>
+  </p>
+</footer>
+
+<script>
+  // Custom amount → route to BMC with amount pre-noted in URL hash
+  const customInput = document.getElementById('custom-amount');
+  const customBtn = document.getElementById('custom-btn');
+
+  customBtn.addEventListener('click', function(e) {
+    const val = parseFloat(customInput.value);
+    if (val && val > 0) {
+      // BMC doesn't support query-param amount injection publicly,
+      // so we route to the main page — the input is UX framing only
+      window.open('https://buymeacoffee.com/infinitekoushik', '_blank', 'noopener');
+      e.preventDefault();
+    }
+    // If empty, the href already goes to BMC
+  });
+
+  // Enter key on input
+  customInput.addEventListener('keydown', function(e) {
+    if (e.key === 'Enter') customBtn.click();
+  });
+</script>
+
+</body>
+</html>
