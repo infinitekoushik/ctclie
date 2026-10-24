@@ -1,0 +1,45 @@
+# CTCLie _redirects (valid codes only: 200/301/302/303/307/308)
+# Clean URLs (/about, /10-lpa-in-hand-salary) are served natively from the .html files.
+
+# Short links -> canonical
+/india-vs-usa /india-vs-usa-salary-comparison 301
+/5-lpa /5-lpa-in-hand-salary 301
+/7-lpa /7-lpa-in-hand-salary 301
+/8-lpa /8-lpa-in-hand-salary 301
+/10-lpa /10-lpa-in-hand-salary 301
+/12-lpa /12-lpa-in-hand-salary 301
+/15-lpa /15-lpa-in-hand-salary 301
+/18-lpa /18-lpa-in-hand-salary 301
+/20-lpa /20-lpa-in-hand-salary 301
+/25-lpa /25-lpa-in-hand-salary 301
+/30-lpa /30-lpa-in-hand-salary 301
+/40-lpa /40-lpa-in-hand-salary 301
+/50-lpa /50-lpa-in-hand-salary 301
+
+# Legacy /pages/ paths -> canonical
+/pages/5-lpa-in-hand-salary /5-lpa-in-hand-salary 301
+/pages/5-lpa-in-hand-salary.html /5-lpa-in-hand-salary 301
+/pages/7-lpa-in-hand-salary /7-lpa-in-hand-salary 301
+/pages/7-lpa-in-hand-salary.html /7-lpa-in-hand-salary 301
+/pages/8-lpa-in-hand-salary /8-lpa-in-hand-salary 301
+/pages/8-lpa-in-hand-salary.html /8-lpa-in-hand-salary 301
+/pages/10-lpa-in-hand-salary /10-lpa-in-hand-salary 301
+/pages/10-lpa-in-hand-salary.html /10-lpa-in-hand-salary 301
+/pages/12-lpa-in-hand-salary /12-lpa-in-hand-salary 301
+/pages/12-lpa-in-hand-salary.html /12-lpa-in-hand-salary 301
+/pages/15-lpa-in-hand-salary /15-lpa-in-hand-salary 301
+/pages/15-lpa-in-hand-salary.html /15-lpa-in-hand-salary 301
+/pages/18-lpa-in-hand-salary /18-lpa-in-hand-salary 301
+/pages/18-lpa-in-hand-salary.html /18-lpa-in-hand-salary 301
+/pages/20-lpa-in-hand-salary /20-lpa-in-hand-salary 301
+/pages/20-lpa-in-hand-salary.html /20-lpa-in-hand-salary 301
+/pages/25-lpa-in-hand-salary /25-lpa-in-hand-salary 301
+/pages/25-lpa-in-hand-salary.html /25-lpa-in-hand-salary 301
+/pages/30-lpa-in-hand-salary /30-lpa-in-hand-salary 301
+/pages/30-lpa-in-hand-salary.html /30-lpa-in-hand-salary 301
+/pages/40-lpa-in-hand-salary /40-lpa-in-hand-salary 301
+/pages/40-lpa-in-hand-salary.html /40-lpa-in-hand-salary 301
+/pages/50-lpa-in-hand-salary /50-lpa-in-hand-salary 301
+/pages/50-lpa-in-hand-salary.html /50-lpa-in-hand-salary 301
+/pages/india-vs-usa-salary-comparison /india-vs-usa-salary-comparison 301
+/pages/india-vs-usa-salary-comparison.html /india-vs-usa-salary-comparison 301
