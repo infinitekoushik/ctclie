@@ -7,28 +7,10 @@
     <priority>1.0</priority>
   </url>
   <url>
-    <loc>https://ctclie.com/about</loc>
+    <loc>https://ctclie.com/blog/</loc>
     <lastmod>2026-10-24</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
-  </url>
-  <url>
-    <loc>https://ctclie.com/contact</loc>
-    <lastmod>2026-10-24</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  <url>
-    <loc>https://ctclie.com/privacy</loc>
-    <lastmod>2026-10-24</lastmod>
-    <changefreq>yearly</changefreq>
-    <priority>0.4</priority>
-  </url>
-  <url>
-    <loc>https://ctclie.com/support</loc>
-    <lastmod>2026-10-24</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.5</priority>
+    <changefreq>weekly</changefreq>
+    <priority>0.9</priority>
   </url>
   <url>
     <loc>https://ctclie.com/india-vs-usa-salary-comparison</loc>
@@ -37,73 +19,97 @@
     <priority>0.9</priority>
   </url>
   <url>
-    <loc>https://ctclie.com/5-lpa-in-hand-salary</loc>
+    <loc>https://ctclie.com/about</loc>
+    <lastmod>2026-10-24</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://ctclie.com/contact</loc>
+    <lastmod>2026-10-24</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  <url>
+    <loc>https://ctclie.com/support</loc>
+    <lastmod>2026-10-24</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  <url>
+    <loc>https://ctclie.com/privacy</loc>
+    <lastmod>2026-10-24</lastmod>
+    <changefreq>yearly</changefreq>
+    <priority>0.3</priority>
+  </url>
+  <url>
+    <loc>https://ctclie.com/blog/5-lpa-in-hand-salary</loc>
     <lastmod>2026-10-24</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://ctclie.com/7-lpa-in-hand-salary</loc>
+    <loc>https://ctclie.com/blog/7-lpa-in-hand-salary</loc>
     <lastmod>2026-10-24</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://ctclie.com/8-lpa-in-hand-salary</loc>
+    <loc>https://ctclie.com/blog/8-lpa-in-hand-salary</loc>
     <lastmod>2026-10-24</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://ctclie.com/10-lpa-in-hand-salary</loc>
+    <loc>https://ctclie.com/blog/10-lpa-in-hand-salary</loc>
     <lastmod>2026-10-24</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://ctclie.com/12-lpa-in-hand-salary</loc>
+    <loc>https://ctclie.com/blog/12-lpa-in-hand-salary</loc>
     <lastmod>2026-10-24</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://ctclie.com/15-lpa-in-hand-salary</loc>
+    <loc>https://ctclie.com/blog/15-lpa-in-hand-salary</loc>
     <lastmod>2026-10-24</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://ctclie.com/18-lpa-in-hand-salary</loc>
+    <loc>https://ctclie.com/blog/18-lpa-in-hand-salary</loc>
     <lastmod>2026-10-24</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://ctclie.com/20-lpa-in-hand-salary</loc>
+    <loc>https://ctclie.com/blog/20-lpa-in-hand-salary</loc>
     <lastmod>2026-10-24</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://ctclie.com/25-lpa-in-hand-salary</loc>
+    <loc>https://ctclie.com/blog/25-lpa-in-hand-salary</loc>
     <lastmod>2026-10-24</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://ctclie.com/30-lpa-in-hand-salary</loc>
+    <loc>https://ctclie.com/blog/30-lpa-in-hand-salary</loc>
     <lastmod>2026-10-24</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://ctclie.com/40-lpa-in-hand-salary</loc>
+    <loc>https://ctclie.com/blog/40-lpa-in-hand-salary</loc>
     <lastmod>2026-10-24</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://ctclie.com/50-lpa-in-hand-salary</loc>
+    <loc>https://ctclie.com/blog/50-lpa-in-hand-salary</loc>
     <lastmod>2026-10-24</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
