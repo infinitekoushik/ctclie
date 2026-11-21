@@ -518,7 +518,7 @@ footer{position:relative;z-index:1;border-top:1px solid var(--border);padding:40
   <div class="foot-logo">CTCLie</div>
   <div class="foot-links">
     <a href="/blog/">Salary guides</a>
-    <a href="/about">About</a>
+    <a href="/about">About</a><a href="/methodology">Methodology</a>
     <a href="/privacy">Privacy</a>
     <a href="/contact">Contact</a>
     <a href="/support">Support ☕</a>
@@ -774,7 +774,7 @@ document.querySelectorAll('.mobile-menu a[href^="#"]').forEach(a=>{
 // ENGINE (shared, tested)
 /* CTCLie tax engine. Sources checked Oct 2026: US 2026 (IRS Rev. Proc. 2025-32, SSA), California FTB 2026 Schedule X,
    NY DTF 2026 rates, UK 2026/27 (HMRC, gov.scot), Australia 2026-27 (ATO), Singapore YA2026 + CPF 2026 (IRAS, CPF Board),
-   India FY 2026-27 (no slab change in Budget 2026). Estimates only. */
+   India Tax Year 2026-27 under the Income-tax Act 2025 (slabs unchanged; HRA 8 metros and meal card Rs 200 a meal per Income-tax Rules 2026, notified 20 Mar 2026). Estimates only. */
 function bandTax(ti, bands){
   var tax=0, prev=0;
   for(var i=0;i<bands.length;i++){
@@ -807,16 +807,22 @@ function indiaCalc(o){
   var ctc=o.ctc, bp=(o.basicPct==null?0.5:o.basicPct), bonus=o.bonus||0, rsus=o.rsus||0, regime=o.regime||'new', inv=o.inv80c||0;
   var basic=ctc*bp, erPF=Math.min(basic*0.12,21600), gratuity=basic*15/26/12;
   var grossSal=ctc-erPF-gratuity, empPF=erPF, profTax=2400;
+  /* Meal card: Income-tax Rules 2026, Rule 15(5)(a), Rs 200 a meal, both regimes. Paid as vouchers, so it is not cash. */
+  var mealCard=Math.max(o.mealMonthly||0,0)*12, mealEx=Math.min(mealCard,200*2*22*12);
+  /* HRA, old regime only: least of HRA received, rent minus 10% of basic, 50% (8 metros) or 40% of basic. HRA received is assumed to be 50% of basic. */
+  var rent=Math.max(o.rentMonthly||0,0)*12, hraEx=0;
+  if(regime==='old'&&rent>0) hraEx=Math.max(0,Math.min(basic*0.5,rent-0.1*basic,(o.hraMetro?0.5:0.4)*basic));
   function taxFor(income){
+    income-=mealEx;
     if(regime==='new') return inTaxOnTaxable(Math.max(income-75000,0),'new');
-    return inTaxOnTaxable(Math.max(income-50000-profTax-Math.min(150000,empPF+inv),0),'old');
+    return inTaxOnTaxable(Math.max(income-50000-profTax-hraEx-Math.min(150000,empPF+inv),0),'old');
   }
   var taxFixed=taxFor(grossSal), taxAll=taxFor(grossSal+bonus+rsus), extra=taxAll-taxFixed, vp=bonus+rsus;
   var bonusNet=vp?bonus-extra*bonus/vp:0, rsuNet=vp?rsus-extra*rsus/vp:0;
-  var fixedAnnual=grossSal-taxFixed-empPF-profTax, totalAnnual=fixedAnnual+bonusNet+rsuNet, base=ctc+bonus+rsus;
+  var fixedAnnual=grossSal-taxFixed-empPF-profTax-mealCard, totalAnnual=fixedAnnual+bonusNet+rsuNet, base=ctc+bonus+rsus;
   return {basic:basic,erPF:erPF,gratuity:gratuity,grossSal:grossSal,empPF:empPF,profTax:profTax,taxFixed:taxFixed,taxAll:taxAll,extraTax:extra,
     bonusNet:bonusNet,rsuNet:rsuNet,fixedAnnual:fixedAnnual,fixedMonthly:fixedAnnual/12,totalAnnual:totalAnnual,totalMonthly:totalAnnual/12,
-    pct:totalAnnual/base*100, fixedPct:fixedAnnual/ctc*100};
+    pct:totalAnnual/base*100, fixedPct:fixedAnnual/ctc*100, hraEx:hraEx, mealEx:mealEx, mealCard:mealCard};
 }
 
 /* ---------- United States (tax year 2026) ---------- */
@@ -902,7 +908,7 @@ function setCountry(c,btn){
 function setRegime(r){
   regime=r;
   ['New','Old','Both'].forEach(function(x){var b=document.getElementById('r'+x);b.classList.toggle('on',x.toLowerCase()===r);b.setAttribute('aria-pressed',x.toLowerCase()===r?'true':'false');});
-  var f=document.getElementById('f80c'); if(f)f.style.display=(r==='old'||r==='both')?'block':'none';
+  var f=document.getElementById('f80c'); if(f)f.style.display=(r==='old'||r==='both')?'block':'none'; var h=document.getElementById('fHra'); if(h)h.style.display=(r==='old'||r==='both')?'block':'none';
   onChange();
 }
 function buildInputs(){
@@ -913,7 +919,9 @@ function buildInputs(){
     +'<div style="background:rgba(255,181,71,0.07);border:1px solid rgba(255,181,71,0.28);border-radius:var(--r);padding:11px 13px;margin-bottom:14px;font-size:12px;color:var(--text2);line-height:1.6"><strong style="color:#FFB547">Big tech or an RSU package?</strong> Your CTC is probably fixed pay plus a bonus plus stock. Enter your <strong style="color:var(--text)">fixed CTC only</strong> above, then add the bonus and RSUs below.</div>'
     +'<div class="frow"><div class="field"><label for="bonus">Variable bonus (a year)</label><div class="iw"><span class="ip" aria-hidden="true">'+cfg.sym+'</span><input type="number" id="bonus" placeholder="0" min="0" inputmode="numeric" oninput="onChange()"></div></div>'
     +'<div class="field"><label for="rsus">RSUs / ESOPs (a year)</label><div class="iw"><span class="ip" aria-hidden="true">'+cfg.sym+'</span><input type="number" id="rsus" placeholder="0" min="0" inputmode="numeric" oninput="onChange()"></div></div></div>'
-    +'<div class="field" id="f80c" style="display:none"><label for="inv80c">80C investments (a year)</label><div class="iw"><span class="ip" aria-hidden="true">'+cfg.sym+'</span><input type="number" id="inv80c" placeholder="150000" min="0" max="150000" inputmode="numeric" oninput="onChange()"></div></div>';
+    +'<div class="field" id="f80c" style="display:none"><label for="inv80c">80C investments (a year)</label><div class="iw"><span class="ip" aria-hidden="true">'+cfg.sym+'</span><input type="number" id="inv80c" placeholder="150000" min="0" max="150000" inputmode="numeric" oninput="onChange()"></div></div>'
+    +'<div id="fHra" style="display:none"><div class="frow"><div class="field"><label for="rent">Monthly rent (HRA, old regime)</label><div class="iw"><span class="ip" aria-hidden="true">'+cfg.sym+'</span><input type="number" id="rent" placeholder="0" min="0" inputmode="numeric" oninput="onChange()"></div></div><div class="field"><label for="hraCity">City</label><select id="hraCity" onchange="onChange()"><option value="8">Delhi, Mumbai, Kolkata, Chennai, Bengaluru, Hyderabad, Pune, Ahmedabad</option><option value="0">Any other city</option></select></div></div></div>'
+    +'<div class="field"><label for="mealCard">Meal card (Rs 200 a meal limit, both regimes)</label><select id="mealCard" onchange="onChange()"><option value="0">None</option><option value="4400">Rs 4,400 a month (1 meal a day)</option><option value="8800">Rs 8,800 a month (2 meals a day)</option></select></div>';
   } else if(country==='US'){
     html+='<div class="field"><label for="region">State</label><select id="region" onchange="onChange()"><option value="CA">California</option><option value="NY">New York</option><option value="IL">Illinois</option><option value="TX">Texas (no state income tax)</option><option value="FL">Florida (no state income tax)</option><option value="WA">Washington (no state income tax)</option></select></div>'
     +'<div class="field"><label for="filing">Filing status</label><select id="filing" onchange="onChange()"><option value="single">Single</option><option value="married">Married filing jointly</option></select></div>';
@@ -984,13 +992,14 @@ function calculate(){
   let rows=[], slices=[], inhandMo, annual, pct, ctx={country:country,gross:gross}, cmp='';
   if(country==='IN'){
     const bp=parseInt(document.getElementById('basicPct').value||50)/100, bonus=val('bonus'), rsus=val('rsus'), invEntered=val('inv80c');
-    const base={ctc:gross,basicPct:bp,bonus:bonus,rsus:rsus};
+    const base={ctc:gross,basicPct:bp,bonus:bonus,rsus:rsus,rentMonthly:val('rent'),hraMetro:val('hraCity')===8,mealMonthly:val('mealCard')};
     const rn=indiaCalc(Object.assign({regime:'new',inv80c:0},base)), ro=indiaCalc(Object.assign({regime:'old',inv80c:regime==='new'?150000:invEntered},base));
     const r=regime==='old'?ro:rn, hasVar=bonus>0||rsus>0;
     inhandMo=hasVar?r.totalMonthly:r.fixedMonthly; annual=hasVar?r.totalAnnual:r.fixedAnnual; pct=Math.round(hasVar?r.pct:r.fixedPct);
     rows=[{n:'Salary after employer PF and gratuity',c:'#00E5C3',v:r.grossSal/12},{n:'Income tax',c:'#FF5C5C',v:-r.taxFixed/12},{n:'Your PF',c:'#FFB547',v:-r.empPF/12},{n:'Professional tax',c:'#888',v:-r.profTax/12}];
     if(bonus>0)rows.push({n:'Bonus after tax, averaged',c:'#6B5CE7',v:r.bonusNet/12,pos:1});
     if(rsus>0)rows.push({n:'RSUs after tax, averaged',c:'#9B59B6',v:r.rsuNet/12,pos:1});
+    if(r.mealCard>0)rows.push({n:'Meal card (vouchers, not cash)',c:'#6B5CE7',v:-r.mealCard/12});
     slices=[{v:r.totalAnnual,c:'#00E5C3'},{v:r.taxAll,c:'#FF5C5C'},{v:r.empPF,c:'#FFB547'},{v:r.erPF,c:'#FF8A3D'},{v:r.gratuity,c:'#0090FF'},{v:r.profTax,c:'#888'}];
     Object.assign(ctx,{r:r,rn:rn,ro:ro,hasVar:hasVar,regime:regime});
     if(regime==='both'){
