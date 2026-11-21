@@ -231,7 +231,7 @@ footer{border-top:1px solid var(--bd);padding:28px 48px;padding-bottom:max(28px,
 <script>
 /* CTCLie tax engine. Sources checked Oct 2026: US 2026 (IRS Rev. Proc. 2025-32, SSA), California FTB 2026 Schedule X,
    NY DTF 2026 rates, UK 2026/27 (HMRC, gov.scot), Australia 2026-27 (ATO), Singapore YA2026 + CPF 2026 (IRAS, CPF Board),
-   India FY 2026-27 (no slab change in Budget 2026). Estimates only. */
+   India Tax Year 2026-27 under the Income-tax Act 2025 (slabs unchanged; HRA 8 metros and meal card Rs 200 a meal per Income-tax Rules 2026, notified 20 Mar 2026). Estimates only. */
 function bandTax(ti, bands){
   var tax=0, prev=0;
   for(var i=0;i<bands.length;i++){
@@ -264,16 +264,22 @@ function indiaCalc(o){
   var ctc=o.ctc, bp=(o.basicPct==null?0.5:o.basicPct), bonus=o.bonus||0, rsus=o.rsus||0, regime=o.regime||'new', inv=o.inv80c||0;
   var basic=ctc*bp, erPF=Math.min(basic*0.12,21600), gratuity=basic*15/26/12;
   var grossSal=ctc-erPF-gratuity, empPF=erPF, profTax=2400;
+  /* Meal card: Income-tax Rules 2026, Rule 15(5)(a), Rs 200 a meal, both regimes. Paid as vouchers, so it is not cash. */
+  var mealCard=Math.max(o.mealMonthly||0,0)*12, mealEx=Math.min(mealCard,200*2*22*12);
+  /* HRA, old regime only: least of HRA received, rent minus 10% of basic, 50% (8 metros) or 40% of basic. HRA received is assumed to be 50% of basic. */
+  var rent=Math.max(o.rentMonthly||0,0)*12, hraEx=0;
+  if(regime==='old'&&rent>0) hraEx=Math.max(0,Math.min(basic*0.5,rent-0.1*basic,(o.hraMetro?0.5:0.4)*basic));
   function taxFor(income){
+    income-=mealEx;
     if(regime==='new') return inTaxOnTaxable(Math.max(income-75000,0),'new');
-    return inTaxOnTaxable(Math.max(income-50000-profTax-Math.min(150000,empPF+inv),0),'old');
+    return inTaxOnTaxable(Math.max(income-50000-profTax-hraEx-Math.min(150000,empPF+inv),0),'old');
   }
   var taxFixed=taxFor(grossSal), taxAll=taxFor(grossSal+bonus+rsus), extra=taxAll-taxFixed, vp=bonus+rsus;
   var bonusNet=vp?bonus-extra*bonus/vp:0, rsuNet=vp?rsus-extra*rsus/vp:0;
-  var fixedAnnual=grossSal-taxFixed-empPF-profTax, totalAnnual=fixedAnnual+bonusNet+rsuNet, base=ctc+bonus+rsus;
+  var fixedAnnual=grossSal-taxFixed-empPF-profTax-mealCard, totalAnnual=fixedAnnual+bonusNet+rsuNet, base=ctc+bonus+rsus;
   return {basic:basic,erPF:erPF,gratuity:gratuity,grossSal:grossSal,empPF:empPF,profTax:profTax,taxFixed:taxFixed,taxAll:taxAll,extraTax:extra,
     bonusNet:bonusNet,rsuNet:rsuNet,fixedAnnual:fixedAnnual,fixedMonthly:fixedAnnual/12,totalAnnual:totalAnnual,totalMonthly:totalAnnual/12,
-    pct:totalAnnual/base*100, fixedPct:fixedAnnual/ctc*100};
+    pct:totalAnnual/base*100, fixedPct:fixedAnnual/ctc*100, hraEx:hraEx, mealEx:mealEx, mealCard:mealCard};
 }
 
 /* ---------- United States (tax year 2026) ---------- */
