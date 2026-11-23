@@ -369,6 +369,7 @@ footer{position:relative;z-index:1;border-top:1px solid var(--border);padding:40
 .sec-link{display:inline-block;margin-top:20px;font-size:14px;color:var(--accent)}
 .hero-stats .hstat-n{font-size:30px}
 </style>
+<script src="/analytics.js?v=1" async></script>
 </head>
 <body>
 <a class="skip-link" href="#calculator">Skip to calculator</a>
@@ -659,8 +660,11 @@ document.querySelectorAll('.mobile-menu a[href^="#"]').forEach(a=>{
     }));
   }
 
-  const TK=buildTorusKnot(110,8,90,12,2,3);
-  const SP=buildSphere(60,14,20);
+  // Lighter model on phones, narrow windows and low-core devices; one still frame if the visitor asks for reduced motion
+  const LOW=window.matchMedia('(hover:none)').matches||window.innerWidth<768||(navigator.hardwareConcurrency||8)<=4;
+  const REDUCED=window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  const TK=LOW?buildTorusKnot(110,8,40,6,2,3):buildTorusKnot(110,8,90,12,2,3);
+  const SP=LOW?buildSphere(60,8,12):buildSphere(60,14,20);
 
   const objs=[
     {geo:TK, ox:0.72, oy:0.22, z:0, rx:0,ry:0,rz:0, vrx:0.003,vry:0.006,vrz:0.002, color:'#00E5C3', alpha:0.09, scale:1},
@@ -676,16 +680,18 @@ document.querySelectorAll('.mobile-menu a[href^="#"]').forEach(a=>{
 
   // Throttle mousemove on mobile - only track on desktop
   const isMobile=window.matchMedia('(hover:none)').matches;
-  if(!isMobile){
+  if(!isMobile&&!REDUCED){
     window.addEventListener('mousemove',e=>{mouse.x=e.clientX;mouse.y=e.clientY},{passive:true});
   } else {
     // On mobile, reduce particle count for performance
     particles=[];
   }
 
-  let t=0, animFrame;
-  function frame(){
+  let t=0, animFrame, last=0;
+  function frame(now){
     animFrame=requestAnimationFrame(frame);
+    if(LOW&&now-last<33)return;
+    last=now;
     ctx.clearRect(0,0,W,H);
     t+=0.005;
 
@@ -706,17 +712,19 @@ document.querySelectorAll('.mobile-menu a[href^="#"]').forEach(a=>{
       });
 
       ctx.save();
-      ctx.strokeStyle=o.color;
+      ctx.strokeStyle=o.color; ctx.lineWidth=0.6;
+      const amax=o.alpha*1.5, B=[[],[],[],[]];
       o.geo.edges.forEach(([a,b])=>{
         const pa=projected[a], pb=projected[b];
         if(!pa||!pb)return;
-        const depth=(pa[2]+pb[2])/2;
-        const al=Math.min(o.alpha*(depth*8),o.alpha*1.5);
-        ctx.globalAlpha=al;
-        ctx.lineWidth=0.6;
+        const al=Math.min(o.alpha*(((pa[2]+pb[2])/2)*8),amax);
+        B[Math.max(0,Math.min(3,Math.floor(al/amax*4)))].push(pa[0],pa[1],pb[0],pb[1]);
+      });
+      B.forEach((arr,k)=>{
+        if(!arr.length)return;
+        ctx.globalAlpha=amax*(k+0.5)/4;
         ctx.beginPath();
-        ctx.moveTo(pa[0],pa[1]);
-        ctx.lineTo(pb[0],pb[1]);
+        for(let i=0;i<arr.length;i+=4){ctx.moveTo(arr[i],arr[i+1]);ctx.lineTo(arr[i+2],arr[i+3]);}
         ctx.stroke();
       });
       ctx.restore();
@@ -759,14 +767,15 @@ document.querySelectorAll('.mobile-menu a[href^="#"]').forEach(a=>{
     }
   }
 
-  window.addEventListener('resize',resize,{passive:true});
+  window.addEventListener('resize',function(){resize(); if(REDUCED){frame();cancelAnimationFrame(animFrame);}},{passive:true});
   resize();
   frame();
+  if(REDUCED){cancelAnimationFrame(animFrame);}
 
   // Pause animation when tab not visible (saves CPU/battery)
   document.addEventListener('visibilitychange',()=>{
     if(document.hidden){cancelAnimationFrame(animFrame);}
-    else{frame();}
+    else if(!REDUCED){frame();}
   });
 })();
 
