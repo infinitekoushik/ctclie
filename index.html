@@ -859,6 +859,26 @@ function nyTax(agi,filing){
   }
   return tax;
 }
+/* ---------- US state income tax: data-driven. A state is added only after it is checked against 2026 sources. ----------
+   Brackets b=[[upper,rate],...] on state taxable income; ded=[single,married] standard deduction; ex=[single,married] personal exemptions.
+   Sources: Tax Foundation 2026 state tables (Feb 2026) cross-checked with 2026 state-law reports; South Carolina from SC DOR Information Letter 26-20 (31 Aug 2026). */
+var US_ST={
+  PA:{b:[[Infinity,.0307]],ded:[0,0],ex:[0,0]},
+  NC:{b:[[Infinity,.0399]],ded:[12750,25500],ex:[0,0]},
+  IN:{b:[[Infinity,.0295]],ded:[0,0],ex:[1000,2000]},
+  KY:{b:[[Infinity,.035]],ded:[3360,3360],ex:[0,0]},
+  MI:{b:[[Infinity,.0425]],ded:[0,0],ex:[5900,11800]},
+  IL:{b:[[Infinity,.0495]],ded:[0,0],ex:[2925,5850]}
+};
+function usStateTable(w,f,st){ var R=US_ST[st], i=f==='married'?1:0; return bandTax(Math.max(w-R.ded[i]-R.ex[i],0),R.b); }
+/* South Carolina 2026: starts from AGI, no federal standard deduction, SCIAD of 15,000 (single) or 30,000 (joint) that phases out; 1.99% below 30,000, then 5.21% minus 966. */
+function scTax(agi,f){
+  var m=f==='married', top=m?30000:15000, lo=m?80000:40000, hi=m?190000:95000, span=m?110000:55000;
+  var red=agi<=lo?0:(agi>=hi?top:Math.floor(top*(agi-lo)/span/10)*10), sciad=agi>=hi?0:top-red, ti=Math.max(agi-sciad,0);
+  return ti<30000?0.0199*ti:0.0521*ti-966;
+}
+var US_STATE_LIST=[['AK','Alaska',1],['CA','California'],['FL','Florida',1],['IL','Illinois'],['IN','Indiana'],['KY','Kentucky'],['MI','Michigan'],['NV','Nevada',1],['NH','New Hampshire',1],['NY','New York'],['NC','North Carolina'],['PA','Pennsylvania'],['SC','South Carolina'],['SD','South Dakota',1],['TN','Tennessee',1],['TX','Texas',1],['WA','Washington',1],['WY','Wyoming',1]];
+function usStateOptionsHTML(){ return US_STATE_LIST.map(function(s){return '<option value="'+s[0]+'"'+(s[0]==='CA'?' selected':'')+'>'+s[1]+(s[2]?' (no state income tax)':'')+'</option>';}).join(''); }
 function usCalc(o){
   var g=o.gross, f=o.filing==='married'?'married':'single', st=o.state||'CA';
   var k=Math.min(Math.max(o.k401||0,0),24500), w=g-k; /* 401(k) deferral lowers income tax but not Social Security or Medicare */
@@ -866,7 +886,7 @@ function usCalc(o){
   var ss=Math.min(g,184500)*0.062;
   var medicare=g*0.0145+Math.max(g-(f==='married'?250000:200000),0)*0.009;
   var state=0, sdi=0;
-  if(st==='CA'){ state=caTax(w,f); sdi=g*0.013; } else if(st==='NY') state=nyTax(w,f); else if(st==='IL') state=w*0.0495;
+  if(st==='CA'){ state=caTax(w,f); sdi=g*0.013; } else if(st==='NY') state=nyTax(w,f); else if(st==='SC') state=scTax(w,f); else if(US_ST[st]) state=usStateTable(w,f,st);
   var total=fed+state+ss+medicare+sdi;
   return {fed:fed,state:state,ss:ss,medicare:medicare,sdi:sdi,total:total,net:g-total,k401:k,cash:g-total-k};
 }
@@ -978,7 +998,7 @@ function buildInputs(){
     +'<div id="fHra" style="display:none"><div class="frow"><div class="field"><label for="rent">Monthly rent (HRA, old regime)</label><div class="iw"><span class="ip" aria-hidden="true">'+cfg.sym+'</span><input type="number" id="rent" placeholder="0" min="0" inputmode="numeric" oninput="onChange()"></div></div><div class="field"><label for="hraCity">City</label><select id="hraCity" onchange="onChange()"><option value="8">Delhi, Mumbai, Kolkata, Chennai, Bengaluru, Hyderabad, Pune, Ahmedabad</option><option value="0">Any other city</option></select></div></div></div>'
     +'<div class="field"><label for="mealCard">Meal card (Rs 200 a meal limit, both regimes)</label><select id="mealCard" onchange="onChange()"><option value="0">None</option><option value="4400">Rs 4,400 a month (1 meal a day)</option><option value="8800">Rs 8,800 a month (2 meals a day)</option></select></div>';
   } else if(country==='US'){
-    html+='<div class="field"><label for="region">State</label><select id="region" onchange="onChange()"><option value="CA">California</option><option value="NY">New York</option><option value="IL">Illinois</option><option value="TX">Texas (no state income tax)</option><option value="FL">Florida (no state income tax)</option><option value="WA">Washington (no state income tax)</option></select></div>'
+    html+='<div class="field"><label for="region">State</label><select id="region" onchange="onChange()">'+usStateOptionsHTML()+'</select><p style="margin:6px 0 0;font-size:12px;color:var(--text3)">More states are added as each one is checked against its own 2026 rules.</p></div>'
     +'<div class="field"><label for="filing">Filing status</label><select id="filing" onchange="onChange()"><option value="single">Single</option><option value="married">Married filing jointly</option></select></div>';
   } else if(country==='CA'){
     html+='<div class="field"><label for="region">Province</label><select id="region" onchange="onChange()"><option value="ON">Ontario</option><option value="BC">British Columbia</option><option value="AB">Alberta</option></select></div>';
