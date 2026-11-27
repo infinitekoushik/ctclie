@@ -865,6 +865,7 @@ function nyTax(agi,filing){
 var US_ST={
   PA:{b:[[Infinity,.0307]],ded:[0,0],ex:[0,0],addback:1}, /* Pennsylvania taxes 401(k) deferrals */
   GA:{b:[[Infinity,.0499]],ded:[15000,30000],ex:[0,0]},
+  MN:{b:[[33310,.0535],[109430,.068],[203150,.0785],[Infinity,.0985]],bm:[[48700,.0535],[193480,.068],[337930,.0785],[Infinity,.0985]],ded:[15300,30600],ex:[0,0],pay:function(g){return 0.0044*Math.min(g,185000);},payName:'Minnesota paid family and medical leave'},
   VA:{b:[[3000,.02],[5000,.03],[17000,.05],[Infinity,.0575]],ded:[8750,17500],ex:[930,1860]},
   CO:{b:[[Infinity,.044]],ded:[16100,32200],ex:[0,0],pay:function(g){return 0.0044*Math.min(g,184500);},payName:'Colorado paid family and medical leave (FAMLI)'},
   NJ:{b:[[20000,.014],[35000,.0175],[40000,.035],[75000,.05525],[500000,.0637],[1000000,.0897],[Infinity,.1075]],bm:[[20000,.014],[50000,.0175],[70000,.0245],[80000,.035],[150000,.05525],[500000,.0637],[1000000,.0897],[Infinity,.1075]],ded:[0,0],ex:[1000,2000],
@@ -885,7 +886,7 @@ function scTax(agi,f){
 }
 /* Ohio 2026 (ORC 5747.02): nothing up to 26,050 of taxable income, then 332 plus 2.75% of the excess. Personal exemptions 2,400 / 2,150 / 1,900 by income, none from 500,000. Joint filing credit not included. */
 function ohTax(w,f){ var ex=w<=40000?2400:(w<=80000?2150:(w<500000?1900:0)), ti=Math.max(w-ex*(f==='married'?2:1),0); return ti<=26050?0:332+0.0275*(ti-26050); }
-var US_STATE_LIST=[['AK','Alaska',1],['CA','California'],['CO','Colorado'],['FL','Florida',1],['GA','Georgia'],['IL','Illinois'],['IN','Indiana'],['KY','Kentucky'],['MA','Massachusetts'],['MI','Michigan'],['NV','Nevada',1],['NH','New Hampshire',1],['NJ','New Jersey'],['NY','New York'],['NC','North Carolina'],['OH','Ohio'],['PA','Pennsylvania'],['SC','South Carolina'],['SD','South Dakota',1],['TN','Tennessee',1],['TX','Texas',1],['VA','Virginia'],['WA','Washington',1],['WY','Wyoming',1]];
+var US_STATE_LIST=[['AK','Alaska',1],['CA','California'],['CO','Colorado'],['FL','Florida',1],['GA','Georgia'],['IL','Illinois'],['IN','Indiana'],['KY','Kentucky'],['MA','Massachusetts'],['MI','Michigan'],['MN','Minnesota'],['NV','Nevada',1],['NH','New Hampshire',1],['NJ','New Jersey'],['NY','New York'],['NC','North Carolina'],['OH','Ohio'],['PA','Pennsylvania'],['SC','South Carolina'],['SD','South Dakota',1],['TN','Tennessee',1],['TX','Texas',1],['VA','Virginia'],['WA','Washington',1],['WY','Wyoming',1]];
 function usStateOptionsHTML(){ return US_STATE_LIST.map(function(s){return '<option value="'+s[0]+'"'+(s[0]==='CA'?' selected':'')+'>'+s[1]+(s[2]?' (no state income tax)':'')+'</option>';}).join(''); }
 function usCalc(o){
   var g=o.gross, f=o.filing==='married'?'married':'single', st=o.state||'CA';
@@ -894,7 +895,8 @@ function usCalc(o){
   var ss=Math.min(g,184500)*0.062;
   var medicare=g*0.0145+Math.max(g-(f==='married'?250000:200000),0)*0.009;
   var state=0, sdi=0, sdiName='';
-  if(st==='CA'){ state=caTax(w,f); sdi=g*0.013; sdiName='California SDI'; } else if(st==='NY') state=nyTax(w,f); else if(st==='SC') state=scTax(w,f); else if(st==='OH') state=ohTax(w,f);
+  if(st==='CA'){ state=caTax(w,f); sdi=g*0.013; sdiName='California SDI'; } else if(st==='NY'){ state=nyTax(w,f); sdi=Math.min(0.00432*g,411.91)+Math.min(0.005*g,31.20); sdiName='New York disability and paid family leave'; }
+  else if(st==='WA'){ sdi=0.0113*0.7143*Math.min(g,184500)+0.0058*g; sdiName='Washington Paid Leave and WA Cares'; } else if(st==='SC') state=scTax(w,f); else if(st==='OH') state=ohTax(w,f);
   else if(US_ST[st]){ var R=US_ST[st]; state=usStateTable(w+(R.addback?k:0),f,st); if(R.pay){ sdi=R.pay(g); sdiName=R.payName; } }
   var total=fed+state+ss+medicare+sdi;
   return {fed:fed,state:state,ss:ss,medicare:medicare,sdi:sdi,sdiName:sdiName,total:total,net:g-total,k401:k,cash:g-total-k};
