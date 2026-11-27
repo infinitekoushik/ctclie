@@ -865,6 +865,8 @@ function nyTax(agi,filing){
 var US_ST={
   PA:{b:[[Infinity,.0307]],ded:[0,0],ex:[0,0],addback:1}, /* Pennsylvania taxes 401(k) deferrals */
   GA:{b:[[Infinity,.0499]],ded:[15000,30000],ex:[0,0]},
+  VA:{b:[[3000,.02],[5000,.03],[17000,.05],[Infinity,.0575]],ded:[8750,17500],ex:[930,1860]},
+  CO:{b:[[Infinity,.044]],ded:[16100,32200],ex:[0,0],pay:function(g){return 0.0044*Math.min(g,184500);},payName:'Colorado paid family and medical leave (FAMLI)'},
   NJ:{b:[[20000,.014],[35000,.0175],[40000,.035],[75000,.05525],[500000,.0637],[1000000,.0897],[Infinity,.1075]],bm:[[20000,.014],[50000,.0175],[70000,.0245],[80000,.035],[150000,.05525],[500000,.0637],[1000000,.0897],[Infinity,.1075]],ded:[0,0],ex:[1000,2000],
     pay:function(g){return 0.00425*Math.min(g,44800)+0.0019*Math.min(g,171100)+0.0023*Math.min(g,171100);},payName:'New Jersey payroll programs (unemployment, disability, family leave)'},
   MA:{b:[[1083150,.05],[Infinity,.09]],ded:[0,0],ex:[4400,8800],pay:function(g){return 0.0046*Math.min(g,184500);},payName:'Massachusetts paid family and medical leave'},
@@ -881,7 +883,9 @@ function scTax(agi,f){
   var red=agi<=lo?0:(agi>=hi?top:Math.floor(top*(agi-lo)/span/10)*10), sciad=agi>=hi?0:top-red, ti=Math.max(agi-sciad,0);
   return ti<30000?0.0199*ti:0.0521*ti-966;
 }
-var US_STATE_LIST=[['AK','Alaska',1],['CA','California'],['FL','Florida',1],['GA','Georgia'],['IL','Illinois'],['IN','Indiana'],['KY','Kentucky'],['MA','Massachusetts'],['MI','Michigan'],['NV','Nevada',1],['NH','New Hampshire',1],['NJ','New Jersey'],['NY','New York'],['NC','North Carolina'],['PA','Pennsylvania'],['SC','South Carolina'],['SD','South Dakota',1],['TN','Tennessee',1],['TX','Texas',1],['WA','Washington',1],['WY','Wyoming',1]];
+/* Ohio 2026 (ORC 5747.02): nothing up to 26,050 of taxable income, then 332 plus 2.75% of the excess. Personal exemptions 2,400 / 2,150 / 1,900 by income, none from 500,000. Joint filing credit not included. */
+function ohTax(w,f){ var ex=w<=40000?2400:(w<=80000?2150:(w<500000?1900:0)), ti=Math.max(w-ex*(f==='married'?2:1),0); return ti<=26050?0:332+0.0275*(ti-26050); }
+var US_STATE_LIST=[['AK','Alaska',1],['CA','California'],['CO','Colorado'],['FL','Florida',1],['GA','Georgia'],['IL','Illinois'],['IN','Indiana'],['KY','Kentucky'],['MA','Massachusetts'],['MI','Michigan'],['NV','Nevada',1],['NH','New Hampshire',1],['NJ','New Jersey'],['NY','New York'],['NC','North Carolina'],['OH','Ohio'],['PA','Pennsylvania'],['SC','South Carolina'],['SD','South Dakota',1],['TN','Tennessee',1],['TX','Texas',1],['VA','Virginia'],['WA','Washington',1],['WY','Wyoming',1]];
 function usStateOptionsHTML(){ return US_STATE_LIST.map(function(s){return '<option value="'+s[0]+'"'+(s[0]==='CA'?' selected':'')+'>'+s[1]+(s[2]?' (no state income tax)':'')+'</option>';}).join(''); }
 function usCalc(o){
   var g=o.gross, f=o.filing==='married'?'married':'single', st=o.state||'CA';
@@ -890,7 +894,7 @@ function usCalc(o){
   var ss=Math.min(g,184500)*0.062;
   var medicare=g*0.0145+Math.max(g-(f==='married'?250000:200000),0)*0.009;
   var state=0, sdi=0, sdiName='';
-  if(st==='CA'){ state=caTax(w,f); sdi=g*0.013; sdiName='California SDI'; } else if(st==='NY') state=nyTax(w,f); else if(st==='SC') state=scTax(w,f);
+  if(st==='CA'){ state=caTax(w,f); sdi=g*0.013; sdiName='California SDI'; } else if(st==='NY') state=nyTax(w,f); else if(st==='SC') state=scTax(w,f); else if(st==='OH') state=ohTax(w,f);
   else if(US_ST[st]){ var R=US_ST[st]; state=usStateTable(w+(R.addback?k:0),f,st); if(R.pay){ sdi=R.pay(g); sdiName=R.payName; } }
   var total=fed+state+ss+medicare+sdi;
   return {fed:fed,state:state,ss:ss,medicare:medicare,sdi:sdi,sdiName:sdiName,total:total,net:g-total,k401:k,cash:g-total-k};
@@ -1003,7 +1007,7 @@ function buildInputs(){
     +'<div id="fHra" style="display:none"><div class="frow"><div class="field"><label for="rent">Monthly rent (HRA, old regime)</label><div class="iw"><span class="ip" aria-hidden="true">'+cfg.sym+'</span><input type="number" id="rent" placeholder="0" min="0" inputmode="numeric" oninput="onChange()"></div></div><div class="field"><label for="hraCity">City</label><select id="hraCity" onchange="onChange()"><option value="8">Delhi, Mumbai, Kolkata, Chennai, Bengaluru, Hyderabad, Pune, Ahmedabad</option><option value="0">Any other city</option></select></div></div></div>'
     +'<div class="field"><label for="mealCard">Meal card (Rs 200 a meal limit, both regimes)</label><select id="mealCard" onchange="onChange()"><option value="0">None</option><option value="4400">Rs 4,400 a month (1 meal a day)</option><option value="8800">Rs 8,800 a month (2 meals a day)</option></select></div>';
   } else if(country==='US'){
-    html+='<div class="field"><label for="region">State</label><select id="region" onchange="onChange()">'+usStateOptionsHTML()+'</select><p style="margin:6px 0 0;font-size:12px;color:var(--text3)">More states are added as each one is checked against its own 2026 rules.</p></div>'
+    html+='<div class="field"><label for="region">State</label><select id="region" onchange="onChange()">'+usStateOptionsHTML()+'</select><p style="margin:6px 0 0;font-size:12px;color:var(--text3)">More states are added as each one is checked against its own 2026 rules. Local income taxes (cities, counties, school districts) are not included.</p></div>'
     +'<div class="field"><label for="filing">Filing status</label><select id="filing" onchange="onChange()"><option value="single">Single</option><option value="married">Married filing jointly</option></select></div>';
   } else if(country==='CA'){
     html+='<div class="field"><label for="region">Province</label><select id="region" onchange="onChange()"><option value="ON">Ontario</option><option value="BC">British Columbia</option><option value="AB">Alberta</option></select></div>';
