@@ -3,212 +3,1257 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
-<title>Salary guides: CTC to in-hand for 5 to 50 LPA | CTCLie</title>
-<meta name="description" content="Plain-English guides that show what a CTC from 5 to 50 LPA turns into after PF, gratuity and income tax in India, with a calculator on every page.">
+<title>CTCLie | In-Hand Salary Calculator for India, US, UK, AU, SG</title>
+<meta name="description" content="Free salary calculator for the US, India, Canada, UK, Australia and Singapore. See your real take-home, including PF, tax and everyday costs. No signup needed.">
 <meta name="robots" content="index, follow">
 <meta name="theme-color" content="#050810">
-<link rel="canonical" href="https://ctclie.com/blog/">
-<meta property="og:title" content="Salary guides: CTC to in-hand for 5 to 50 LPA">
-<meta property="og:description" content="Plain-English guides that show what a CTC from 5 to 50 LPA turns into after PF, gratuity and income tax in India, with a calculator on every page.">
+<link rel="canonical" href="https://ctclie.com/">
+<meta property="og:title" content="CTCLie: What You Actually Take Home">
+<meta property="og:description" content="Type your salary and see your real take-home, hidden costs included. US, India &amp; global.">
 <meta property="og:type" content="website">
-<meta property="og:url" content="https://ctclie.com/blog/">
+<meta property="og:url" content="https://ctclie.com/">
 <meta property="og:site_name" content="CTCLie">
 <meta property="og:image" content="https://ctclie.com/og-image.png">
 <meta property="og:image:width" content="1200">
 <meta property="og:image:height" content="630">
 <meta property="og:image:alt" content="CTCLie: Your CTC is a lie. Here’s the truth.">
 <meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="CTCLie: What You Actually Take Home">
+<meta name="twitter:description" content="Type your salary and see your real take-home, hidden costs included. Free &amp; Global.">
 <meta name="twitter:image" content="https://ctclie.com/og-image.png">
 <link rel="icon" href="/favicon.ico" sizes="48x48">
 <link rel="icon" href="/favicon.svg" type="image/svg+xml">
 <link rel="apple-touch-icon" href="/apple-touch-icon.png">
 <link rel="manifest" href="/site.webmanifest">
-<script type="application/ld+json">{"@context": "https://schema.org", "@type": "CollectionPage", "name": "Salary guides", "url": "https://ctclie.com/blog/", "description": "Plain-English guides that show what a CTC from 5 to 50 LPA turns into after PF, gratuity and income tax in India, with a calculator on every page."}</script>
+<script type="application/ld+json">[{"@context": "https://schema.org", "@type": "WebApplication", "name": "CTCLie", "url": "https://ctclie.com/", "description": "Free salary calculator for India, the US, Canada, UK, Australia and Singapore, with a tax breakdown and a real-cost estimate.", "applicationCategory": "FinanceApplication", "offers": {"@type": "Offer", "price": "0", "priceCurrency": "USD"}, "operatingSystem": "Any", "browserRequirements": "Requires JavaScript"}, {"@context": "https://schema.org", "@type": "FAQPage", "mainEntity": [{"@type": "Question", "name": "How accurate is this calculator?", "acceptedAnswer": {"@type": "Answer", "text": "It's an estimate. We use the published 2026 tax rates for each country (FY 2026-27 in India) and a set of standard assumptions, which you can read in the table above. Your payslip can differ because of things like HRA, other deductions or how your employer splits your pay. For a big decision, check with a CA or CPA."}}, {"@type": "Question", "name": "Which Indian tax regime is better for me?", "acceptedAnswer": {"@type": "Answer", "text": "Switch on Compare to see the rupee difference. As a rough guide the new regime wins unless you claim a lot of deductions, such as Rs 1.5 lakh under 80C plus HRA or a home loan. The calculator shows the exact gap for your numbers."}}, {"@type": "Question", "name": "Why is my take-home so much lower than my CTC?", "acceptedAnswer": {"@type": "Answer", "text": "CTC includes money that never reaches your account, like your employer's PF contribution and a gratuity provision. Your own PF, professional tax and income tax come out of what is left. Depending on your salary, roughly 10% to 25% of CTC can disappear this way."}}, {"@type": "Question", "name": "How do bonus and RSUs work in the India calculator?", "acceptedAnswer": {"@type": "Answer", "text": "Enter your fixed CTC in the first box and your yearly bonus and RSU value in their own boxes. We add them to your taxable income, so they are taxed at your slab rate, not a flat rate. The monthly figure averages them over 12 months."}}, {"@type": "Question", "name": "What does the real cost feature do?", "acceptedAnswer": {"@type": "Answer", "text": "It subtracts what it costs you to go to work, like commute, lunch and extra health cover, and adds any side income. For example, Rs 1.2 lakh in hand minus Rs 6,000 for the commute and Rs 5,000 for lunch leaves about Rs 1.09 lakh."}}, {"@type": "Question", "name": "Is my data saved or shared?", "acceptedAnswer": {"@type": "Answer", "text": "The calculation runs in your browser, and we don't ask for your email or save what you type. Like any website, our host keeps basic server logs, and ads or analytics may use cookies. The privacy policy has the details."}}, {"@type": "Question", "name": "Does it work for freelancers?", "acceptedAnswer": {"@type": "Answer", "text": "Not yet. It is built for salaried employees. Freelancers are taxed differently, for example self-employment tax in the US or ITR-3 and ITR-4 in India, so treat the result as a rough guide at best."}}]}]</script>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet" media="print" onload="this.media='all'">
 <noscript><link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet"></noscript>
 <style>
-:root{--bg:#050810;--bg2:#080d1a;--sf:rgba(255,255,255,.04);--bd:rgba(255,255,255,.08);--ba:rgba(0,229,195,.25);--ac:#00E5C3;--ad:rgba(0,229,195,.09);--tx:#F0F0F8;--tx2:rgba(240,240,248,.6);--tx3:rgba(240,240,248,0.55);--red:#FF5C5C;--amb:#FFB547;--r:12px;--r2:20px}
+:root{
+  --bg:#050810;--bg2:#080d1a;
+  --surface:rgba(255,255,255,0.04);--surface2:rgba(255,255,255,0.07);
+  --border:rgba(255,255,255,0.08);--border-accent:rgba(0,229,195,0.3);
+  --accent:#00E5C3;--accent2:#0090FF;
+  --accent-dim:rgba(0,229,195,0.1);
+  --text:#F0F0F8;--text2:rgba(240,240,248,0.6);--text3:rgba(240,240,248,0.55);
+  --red:#FF5C5C;--amber:#FFB547;--green:#00E5C3;
+  --r:12px;--r2:20px;
+}
 *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
 html{scroll-behavior:smooth}
-body{background:var(--bg);color:var(--tx);font-family:'Inter',sans-serif;line-height:1.6;overflow-x:hidden}
-a{color:var(--ac);text-decoration:none}a:hover{opacity:.8}
-.skip-link{position:absolute;top:-100px;left:16px;z-index:9999;background:var(--ac);color:#050810;padding:10px 16px;border-radius:8px;font-weight:700;font-size:14px;text-decoration:none;transition:top .2s}
-.skip-link:focus{top:12px}
-nav{position:sticky;top:0;z-index:100;display:flex;align-items:center;justify-content:space-between;padding:14px 48px;padding-top:max(14px,env(safe-area-inset-top));background:rgba(5,8,16,.92);backdrop-filter:blur(20px);-webkit-backdrop-filter:blur(20px);border-bottom:1px solid var(--bd)}
-.logo{font-family:'Space Grotesk',sans-serif;font-weight:700;font-size:20px;color:var(--ac);text-decoration:none}
-.logo em{color:var(--tx);font-style:normal;font-weight:300}
-.nb{font-size:13px;color:var(--tx2);text-decoration:none}.nb:hover{color:var(--ac)}
-.hero{background:linear-gradient(180deg,rgba(0,229,195,.04) 0%,transparent 100%);border-bottom:1px solid var(--bd);padding:56px 24px 44px}
-.hw{max-width:900px;margin:0 auto}
-.bc{font-size:12px;color:var(--tx3);margin-bottom:14px}.bc a{color:var(--tx3)}
-.ey{font-size:12px;font-weight:700;color:var(--ac);text-transform:uppercase;letter-spacing:.1em;margin-bottom:10px}
-h1{font-family:'Space Grotesk',sans-serif;font-size:clamp(28px,5vw,54px);font-weight:700;line-height:1.05;letter-spacing:-1.5px;margin-bottom:14px}
-h1 span{color:var(--ac)}
-.hs{font-size:16px;color:var(--tx2);max-width:640px;line-height:1.75;margin-bottom:28px}
-.hcards{display:grid;grid-template-columns:repeat(auto-fit,minmax(170px,1fr));gap:12px}
-.hc{background:var(--sf);border:1px solid var(--bd);border-radius:var(--r2);padding:18px;text-align:center;transition:border-color .2s}
-.hc.win{border-color:var(--ac);background:var(--ad)}
-.hc-lbl{font-size:11px;color:var(--tx3);text-transform:uppercase;letter-spacing:.06em;margin-bottom:5px}
-.hc-val{font-family:'Space Grotesk',sans-serif;font-size:22px;font-weight:700}
-.hc.win .hc-val{color:var(--ac)}
-.hc-sub{font-size:12px;color:var(--tx3);margin-top:3px}
-.hc-tag{font-size:10px;font-weight:700;color:var(--ac);margin-top:6px}
-.pb{max-width:900px;margin:0 auto;padding:44px 24px}
-.sec{margin-bottom:52px}
-.st{font-family:'Space Grotesk',sans-serif;font-size:clamp(20px,3vw,28px);font-weight:700;letter-spacing:-.6px;margin-bottom:12px}
-.ss{font-size:15px;color:var(--tx2);line-height:1.75;margin-bottom:20px}
-.bw{background:var(--sf);border:1px solid var(--bd);border-radius:var(--r2);overflow:hidden;overflow-x:auto;-webkit-overflow-scrolling:touch;margin-bottom:20px}
-.bkt{width:100%;border-collapse:collapse;font-size:14px;min-width:480px}
-.bkt th{padding:10px 16px;font-size:11px;font-weight:700;color:var(--tx3);text-transform:uppercase;letter-spacing:.06em;text-align:left;border-bottom:1px solid var(--bd)}
-.bkt td{padding:11px 16px;border-bottom:1px solid var(--bd);color:var(--tx2)}
-.bkt tr:last-child td{border-bottom:none;font-weight:700;color:var(--tx)}
-.bkt td:last-child{text-align:right;font-family:'Space Grotesk',sans-serif;font-weight:600}
-.neg{color:var(--red)!important}.pos{color:var(--ac)!important}
-.rg{display:grid;grid-template-columns:1fr 1fr;gap:14px;margin-bottom:20px}
-.rc{background:var(--sf);border:1px solid var(--bd);border-radius:var(--r2);padding:22px;text-align:center}
-.rc.win{border-color:var(--ac);background:var(--ad)}
-.rc-lbl{font-size:12px;color:var(--tx3);margin-bottom:6px}
-.rc-val{font-family:'Space Grotesk',sans-serif;font-size:28px;font-weight:700}
-.rc.win .rc-val{color:var(--ac)}
-.rc-sub{font-size:13px;color:var(--tx2);margin-top:5px;line-height:1.5}
-.rc-tag{display:inline-block;font-size:10px;font-weight:700;color:var(--ac);background:var(--ad);border:1px solid var(--ba);padding:3px 10px;border-radius:100px;margin-top:8px}
-.note{background:var(--sf);border:1px solid var(--bd);border-radius:var(--r);padding:14px;font-size:14px;color:var(--tx2);line-height:1.75}
-.ce{background:var(--bg2);border:1px solid var(--ba);border-radius:var(--r2);padding:24px;margin-bottom:16px;box-shadow:0 0 50px rgba(0,229,195,.04)}
-.ce-title{font-family:'Space Grotesk',sans-serif;font-size:15px;font-weight:600;margin-bottom:16px}
-.ir{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-bottom:14px}
-label{display:block;font-size:11px;font-weight:600;color:var(--tx3);text-transform:uppercase;letter-spacing:.07em;margin-bottom:5px}
-.iw{position:relative}
-.ip{position:absolute;left:11px;top:50%;transform:translateY(-50%);font-size:13px;font-weight:600;color:var(--tx2);pointer-events:none}
-input[type=number],select{width:100%;background:rgba(255,255,255,.04);border:1px solid var(--bd);border-radius:var(--r);padding:10px 11px 10px 28px;color:var(--tx);font-size:16px;font-weight:500;font-family:'Space Grotesk',sans-serif;outline:none;transition:border-color .2s;appearance:none;-webkit-appearance:none;-moz-appearance:textfield;min-height:48px}
-input::-webkit-inner-spin-button,input::-webkit-outer-spin-button{display:none}
-input:focus,select:focus{border-color:var(--ac)}
-select{padding-left:11px;background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='10' height='7'%3E%3Cpath d='M1 1l4 4 4-4' stroke='%2300E5C3' stroke-width='1.5' fill='none' stroke-linecap='round'/%3E%3C/svg%3E");background-repeat:no-repeat;background-position:right 11px center;cursor:pointer;padding-right:32px}
-select option{background:#080d1a}
-.go{width:100%;background:var(--ac);color:#050810;border:none;border-radius:var(--r);padding:14px;font-size:15px;font-weight:700;font-family:'Space Grotesk',sans-serif;cursor:pointer;transition:opacity .2s;margin-top:2px;min-height:52px;touch-action:manipulation;-webkit-tap-highlight-color:transparent}
-.go:hover{opacity:.88}.go:active{opacity:.7}
-.rb{margin-top:14px;background:rgba(0,229,195,.06);border:1px solid var(--ba);border-radius:var(--r);padding:16px;display:none}
-.rb.show{display:block}
-.rv{font-family:'Space Grotesk',sans-serif;font-size:34px;font-weight:700;color:var(--ac)}
-.rs{font-size:13px;color:var(--tx3);margin-top:3px;margin-bottom:12px}
-.rr{display:flex;justify-content:space-between;padding:5px 0;border-bottom:1px solid var(--bd);font-size:13px;color:var(--tx2)}
-.rr:last-child{border-bottom:none;font-weight:700;color:var(--tx)}
-.rr span:last-child{font-family:'Space Grotesk',sans-serif;font-weight:600}
-.insight{border-left:3px solid var(--ac);border-radius:0 var(--r) var(--r) 0;padding:14px 18px;margin-top:14px;background:rgba(0,229,195,.05);display:none}
-.insight.show{display:block}
-.insight-label{font-size:11px;font-weight:700;color:var(--ac);text-transform:uppercase;letter-spacing:.08em;margin-bottom:7px}
-.insight-text{font-size:14px;color:var(--tx2);line-height:1.8}
-.cg{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:12px;margin-bottom:20px}
-.cc{background:var(--sf);border:1px solid var(--bd);border-radius:var(--r2);padding:18px;transition:border-color .2s}
-.cc:hover{border-color:var(--ba)}
-.cn{font-family:'Space Grotesk',sans-serif;font-size:15px;font-weight:600;margin-bottom:8px}
-.cr{display:flex;justify-content:space-between;font-size:13px;padding:4px 0;color:var(--tx2)}
-.cr strong{color:var(--tx);font-family:'Space Grotesk',sans-serif}
-.cv{font-size:11px;margin-top:8px;padding:5px 10px;border-radius:8px;font-weight:600;display:inline-block}
-.cv.good{background:rgba(0,229,195,.1);color:var(--ac)}.cv.ok{background:rgba(255,181,71,.1);color:var(--amb)}
-.tg{display:grid;grid-template-columns:repeat(auto-fit,minmax(210px,1fr));gap:12px}
-.tc{background:var(--sf);border:1px solid var(--bd);border-radius:var(--r2);padding:20px;transition:border-color .2s}
-.tc:hover{border-color:var(--ba)}
-.ti{font-size:22px;margin-bottom:8px}.tt{font-family:'Space Grotesk',sans-serif;font-size:14px;font-weight:600;margin-bottom:5px}
-.tx2t{font-size:13px;color:var(--tx2);line-height:1.65}
-.ag{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:12px;margin-top:16px}
-.acard{background:var(--sf);border:1px solid var(--bd);border-radius:var(--r2);padding:18px;transition:border-color .2s}
-.acard:hover{border-color:var(--ba)}
-.aicon{font-size:20px;margin-bottom:6px}.atitle{font-family:'Space Grotesk',sans-serif;font-size:13px;font-weight:600;margin-bottom:4px}
-.atxt{font-size:12px;color:var(--tx2);line-height:1.6;margin-bottom:10px}
-.alink{font-size:12px;font-weight:600;color:var(--ac);border:1px solid var(--ba);border-radius:8px;padding:8px 12px;display:inline-flex;align-items:center;transition:background .2s;min-height:40px;-webkit-tap-highlight-color:transparent}
-.alink:hover{background:var(--ad)}
-.fi{border-bottom:1px solid var(--bd)}
-.fq{width:100%;background:none;border:none;color:var(--tx);font-size:14px;font-weight:500;font-family:'Inter',sans-serif;text-align:left;padding:16px 0;cursor:pointer;display:flex;justify-content:space-between;align-items:center;gap:10px;transition:color .2s;min-height:56px;-webkit-tap-highlight-color:transparent;touch-action:manipulation}
-.fq:hover,.fi.open .fq{color:var(--ac)}
-.fq::after{content:'+';font-size:18px;color:var(--tx3);flex-shrink:0;transition:transform .2s}
-.fi.open .fq::after{transform:rotate(45deg);color:var(--ac)}
-.fa{font-size:14px;color:var(--tx2);line-height:1.8;max-height:0;overflow:hidden;transition:max-height .35s ease,padding-bottom .35s}
-.fi.open .fa{max-height:500px;padding-bottom:16px}
-.relg{display:grid;grid-template-columns:repeat(auto-fit,minmax(140px,1fr));gap:10px}
-.relc{background:var(--sf);border:1px solid var(--bd);border-radius:var(--r);padding:14px;transition:all .2s;display:block;-webkit-tap-highlight-color:transparent}
-.relc:hover{border-color:var(--ba);transform:translateY(-2px)}
-.rellpa{font-family:'Space Grotesk',sans-serif;font-size:18px;font-weight:700;color:var(--ac)}
-.relih{font-size:12px;color:var(--tx3);margin-top:2px}
-footer{border-top:1px solid var(--bd);padding:24px 48px;padding-bottom:max(24px,calc(env(safe-area-inset-bottom) + 16px));display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:10px}
-.fl{font-family:'Space Grotesk',sans-serif;font-weight:700;font-size:16px;color:var(--ac)}
-.fls{display:flex;gap:16px;flex-wrap:wrap}
-.fls a{font-size:12px;color:var(--tx3);min-height:32px;display:inline-flex;align-items:center}
-.fls a:hover{color:var(--ac)}
-.fc{font-size:11px;color:var(--tx3);width:100%}
-.cursor{position:fixed;width:18px;height:18px;border:1.5px solid #00E5C3;border-radius:50%;pointer-events:none;z-index:9999;top:0;left:0;transition:opacity .2s}
-.cursor.h{opacity:.45;transform:scale(2)}
-.ripple{position:fixed;border-radius:50%;background:rgba(0,229,195,.15);transform:scale(0);animation:ra .5s ease-out forwards;pointer-events:none;z-index:9998}
-@keyframes ra{to{transform:scale(4);opacity:0}}
-.reveal{opacity:0;transform:translateY(16px);transition:opacity .5s,transform .5s}
-.reveal.visible{opacity:1;transform:none}
-@media(hover:none){.cursor{display:none}}
-@media(max-width:680px){
-  nav{padding:12px 16px;padding-top:max(12px,env(safe-area-inset-top))}
-  #navDesktop{display:none!important}#hamburger{display:flex!important}
-  h1{letter-spacing:-1px;font-size:clamp(26px,7vw,42px)}
-  .hero{padding:36px 16px 28px}.hw{padding:0}
-  .hcards{grid-template-columns:1fr 1fr;gap:8px}
-  .hc{padding:14px 10px}.hc-val{font-size:18px}
-  .pb{padding:28px 16px}
-  .ir{grid-template-columns:1fr}.rg{grid-template-columns:1fr}
-  .cg{grid-template-columns:1fr 1fr}.tg{grid-template-columns:1fr}
-  .ag{grid-template-columns:1fr}
-  .relg{grid-template-columns:repeat(auto-fit,minmax(130px,1fr))}
-  input[type=number],select{min-height:52px;font-size:16px;padding:12px 11px 12px 28px}
-  .go{min-height:56px;font-size:16px}
-  .bkt{font-size:12px}.bkt th,.bkt td{padding:8px 10px}
-  footer{padding:18px 16px;padding-bottom:max(18px,calc(env(safe-area-inset-bottom)+12px));flex-direction:column;align-items:flex-start}
-  .fls{gap:12px}.fc{margin-top:8px}.ce{padding:16px}
-  .st{font-size:clamp(18px,5vw,24px)}.ss{font-size:14px}
-}
-@media(max-width:420px){
-  .hcards{grid-template-columns:1fr 1fr}.hc-val{font-size:16px}
-  .cg{grid-template-columns:1fr}h1{font-size:26px}
-}
-@media(prefers-reduced-motion:reduce){*{animation-duration:.01ms!important;transition-duration:.01ms!important}}
+body{background:var(--bg);color:var(--text);font-family:'Inter',sans-serif;line-height:1.6;overflow-x:hidden}
 
-.crumbs{font-size:13px;color:var(--tx3);margin-bottom:14px}.crumbs a{color:var(--tx3)}.crumbs a:hover{color:var(--ac)}
-.assume{background:var(--sf);border:1px solid var(--bd);border-radius:var(--r2);padding:20px 22px;margin-top:18px}
-.assume h3{font-family:'Space Grotesk',sans-serif;font-size:15px;margin-bottom:8px}
-.assume ul{margin:0;padding-left:18px;color:var(--tx2);font-size:14px;line-height:1.8}
-.disc{font-size:12px;color:var(--tx3);margin:0 0 12px}
-.pn{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-top:28px}
-.pn a{display:block;background:var(--sf);border:1px solid var(--bd);border-radius:var(--r);padding:14px 16px}
-.pn a:hover{border-color:var(--ba)}.pn small{display:block;color:var(--tx3);font-size:12px}
-.pn strong{font-family:'Space Grotesk',sans-serif;color:var(--ac);font-size:16px}.pn .nx{text-align:right}
-.cv.bad{background:rgba(255,92,92,.1);color:var(--red)}
-.warn{background:rgba(255,181,71,.08);border:1px solid rgba(255,181,71,.28);border-radius:12px;padding:12px 16px;margin-bottom:16px;font-size:14px;color:var(--tx2);line-height:1.7}
-.grp{font-family:'Space Grotesk',sans-serif;font-size:18px;font-weight:700;margin:28px 0 12px}
-@media(max-width:680px){.pn{grid-template-columns:1fr}.pn .nx{text-align:left}}
+/* CANVAS */
+#c{position:fixed;top:0;left:0;width:100%;height:100%;z-index:0;pointer-events:none}
+
+/* NAV */
+nav{position:fixed;top:0;left:0;right:0;z-index:100;display:flex;align-items:center;justify-content:space-between;padding:16px 48px;background:rgba(5,8,16,0.75);backdrop-filter:blur(20px);-webkit-backdrop-filter:blur(20px);border-bottom:1px solid var(--border);padding-top:max(16px,env(safe-area-inset-top))}
+.logo{font-family:'Space Grotesk',sans-serif;font-weight:700;font-size:22px;color:var(--accent);letter-spacing:-0.5px;text-decoration:none}
+.logo em{color:var(--text);font-style:normal;font-weight:300}
+nav ul{display:flex;gap:28px;list-style:none}
+nav a{color:var(--text2);font-size:14px;text-decoration:none;transition:color .2s}
+nav a:hover{color:var(--accent)}
+.nav-cta{background:var(--accent);color:#050810;border:none;border-radius:8px;padding:9px 20px;font-size:14px;font-weight:700;cursor:pointer;font-family:'Inter',sans-serif;transition:opacity .2s;min-height:40px;-webkit-tap-highlight-color:transparent}
+.nav-cta:hover{opacity:.85}
+
+/* MOBILE NAV HAMBURGER */
+.nav-hamburger{display:none;flex-direction:column;gap:5px;cursor:pointer;padding:8px;background:none;border:none;-webkit-tap-highlight-color:transparent}
+.nav-hamburger span{display:block;width:22px;height:2px;background:var(--text2);border-radius:2px;transition:all .3s}
+.mobile-menu{display:none;position:fixed;top:56px;left:0;right:0;z-index:99;background:rgba(5,8,16,0.97);backdrop-filter:blur(20px);-webkit-backdrop-filter:blur(20px);border-bottom:1px solid var(--border);padding:16px 24px 20px;flex-direction:column;gap:0}
+.mobile-menu.open{display:flex}
+.mobile-menu a{display:block;color:var(--text2);font-size:15px;text-decoration:none;padding:14px 0;border-bottom:1px solid var(--border);min-height:48px;display:flex;align-items:center;-webkit-tap-highlight-color:transparent}
+.mobile-menu a:hover{color:var(--accent)}
+.mobile-menu a:last-child{border-bottom:none}
+
+/* HERO */
+.hero{position:relative;z-index:1;min-height:100vh;display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;padding:140px 24px 80px;padding-bottom:max(80px,env(safe-area-inset-bottom,80px))}
+.badge{display:inline-flex;align-items:center;gap:8px;background:var(--accent-dim);border:1px solid var(--border-accent);border-radius:100px;padding:6px 18px;font-size:12px;font-weight:600;color:var(--accent);margin-bottom:28px;letter-spacing:.04em}
+.badge-dot{width:6px;height:6px;background:var(--accent);border-radius:50%;animation:blink 2s infinite}
+@keyframes blink{0%,100%{opacity:1}50%{opacity:.3}}
+h1{font-family:'Space Grotesk',sans-serif;font-size:clamp(40px,7vw,90px);font-weight:700;line-height:1.01;letter-spacing:-3px;max-width:950px;margin-bottom:24px}
+h1 .a{color:var(--accent)}
+h1 .d{color:var(--text2);font-weight:300}
+.hero-sub{font-size:18px;color:var(--text2);max-width:540px;margin-bottom:52px;line-height:1.75}
+.hero-flags{display:flex;gap:12px;justify-content:center;flex-wrap:wrap;margin-bottom:52px}
+.flag-pill{display:flex;align-items:center;gap:6px;background:var(--surface);border:1px solid var(--border);border-radius:100px;padding:6px 14px;font-size:13px;color:var(--text2)}
+.flag-pill span{font-size:18px}
+.hero-stats{display:flex;gap:48px;justify-content:center;flex-wrap:wrap}
+.hstat-n{font-family:'Space Grotesk',sans-serif;font-size:34px;font-weight:700;color:var(--accent)}
+.hstat-l{font-size:12px;color:var(--text3);margin-top:2px}
+
+/* TICKER */
+.ticker{position:relative;z-index:1;background:var(--accent-dim);border-top:1px solid var(--border-accent);border-bottom:1px solid var(--border-accent);padding:10px 0;overflow:hidden;white-space:nowrap}
+.ticker-track{display:inline-flex;animation:tick 30s linear infinite}
+.ticker-track span{font-size:13px;color:var(--text2);margin:0 36px}
+.ticker-track strong{color:var(--accent)}
+@keyframes tick{from{transform:translateX(0)}to{transform:translateX(-50%)}}
+
+/* MAIN */
+main{position:relative;z-index:1}
+.section{padding:80px 24px}
+.wrap{max-width:1100px;margin:0 auto}
+.wrap-sm{max-width:720px;margin:0 auto}
+
+/* CALCULATOR CARD */
+.calc-card{background:rgba(8,13,26,0.92);border:1px solid var(--border);border-radius:24px;overflow:hidden;backdrop-filter:blur(24px);-webkit-backdrop-filter:blur(24px);box-shadow:0 0 100px rgba(0,229,195,0.05),0 0 1px rgba(0,229,195,0.2)}
+.calc-top{padding:28px 36px 0;display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:16px}
+.calc-top-title{font-family:'Space Grotesk',sans-serif;font-size:19px;font-weight:600}
+.rtoggle{display:flex;background:var(--surface);border:1px solid var(--border);border-radius:10px;overflow:hidden;flex-wrap:wrap}
+.rb{padding:8px 16px;font-size:13px;font-weight:500;border:none;background:transparent;color:var(--text2);cursor:pointer;font-family:'Inter',sans-serif;transition:all .15s;min-height:40px;-webkit-tap-highlight-color:transparent}
+.rb.on{background:var(--accent);color:#050810}
+
+/* Country selector */
+.country-bar{padding:16px 36px 0;display:flex;gap:10px;flex-wrap:wrap}
+.cb{padding:7px 16px;border:1px solid var(--border);border-radius:100px;background:transparent;color:var(--text2);font-size:13px;cursor:pointer;font-family:'Inter',sans-serif;transition:all .15s;display:flex;align-items:center;gap:6px;min-height:40px;-webkit-tap-highlight-color:transparent}
+.cb.on{border-color:var(--accent);color:var(--accent);background:var(--accent-dim)}
+
+.calc-body{display:grid;grid-template-columns:1fr 1fr;gap:0}
+.c-in{padding:28px 36px 36px;border-right:1px solid var(--border)}
+.c-out{padding:28px 36px 36px}
+
+/* Fields */
+.field{margin-bottom:18px}
+.field label{display:block;font-size:11px;font-weight:600;color:var(--text3);text-transform:uppercase;letter-spacing:.07em;margin-bottom:7px}
+.iw{position:relative}
+.ip{position:absolute;left:13px;top:50%;transform:translateY(-50%);font-size:15px;font-weight:600;color:var(--text2);pointer-events:none}
+input[type=number],select{width:100%;background:var(--surface);border:1px solid var(--border);border-radius:var(--r);padding:12px 13px 12px 32px;color:var(--text);font-size:15px;font-weight:500;font-family:'Space Grotesk',sans-serif;outline:none;transition:border-color .2s;appearance:none;-webkit-appearance:none;-moz-appearance:textfield;min-height:48px}
+input[type=number]::-webkit-inner-spin-button{display:none}
+input[type=number]::-webkit-outer-spin-button{display:none}
+input[type=number]:focus,select:focus{border-color:var(--accent)}
+select{padding-left:13px;background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='8'%3E%3Cpath d='M1 1l5 5 5-5' stroke='%2300E5C3' stroke-width='1.5' fill='none' stroke-linecap='round'/%3E%3C/svg%3E");background-repeat:no-repeat;background-position:right 13px center;cursor:pointer;padding-right:36px}
+select option{background:#080d1a}
+.frow{display:grid;grid-template-columns:1fr 1fr;gap:12px}
+
+/* Real cost toggle */
+.rc-toggle{display:flex;align-items:center;justify-content:space-between;background:var(--surface);border:1px solid var(--border);border-radius:var(--r);padding:12px 14px;margin-bottom:16px;cursor:pointer;user-select:none;-webkit-user-select:none;transition:border-color .2s;min-height:48px;-webkit-tap-highlight-color:transparent}
+.rc-toggle:hover{border-color:var(--border-accent)}
+.rc-label{font-size:13px;color:var(--text2)}
+.rc-label b{color:var(--accent)}
+.sw{width:36px;height:20px;background:var(--border);border-radius:100px;position:relative;transition:background .2s;flex-shrink:0}
+.sw.on{background:var(--accent)}
+.sw::after{content:'';position:absolute;top:3px;left:3px;width:14px;height:14px;background:#050810;border-radius:50%;transition:transform .2s}
+.sw.on::after{transform:translateX(16px)}
+.rc-fields{display:none;background:rgba(0,229,195,0.04);border:1px solid var(--border-accent);border-radius:var(--r);padding:14px;margin-bottom:16px}
+.rc-fields.show{display:block}
+.rc-fields .field{margin-bottom:10px}
+.rc-fields .field:last-child{margin-bottom:0}
+
+.go-btn{width:100%;background:var(--accent);color:#050810;border:none;border-radius:var(--r);padding:15px;font-size:16px;font-weight:700;font-family:'Space Grotesk',sans-serif;cursor:pointer;transition:all .2s;letter-spacing:-.3px;min-height:52px;-webkit-tap-highlight-color:transparent;touch-action:manipulation}
+.go-btn:hover{opacity:.9;transform:translateY(-1px)}
+.go-btn:active{transform:scale(0.98)}
+
+/* Results */
+.r-empty{text-align:center;color:var(--text3);padding:60px 20px;font-size:14px;line-height:1.8}
+.r-main{text-align:center;margin-bottom:20px}
+.r-label{font-size:11px;color:var(--text3);text-transform:uppercase;letter-spacing:.07em;margin-bottom:4px}
+.r-amount{font-family:'Space Grotesk',sans-serif;font-size:clamp(38px,5vw,56px);font-weight:700;color:var(--accent);letter-spacing:-2px;line-height:1}
+.r-sub{font-size:13px;color:var(--text3);margin-top:6px}
+
+/* Donut */
+.donut-wrap{position:relative;width:176px;height:176px;margin:0 auto 20px}
+#donutCanvas{display:block}
+.donut-c{position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);text-align:center;pointer-events:none}
+.donut-pct{font-family:'Space Grotesk',sans-serif;font-size:24px;font-weight:700;color:var(--accent)}
+.donut-tiny{font-size:10px;color:var(--text3)}
+
+/* Breakdown list */
+.bk{list-style:none}
+.bk li{display:flex;align-items:center;justify-content:space-between;padding:7px 0;border-bottom:1px solid var(--border);font-size:13px}
+.bk li:last-child{border-bottom:none}
+.bk-dot{width:8px;height:8px;border-radius:50%;margin-right:8px;flex-shrink:0}
+.bk-name{display:flex;align-items:center;color:var(--text2)}
+.bk-val{font-weight:600;font-family:'Space Grotesk',sans-serif}
+.neg{color:var(--red)}
+.pos{color:var(--green)}
+
+/* Regime compare */
+.rc-compare{display:flex;gap:10px;margin-top:14px}
+.rc-card{flex:1;padding:12px;border-radius:var(--r);border:1px solid var(--border);text-align:center}
+.rc-card.win{border-color:var(--accent);background:var(--accent-dim)}
+.rc-card-lbl{font-size:11px;color:var(--text3);margin-bottom:3px}
+.rc-card-val{font-family:'Space Grotesk',sans-serif;font-size:18px;font-weight:700}
+.rc-card.win .rc-card-val{color:var(--accent)}
+.rc-card-tag{font-size:10px;color:var(--accent);margin-top:3px;font-weight:700}
+
+/* Real cost result */
+.rct-box{margin-top:14px;background:rgba(255,92,92,0.07);border:1px solid rgba(255,92,92,0.2);border-radius:var(--r);padding:14px;display:none}
+.rct-box.show{display:block}
+.rct-title{font-size:11px;color:var(--red);font-weight:700;text-transform:uppercase;letter-spacing:.06em;margin-bottom:6px}
+.rct-val{font-family:'Space Grotesk',sans-serif;font-size:28px;font-weight:700;color:var(--red)}
+.rct-sub{font-size:12px;color:var(--text3);margin-top:4px}
+
+/* Action row */
+.act-row{display:flex;gap:8px;margin-top:16px}
+.act-btn{flex:1;padding:10px 12px;border:1px solid var(--border);border-radius:var(--r);background:var(--surface);color:var(--text2);font-size:13px;font-weight:500;font-family:'Inter',sans-serif;cursor:pointer;transition:all .2s;display:flex;align-items:center;justify-content:center;gap:5px;min-height:44px;-webkit-tap-highlight-color:transparent;touch-action:manipulation}
+.act-btn:hover{border-color:var(--accent);color:var(--accent)}
+
+/* Insight box */
+.insight-box{border-left:3px solid var(--accent);border-radius:0 var(--r2) var(--r2) 0;padding:18px 24px;background:rgba(0,229,195,0.05);margin-top:14px;display:none}
+.insight-box.show{display:block}
+.insight-label{font-size:11px;font-weight:700;color:var(--accent);text-transform:uppercase;letter-spacing:.08em;margin-bottom:8px}
+.insight-body{font-size:14px;color:var(--text2);line-height:1.85}
+.ai-dots{display:flex;gap:5px;align-items:center}
+.ad{width:6px;height:6px;background:var(--accent);border-radius:50%;animation:bounce .9s ease-in-out infinite}
+.ad:nth-child(2){animation-delay:.15s}
+.ad:nth-child(3){animation-delay:.3s}
+@keyframes bounce{0%,80%,100%{transform:translateY(0)}40%{transform:translateY(-7px)}}
+
+/* SECTIONS */
+.eyebrow{font-size:12px;font-weight:700;color:var(--accent);text-transform:uppercase;letter-spacing:.1em;margin-bottom:10px}
+.sec-title{font-family:'Space Grotesk',sans-serif;font-size:clamp(26px,4vw,44px);font-weight:700;line-height:1.1;letter-spacing:-1px;margin-bottom:14px}
+.sec-sub{font-size:16px;color:var(--text2);max-width:500px;line-height:1.75}
+
+/* Feature grid */
+.feat-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:18px;margin-top:48px}
+.feat-card{background:var(--surface);border:1px solid var(--border);border-radius:var(--r2);padding:28px;transition:border-color .2s,transform .2s}
+.feat-card:hover{border-color:var(--border-accent);transform:translateY(-3px)}
+.feat-icon{font-size:28px;margin-bottom:14px;display:block}
+.feat-title{font-family:'Space Grotesk',sans-serif;font-size:17px;font-weight:600;margin-bottom:8px}
+.feat-text{font-size:14px;color:var(--text2);line-height:1.7}
+
+/* Compare table */
+.tbl-wrap{overflow-x:auto;margin-top:36px;-webkit-overflow-scrolling:touch}
+table{width:100%;border-collapse:collapse;font-size:14px;min-width:520px}
+th{padding:14px 20px;font-weight:600;font-size:13px;text-align:left;border-bottom:1px solid var(--border);color:var(--text2)}
+th.hi{color:var(--accent)}
+td{padding:12px 20px;border-bottom:1px solid var(--border);color:var(--text2)}
+tr:last-child td{border-bottom:none}
+td:first-child{color:var(--text);font-weight:500}
+tr:hover td{background:var(--surface)}
+.ck{color:var(--green)}
+.cx{color:var(--red)}
+
+/* Affiliates */
+.aff-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:16px;margin-top:32px}
+.aff-card{background:var(--surface);border:1px solid var(--border);border-radius:var(--r2);padding:24px;transition:border-color .2s}
+.aff-card:hover{border-color:var(--border-accent)}
+.aff-icon{font-size:26px;margin-bottom:12px}
+.aff-title{font-family:'Space Grotesk',sans-serif;font-size:16px;font-weight:600;margin-bottom:4px}
+.aff-tag{display:inline-block;font-size:11px;background:var(--accent-dim);color:var(--accent);padding:3px 10px;border-radius:100px;margin-bottom:10px}
+.aff-text{font-size:13px;color:var(--text2);line-height:1.65;margin-bottom:14px}
+.aff-link{display:inline-flex;align-items:center;font-size:13px;font-weight:600;color:var(--accent);text-decoration:none;border:1px solid var(--border-accent);border-radius:8px;padding:8px 16px;transition:background .2s;min-height:40px;-webkit-tap-highlight-color:transparent}
+.aff-link:hover{background:var(--accent-dim)}
+
+/* FAQ */
+.faq-list{margin-top:36px}
+.faq-item{border-bottom:1px solid var(--border)}
+.faq-q{width:100%;background:none;border:none;color:var(--text);font-size:15px;font-weight:500;font-family:'Inter',sans-serif;text-align:left;padding:20px 0;cursor:pointer;display:flex;align-items:center;justify-content:space-between;gap:12px;transition:color .2s;min-height:64px;-webkit-tap-highlight-color:transparent;touch-action:manipulation}
+.faq-q:hover{color:var(--accent)}
+.faq-q::after{content:'+';font-size:22px;color:var(--text3);flex-shrink:0;transition:transform .2s,color .2s}
+.faq-item.open .faq-q{color:var(--accent)}
+.faq-item.open .faq-q::after{transform:rotate(45deg);color:var(--accent)}
+.faq-a{font-size:14px;color:var(--text2);line-height:1.8;max-height:0;overflow:hidden;transition:max-height .35s ease,padding-bottom .35s}
+.faq-item.open .faq-a{max-height:500px;padding-bottom:20px}
+
+/* Share modal */
+.modal{display:none;position:fixed;inset:0;z-index:300;background:rgba(5,8,16,.85);backdrop-filter:blur(10px);-webkit-backdrop-filter:blur(10px);align-items:center;justify-content:center;padding:20px}
+.modal.open{display:flex}
+.modal-box{background:#080d1a;border:1px solid var(--border-accent);border-radius:24px;width:420px;max-width:100%;padding:36px;text-align:center;position:relative;max-height:90vh;overflow-y:auto}
+.modal-x{position:absolute;top:14px;right:16px;background:none;border:none;color:var(--text3);font-size:22px;cursor:pointer;transition:color .2s;min-width:44px;min-height:44px;display:flex;align-items:center;justify-content:center;-webkit-tap-highlight-color:transparent}
+.modal-x:hover{color:var(--text)}
+.share-inner{background:linear-gradient(135deg,#0a1628,#050810);border:1px solid var(--border-accent);border-radius:16px;padding:28px;margin-bottom:24px}
+.share-logo{font-family:'Space Grotesk',sans-serif;font-size:13px;color:var(--accent);font-weight:700;margin-bottom:16px}
+.share-lbl{font-size:12px;color:var(--text3);margin-bottom:5px}
+.share-ctc{font-family:'Space Grotesk',sans-serif;font-size:22px;font-weight:700}
+.share-arrow{color:var(--text3);margin:8px 0;font-size:22px}
+.share-inhand{font-family:'Space Grotesk',sans-serif;font-size:42px;font-weight:700;color:var(--accent)}
+.share-pct{font-size:13px;color:var(--text2);margin-top:6px}
+.share-copy{width:100%;background:var(--accent);color:#050810;border:none;border-radius:var(--r);padding:13px;font-size:15px;font-weight:700;font-family:'Space Grotesk',sans-serif;cursor:pointer;transition:opacity .2s;min-height:52px;-webkit-tap-highlight-color:transparent;touch-action:manipulation}
+.share-copy:hover{opacity:.85}
+
+/* Toast */
+.toast{position:fixed;bottom:32px;bottom:max(32px,calc(env(safe-area-inset-bottom) + 16px));left:50%;transform:translateX(-50%) translateY(120px);background:var(--accent);color:#050810;padding:12px 26px;border-radius:100px;font-size:14px;font-weight:700;z-index:999;transition:transform .3s;pointer-events:none}
+.toast.show{transform:translateX(-50%) translateY(0)}
+
+/* Footer */
+footer{position:relative;z-index:1;border-top:1px solid var(--border);padding:40px 48px;display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:16px;padding-bottom:max(40px,calc(env(safe-area-inset-bottom) + 20px))}
+.foot-logo{font-family:'Space Grotesk',sans-serif;font-weight:700;font-size:18px;color:var(--accent)}
+.foot-links{display:flex;gap:22px;flex-wrap:wrap}
+.foot-links a{font-size:13px;color:var(--text3);text-decoration:none;transition:color .2s;min-height:32px;display:inline-flex;align-items:center}
+.foot-links a:hover{color:var(--accent)}
+.foot-copy{font-size:12px;color:var(--text3);width:100%}
+
+/* ── RESPONSIVE ── */
+@media(max-width:900px){
+  nav{padding:14px 20px;padding-top:max(14px,env(safe-area-inset-top))}
+  nav ul{display:none}
+  .nav-hamburger{display:flex}
+  .calc-body{grid-template-columns:1fr}
+  .c-in{border-right:none;border-bottom:1px solid var(--border)}
+  footer{padding:28px 20px}
+  .feat-grid{grid-template-columns:1fr}
+  .hero-flags{gap:8px}
+  .hero-stats{gap:24px}
+}
+@media(max-width:600px){
+  .calc-top,.c-in,.c-out{padding:16px}
+  .country-bar{padding:10px 16px 0;gap:6px}
+  .cb{padding:6px 10px;font-size:12px}
+  .frow{grid-template-columns:1fr}
+  .act-row{flex-wrap:wrap}
+  .act-btn{min-width:calc(50% - 4px)}
+  .rc-compare{flex-direction:column}
+  .regime-toggle{flex-wrap:wrap}
+  h1{letter-spacing:-1px;font-size:clamp(36px,8vw,72px)}
+  .hero-sub{font-size:15px}
+  .hero-badge{font-size:11px}
+  .modal-box{padding:24px 16px}
+  .share-inner{padding:20px}
+  .share-inhand{font-size:32px}
+  .feat-grid{grid-template-columns:1fr}
+  .aff-grid{grid-template-columns:1fr}
+  .tbl-wrap{font-size:12px}
+  .tbl-wrap td,.tbl-wrap th{padding:9px 10px}
+  footer{padding:24px 16px;flex-direction:column;align-items:flex-start}
+  .foot-links{gap:14px}
+  .rtoggle{flex-wrap:wrap}
+  .rb{padding:8px 10px}
+  input[type=number],select{padding:13px 11px 13px 28px;font-size:16px;min-height:52px}
+  .go-btn{min-height:56px;font-size:16px}
+  .hstat-n{font-size:26px}
+  .feature-card{padding:20px}
+  .section{padding:52px 16px}
+  .wrap{padding:0 4px}
+  .rc-compare{gap:8px}
+  .hero{padding:120px 20px 60px}
+  .calc-top{padding:16px 16px 0}
+  .country-bar{padding:12px 16px 0}
+}
+@media(max-width:380px){
+  h1{font-size:32px}
+  .country-bar{gap:4px}
+  .cb{padding:5px 8px;font-size:11px}
+  .share-inhand{font-size:26px}
+}
+
+/* Reduced motion - critical for accessibility + some AdSense policies */
+@media(prefers-reduced-motion:reduce){
+  *{animation-duration:.01ms!important;transition-duration:.01ms!important}
+  .ticker-track{animation:none}
+  #c{display:none}
+}
+
+/* ── CUSTOM CURSOR ── */
+.cursor{position:fixed;width:20px;height:20px;border:1.5px solid var(--accent);border-radius:50%;pointer-events:none;z-index:9999;transition:transform .12s ease,opacity .2s;mix-blend-mode:normal;top:0;left:0}
+.cursor-dot{position:fixed;width:5px;height:5px;background:var(--accent);border-radius:50%;pointer-events:none;z-index:9999;top:0;left:0;transition:opacity .2s}
+.cursor.hovering{transform:scale(2.2);border-color:var(--accent);opacity:.6}
+.cursor.clicking{transform:scale(.7);opacity:1}
+@media(hover:none){.cursor,.cursor-dot{display:none}}
+
+/* ── TOUCH RIPPLE ── */
+.ripple{position:fixed;border-radius:50%;background:rgba(0,229,195,0.18);transform:scale(0);animation:ripple-anim .55s ease-out forwards;pointer-events:none;z-index:9998}
+@keyframes ripple-anim{to{transform:scale(4);opacity:0}}
+
+/* ── SCROLL REVEAL ── */
+.reveal{opacity:0;transform:translateY(22px);transition:opacity .55s ease,transform .55s ease}
+.reveal.visible{opacity:1;transform:translateY(0)}
+
+/* ── CARD GLOW ON HOVER ── */
+.feat-card,.aff-card{position:relative;overflow:hidden}
+.feat-card::before,.aff-card::before{content:'';position:absolute;inset:0;background:radial-gradient(circle at var(--mx,50%) var(--my,50%),rgba(0,229,195,0.07) 0%,transparent 65%);opacity:0;transition:opacity .3s;pointer-events:none;border-radius:inherit}
+.feat-card:hover::before,.aff-card:hover::before{opacity:1}
+
+/* ── SKIP LINK (accessibility + crawler) ── */
+.skip-link{position:absolute;top:-100px;left:24px;z-index:9999;background:var(--accent);color:#050810;padding:10px 16px;border-radius:8px;font-weight:700;font-size:14px;text-decoration:none;transition:top .2s}
+.skip-link:focus{top:16px}
+
+.relg{display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));gap:12px;margin-top:28px}
+.relc{display:block;background:var(--surface);border:1px solid var(--border);border-radius:var(--r);padding:16px;transition:border-color .2s,transform .2s;text-decoration:none}
+.relc:hover{border-color:var(--border-accent);transform:translateY(-2px)}
+.rellpa{font-family:'Space Grotesk',sans-serif;font-size:19px;font-weight:700;color:var(--accent)}
+.relih{font-size:13px;color:var(--text3);margin-top:2px}
+.scope td{vertical-align:top;font-size:13px;line-height:1.6}
+.scope td:first-child{white-space:nowrap}
+.aff-note{font-size:13px;color:var(--text3);margin-top:14px;max-width:640px}
+.sec-link{display:inline-block;margin-top:20px;font-size:14px;color:var(--accent)}
+.hero-stats .hstat-n{font-size:30px}
 </style>
 <script src="/analytics.js?v=1" async></script>
 </head>
 <body>
-<a class="skip-link" href="/#calculator">Skip to calculator</a><nav role="navigation" aria-label="Main navigation"><a class="logo" href="/" aria-label="CTCLie home">CTC<em>Lie</em></a><div style="display:flex;align-items:center;gap:16px"><div id="navDesktop" style="display:flex;gap:18px"><a href="/" style="font-size:13px;color:var(--tx2)">Calculator</a><a href="/blog/" style="font-size:13px;color:var(--tx2)">Guides</a><a href="/about" style="font-size:13px;color:var(--tx2)">About</a><a href="/support" style="font-size:13px;color:var(--ac);font-weight:600">Support ☕</a></div><button id="hamburger" aria-label="Open menu" aria-expanded="false" style="display:none;flex-direction:column;gap:5px;cursor:pointer;padding:8px;background:none;border:none;min-width:40px;min-height:40px;align-items:center;justify-content:center"><span style="display:block;width:20px;height:2px;background:rgba(240,240,248,.6);border-radius:2px"></span><span style="display:block;width:20px;height:2px;background:rgba(240,240,248,.6);border-radius:2px"></span><span style="display:block;width:20px;height:2px;background:rgba(240,240,248,.6);border-radius:2px"></span></button><a class="nb" href="/">&larr; Calculator</a></div></nav>
-<main id="main"><div id="mobileMenu" style="display:none;position:fixed;top:56px;left:0;right:0;z-index:99;background:rgba(5,8,16,.97);backdrop-filter:blur(20px);-webkit-backdrop-filter:blur(20px);border-bottom:1px solid var(--bd);padding:12px 24px 16px;flex-direction:column"><a href="/" style="display:flex;align-items:center;color:var(--tx2);font-size:15px;padding:13px 0;border-bottom:1px solid var(--bd);min-height:48px">Calculator</a><a href="/blog/" style="display:flex;align-items:center;color:var(--tx2);font-size:15px;padding:13px 0;border-bottom:1px solid var(--bd);min-height:48px">Salary guides</a><a href="/about" style="display:flex;align-items:center;color:var(--tx2);font-size:15px;padding:13px 0;border-bottom:1px solid var(--bd);min-height:48px">About</a><a href="/contact" style="display:flex;align-items:center;color:var(--tx2);font-size:15px;padding:13px 0;border-bottom:1px solid var(--bd);min-height:48px">Contact</a><a href="/support" style="display:flex;align-items:center;color:var(--ac);font-size:15px;padding:13px 0;border-bottom:1px solid var(--bd);min-height:48px">Support ☕</a><a href="/privacy" style="display:flex;align-items:center;color:var(--tx2);font-size:15px;padding:13px 0;border-bottom:1px solid var(--bd);min-height:48px">Privacy</a></div>
-<div class="hero"><div class="hw"><div class="crumbs"><a href="/">CTCLie</a> &rsaquo; Salary guides</div><div class="ey">India &middot; FY 2026-27</div><h1>Salary guides: what your <span>CTC</span> really pays</h1><p class="hs">Pick a salary level to see what lands in your account each month after PF, gratuity and income tax, with the new and old tax regimes side by side.</p></div></div>
-<div class="pb"><div class="sec"><p class="ss">Each guide has a calculator you can change, a full breakdown, a new regime vs old regime comparison and a rough look at living costs in four cities. The figures assume basic pay is half your CTC. Read the "How we worked this out" box on any guide for the full list of assumptions.</p><h2 class="grp">Starting out, 5 to 8 LPA</h2><div class="relg"><a class="relc" href="/blog/5-lpa-in-hand-salary"><div class="rellpa">5 LPA</div><div class="relih">₹36,865 a month</div></a><a class="relc" href="/blog/7-lpa-in-hand-salary"><div class="rellpa">7 LPA</div><div class="relih">₹53,131 a month</div></a><a class="relc" href="/blog/8-lpa-in-hand-salary"><div class="rellpa">8 LPA</div><div class="relih">₹61,264 a month</div></a></div><h2 class="grp">Mid level, 10 to 18 LPA</h2><div class="relg"><a class="relc" href="/blog/10-lpa-in-hand-salary"><div class="rellpa">10 LPA</div><div class="relih">₹77,530 a month</div></a><a class="relc" href="/blog/12-lpa-in-hand-salary"><div class="rellpa">12 LPA</div><div class="relih">₹93,796 a month</div></a><a class="relc" href="/blog/15-lpa-in-hand-salary"><div class="rellpa">15 LPA</div><div class="relih">₹1,10,820 a month</div></a><a class="relc" href="/blog/18-lpa-in-hand-salary"><div class="rellpa">18 LPA</div><div class="relih">₹1,31,152 a month</div></a></div><h2 class="grp">Senior, 20 to 30 LPA</h2><div class="relg"><a class="relc" href="/blog/20-lpa-in-hand-salary"><div class="rellpa">20 LPA</div><div class="relih">₹1,44,035 a month</div></a><a class="relc" href="/blog/25-lpa-in-hand-salary"><div class="rellpa">25 LPA</div><div class="relih">₹1,74,754 a month</div></a><a class="relc" href="/blog/30-lpa-in-hand-salary"><div class="rellpa">30 LPA</div><div class="relih">₹2,02,977 a month</div></a></div><h2 class="grp">Top bracket, 40 and 50 LPA</h2><div class="relg"><a class="relc" href="/blog/40-lpa-in-hand-salary"><div class="rellpa">40 LPA</div><div class="relih">₹2,58,932 a month</div></a><a class="relc" href="/blog/50-lpa-in-hand-salary"><div class="rellpa">50 LPA</div><div class="relih">₹3,14,887 a month</div></a></div><h2 class="grp">Compare countries</h2><div class="relg"><a class="relc" href="/india-vs-usa-salary-comparison"><div class="rellpa">India vs USA</div><div class="relih">Same salary, two countries</div></a></div></div><div class="sec"><h2 class="st">Not sure where to start?</h2><p class="ss">Most people find the number is lower than they expected. If your CTC includes a bonus or RSUs, use the <a href="/#calculator">main calculator</a> and enter only the fixed part in the first box.</p></div></div>
-<div class="pb"><div class="sec"><h2 class="st">More guides</h2><div class="relg"><a class="relc" href="/us-take-home-pay-by-state"><div class="rellpa">US states</div><div class="relih">Take-home by state</div></a><a class="relc" href="/canada-salary-after-tax"><div class="rellpa">Canada</div><div class="relih">Take-home by province</div></a><a class="relc" href="/india-vs-usa-salary-comparison"><div class="rellpa">India vs USA</div><div class="relih">Two offers side by side</div></a></div></div></div>
+<a class="skip-link" href="#calculator">Skip to calculator</a>
+<canvas id="c" role="presentation" aria-hidden="true"></canvas>
+<nav role="navigation" aria-label="Main navigation">
+  <a class="logo" href="/" aria-label="CTCLie home">CTC<em>Lie</em></a>
+  <ul>
+    <li><a href="#calculator">Calculator</a></li>
+    <li><a href="#features">Features</a></li>
+    <li><a href="/blog/">Guides</a></li>
+    <li><a href="#faq">FAQ</a></li>
+    <li><a href="/about">About</a></li>
+    <li><a href="/support">Support us ☕</a></li>
+  </ul>
+  <button class="nav-hamburger" id="hamburger" aria-label="Open menu" aria-expanded="false" aria-controls="mobileMenu"><span></span><span></span><span></span></button>
+  <button class="nav-cta" onclick="goTo('#calculator')">Try free →</button>
+</nav>
+<main id="main">
+<div class="mobile-menu" id="mobileMenu" role="dialog" aria-label="Mobile navigation">
+  <a href="#calculator" onclick="closeMobileMenu()">Calculator</a>
+  <a href="#features" onclick="closeMobileMenu()">Features</a>
+  <a href="/blog/">Salary guides</a>
+  <a href="#faq" onclick="closeMobileMenu()">FAQ</a>
+  <a href="/about">About</a>
+  <a href="/contact">Contact</a>
+  <a href="/support">Support us ☕</a>
+  <a href="/privacy">Privacy</a>
+</div>
+<section class="hero" aria-labelledby="hero-heading">
+  <div class="badge"><span class="badge-dot" aria-hidden="true"></span>Updated for 2026 · US, India &amp; global</div>
+  <h1 id="hero-heading">Your salary package<br>is a <span class="a">lie.</span><br><span class="d">Here's the truth.</span></h1>
+  <p class="hero-sub">A free salary calculator that shows what actually lands in your account, and the costs your offer letter leaves out.</p>
+  <div class="hero-flags" aria-label="Supported countries">
+    <div class="flag-pill"><span aria-hidden="true">🇮🇳</span> India</div>
+    <div class="flag-pill"><span aria-hidden="true">🇺🇸</span> United States</div>
+    <div class="flag-pill"><span aria-hidden="true">🇬🇧</span> United Kingdom</div>
+    <div class="flag-pill"><span aria-hidden="true">🇦🇺</span> Australia</div>
+    <div class="flag-pill"><span aria-hidden="true">🇸🇬</span> Singapore</div>
+  </div>
+  <div class="hero-stats" aria-label="About CTCLie">
+    <div><div class="hstat-n">5</div><div class="hstat-l">Countries</div></div>
+    <div><div class="hstat-n">Free</div><div class="hstat-l">No signup needed</div></div>
+    <div><div class="hstat-n">Private</div><div class="hstat-l">Runs in your browser</div></div>
+  </div>
+</section>
+<div class="ticker" aria-hidden="true"><div class="ticker-track"><span>🇮🇳 ₹10 LPA → <strong>about ₹77,530 a month in hand</strong></span><span>🇺🇸 $100K, single, California → <strong>about $6,070 a month</strong></span><span>🇬🇧 £60K, England → <strong>about £3,780 a month</strong></span><span>🇮🇳 ₹30 LPA → <strong>about ₹2,02,977 a month in hand</strong></span><span>🇦🇺 A$120K → <strong>about A$7,590 a month</strong></span><span>🇸🇬 S$80K, no CPF → <strong>about S$6,390 a month</strong></span><span>India, new regime: <strong>no income tax on salary up to ₹12.75 lakh</strong></span><span>🇮🇳 ₹10 LPA → <strong>about ₹77,530 a month in hand</strong></span><span>🇺🇸 $100K, single, California → <strong>about $6,070 a month</strong></span><span>🇬🇧 £60K, England → <strong>about £3,780 a month</strong></span><span>🇮🇳 ₹30 LPA → <strong>about ₹2,02,977 a month in hand</strong></span><span>🇦🇺 A$120K → <strong>about A$7,590 a month</strong></span><span>🇸🇬 S$80K, no CPF → <strong>about S$6,390 a month</strong></span><span>India, new regime: <strong>no income tax on salary up to ₹12.75 lakh</strong></span></div></div>
+<section class="section" id="calculator" aria-labelledby="calc-heading">
+<div class="wrap">
+<noscript><p style="padding:16px;color:var(--text2)">The calculator needs JavaScript. The salary guides and the rest of this page work without it.</p></noscript>
+<div class="calc-card">
+  <div class="calc-top">
+    <div class="calc-top-title" id="calc-heading">Salary calculator</div>
+    <div class="rtoggle" id="regimeToggle" style="display:none" role="group" aria-label="Tax regime">
+      <button class="rb on" id="rNew" onclick="setRegime('new')" aria-pressed="true">New regime</button>
+      <button class="rb" id="rOld" onclick="setRegime('old')" aria-pressed="false">Old regime</button>
+      <button class="rb" id="rBoth" onclick="setRegime('both')" aria-pressed="false">Compare</button>
+    </div>
+  </div>
+
+  <!-- Country selector -->
+  <div class="country-bar" role="group" aria-label="Select country">
+    <button class="cb on" onclick="setCountry('IN',this)" aria-pressed="true"><span aria-hidden="true">🇮🇳</span> India</button>
+    <button class="cb" onclick="setCountry('US',this)" aria-pressed="false"><span aria-hidden="true">🇺🇸</span> USA</button>
+    <button class="cb" onclick="setCountry('CA',this)" aria-pressed="false"><span aria-hidden="true">🇨🇦</span> Canada</button>
+    <button class="cb" onclick="setCountry('GB',this)" aria-pressed="false"><span aria-hidden="true">🇬🇧</span> UK</button>
+    <button class="cb" onclick="setCountry('AU',this)" aria-pressed="false"><span aria-hidden="true">🇦🇺</span> Australia</button>
+    <button class="cb" onclick="setCountry('SG',this)" aria-pressed="false"><span aria-hidden="true">🇸🇬</span> Singapore</button>
+  </div>
+
+  <div class="calc-body">
+    <div class="c-in">
+      <div id="inputFields"></div>
+
+      <!-- Real cost toggle -->
+      <div class="rc-toggle" onclick="toggleRC()" role="button" tabindex="0" aria-expanded="false" id="rcToggleBtn" onkeydown="if(event.key==='Enter'||event.key===' ')toggleRC()">
+        <div class="rc-label">Include <b>real-life costs</b>: commute, food, extras</div>
+        <div class="sw" id="rcSwitch" aria-hidden="true"></div>
+      </div>
+      <div class="rc-fields" id="rcFields" aria-hidden="true">
+        <div class="frow">
+          <div class="field"><label for="commute">Monthly commute</label><div class="iw"><span class="ip" id="rcPfx" aria-hidden="true">₹</span><input type="number" id="commute" placeholder="3000" min="0" inputmode="numeric" oninput="onChange()"></div></div>
+          <div class="field"><label for="lunch">Monthly food / lunch</label><div class="iw"><span class="ip" id="rcPfx2" aria-hidden="true">₹</span><input type="number" id="lunch" placeholder="4000" min="0" inputmode="numeric" oninput="onChange()"></div></div>
+        </div>
+        <div class="frow">
+          <div class="field"><label for="health">Health insurance top-up</label><div class="iw"><span class="ip" id="rcPfx3" aria-hidden="true">₹</span><input type="number" id="health" placeholder="1500" min="0" inputmode="numeric" oninput="onChange()"></div></div>
+          <div class="field"><label for="sideInc">Side income (monthly)</label><div class="iw"><span class="ip" id="rcPfx4" aria-hidden="true">₹</span><input type="number" id="sideInc" placeholder="0" min="0" inputmode="numeric" oninput="onChange()"></div></div>
+        </div>
+      </div>
+
+      <button class="go-btn" onclick="calculate()" aria-label="Calculate my real salary">Calculate my real salary →</button>
+    </div>
+
+    <div class="c-out" aria-live="polite" aria-atomic="true">
+      <div id="results"><div class="r-empty">Enter your salary above<br>to see your real take-home 👆</div></div>
+    </div>
+  </div>
+</div>
+
+<!-- Insight Box -->
+<div class="insight-box" id="insightBox" aria-live="polite">
+  <div class="insight-label">📊 What this means for you</div>
+  <div class="insight-body" id="insightBody"></div>
+</div>
+</div>
+</section>
+<section class="section" id="features" style="padding-top:0" aria-labelledby="features-heading">
+<div class="wrap">
+  <div class="eyebrow">What it does</div>
+  <h2 class="sec-title" id="features-heading">Built for people who want<br>actual answers</h2>
+  <p class="sec-sub">Most calculators show a number. We show you what that number means, why and what to do about it.</p>
+  <div class="feat-grid"><div class="feat-card"><span class="feat-icon" aria-hidden="true">💬</span><div class="feat-title">Plain-English explanations</div><p class="feat-text">Not just the number. We explain why your deductions come out the way they do, which regime saves you more, and what to ask in a negotiation, in plain English.</p></div><div class="feat-card"><span class="feat-icon" aria-hidden="true">🌍</span><div class="feat-title">Five countries</div><p class="feat-text">India, USA, UK, Australia and Singapore, each with its own tax rules, deductions and currency. The Indian diaspora can finally compare apples to apples.</p></div><div class="feat-card"><span class="feat-icon" aria-hidden="true">💸</span><div class="feat-title">Real cost of work</div><p class="feat-text">Add your commute, lunch and extra insurance to see what you really have left each month. ₹1.2 lakh in hand, minus ₹6,000 for the commute and ₹5,000 for lunch, is closer to ₹1.09 lakh.</p></div><div class="feat-card"><span class="feat-icon" aria-hidden="true">⚖️</span><div class="feat-title">Old vs new regime</div><p class="feat-text">India's two tax regimes side by side, with the exact rupee difference for your numbers.</p></div><div class="feat-card"><span class="feat-icon" aria-hidden="true">📤</span><div class="feat-title">Shareable card</div><p class="feat-text">Make a simple card to share on LinkedIn or WhatsApp. Handy when you're comparing offers or showing someone the gap between CTC and take-home.</p></div><div class="feat-card"><span class="feat-icon" aria-hidden="true">📊</span><div class="feat-title">Visual breakdown</div><p class="feat-text">A donut chart shows where each rupee or dollar goes: tax, PF, gratuity and real costs. It's quicker to read than a table.</p></div></div>
+</div>
+</section>
+<section class="section" id="guides" style="padding-top:0" aria-labelledby="guides-heading">
+<div class="wrap">
+  <div class="eyebrow">Salary guides</div>
+  <h2 class="sec-title" id="guides-heading" style="font-size:clamp(22px,3vw,34px)">What popular salaries really pay</h2>
+  <p class="sec-sub">One page for each salary level in India, with the PF, gratuity and tax breakdown and a look at living costs in four cities.</p>
+  <div class="relg"><a class="relc" href="/blog/8-lpa-in-hand-salary"><div class="rellpa">8 LPA</div><div class="relih">₹61,264 a month</div></a><a class="relc" href="/blog/10-lpa-in-hand-salary"><div class="rellpa">10 LPA</div><div class="relih">₹77,530 a month</div></a><a class="relc" href="/blog/15-lpa-in-hand-salary"><div class="rellpa">15 LPA</div><div class="relih">₹1,10,820 a month</div></a><a class="relc" href="/blog/20-lpa-in-hand-salary"><div class="rellpa">20 LPA</div><div class="relih">₹1,44,035 a month</div></a><a class="relc" href="/blog/30-lpa-in-hand-salary"><div class="rellpa">30 LPA</div><div class="relih">₹2,02,977 a month</div></a><a class="relc" href="/blog/50-lpa-in-hand-salary"><div class="rellpa">50 LPA</div><div class="relih">₹3,14,887 a month</div></a><a class="relc" href="/india-vs-usa-salary-comparison"><div class="rellpa">India vs USA</div><div class="relih">Same salary, two countries</div></a></div>
+  <a class="sec-link" href="/blog/">See all salary guides →</a>
+</div>
+</section>
+<section class="section" style="padding-top:0" aria-labelledby="scope-heading">
+<div class="wrap">
+  <div class="eyebrow">How we calculate</div>
+  <h2 class="sec-title" id="scope-heading" style="font-size:clamp(22px,3vw,34px)">What is in each result, and what is not</h2>
+  <p class="sec-sub">The numbers are estimates built from each country's published 2026 tax rules. Here is what we count and what we leave out.</p>
+  <div class="tbl-wrap" role="region" aria-label="What each calculator includes" tabindex="0">
+    <table class="scope"><thead><tr><th scope="col">Country</th><th scope="col">What we include</th><th scope="col">What we leave out</th></tr></thead><tbody><tr><td>India</td><td>Income tax (new or old regime, surcharge and cess), your PF and professional tax. CTC is first reduced by employer PF and a gratuity provision.</td><td>HRA, LTA, home loan interest and other deductions. Professional tax is set at Rs 2,400 a year.</td></tr><tr><td>United States</td><td>Federal income tax (2026 brackets and standard deduction), Social Security, Medicare, and state income tax for California, New York and Illinois. California SDI.</td><td>401(k) and HSA contributions, health premiums, city taxes such as NYC, other state payroll programs and itemised deductions.</td></tr><tr><td>United Kingdom</td><td>Income tax for England, Wales and Northern Ireland or for Scotland (2026/27 bands), the personal allowance taper and employee National Insurance.</td><td>Pension contributions, student loans, tax codes and benefits in kind.</td></tr><tr><td>Australia</td><td>Resident income tax (2026-27 rates), the low income tax offset and the 2% Medicare levy.</td><td>Employer super, HELP debt, the Medicare levy surcharge and other offsets.</td></tr><tr><td>Singapore</td><td>Resident income tax, earned income relief and, for citizens and PRs, CPF contributions with CPF relief.</td><td>Other reliefs and rebates, and the lower CPF rates for new PRs.</td></tr></tbody></table>
+  </div>
+</div>
+</section>
+<section class="section" style="padding-top:0" aria-labelledby="aff-heading">
+<div class="wrap">
+  <div class="eyebrow">For readers in India</div>
+  <h2 class="sec-title" id="aff-heading" style="font-size:clamp(22px,3vw,34px)">Grow what you take home</h2>
+  <p class="aff-note">Some of these are affiliate links. We may earn a commission if you sign up, at no extra cost to you. We only list products we would look at ourselves.</p>
+  <div class="aff-grid" id="affGrid"><div class="aff-card"><div class="aff-icon" aria-hidden="true">🏦</div><div class="aff-title">Idle cash</div><p class="aff-text">Savings accounts usually pay less than fixed deposits or liquid funds. Rates change often, so compare today's numbers before you lock anything in.</p><a class="aff-link" href="https://groww.in/fd" target="_blank" rel="noopener sponsored">Compare rates →</a></div><div class="aff-card"><div class="aff-icon" aria-hidden="true">🛡️</div><div class="aff-title">Term insurance</div><p class="aff-text">If anyone depends on your income, a term plan is the cheapest way to cover that risk. Price depends on your age, health and cover, so compare a few quotes.</p><a class="aff-link" href="https://www.policybazaar.com/term-insurance/" target="_blank" rel="noopener sponsored">Get quotes →</a></div><div class="aff-card"><div class="aff-icon" aria-hidden="true">💳</div><div class="aff-title">Rewards credit cards</div><p class="aff-text">Some cards give back a small percentage of what you spend. Check the annual fee and the fine print before you apply.</p><a class="aff-link" href="https://www.bankbazaar.com/credit-card.html" target="_blank" rel="noopener sponsored">Compare cards →</a></div><div class="aff-card"><div class="aff-icon" aria-hidden="true">💻</div><div class="aff-title">Side income</div><p class="aff-text">Plenty of developers and designers pick up freelance work on the side. It can be a useful second income if you have the time.</p><a class="aff-link" href="https://contra.com" target="_blank" rel="noopener sponsored">Find freelance work →</a></div></div>
+</div>
+</section>
+<section class="section" style="padding-top:0" id="faq" aria-labelledby="faq-heading">
+<div class="wrap-sm">
+  <div class="eyebrow">Questions</div>
+  <h2 class="sec-title" id="faq-heading">FAQ</h2>
+  <div class="faq-list" id="faqList"><div class="faq-item" id="fi0"><button class="faq-q" onclick="tfaq(0)" aria-expanded="false" aria-controls="fa0">How accurate is this calculator?</button><div class="faq-a" id="fa0" role="region">It's an estimate. We use the published 2026 tax rates for each country (FY 2026-27 in India) and a set of standard assumptions, which you can read in the table above. Your payslip can differ because of things like HRA, other deductions or how your employer splits your pay. For a big decision, check with a CA or CPA.</div></div><div class="faq-item" id="fi1"><button class="faq-q" onclick="tfaq(1)" aria-expanded="false" aria-controls="fa1">Which Indian tax regime is better for me?</button><div class="faq-a" id="fa1" role="region">Switch on Compare to see the rupee difference. As a rough guide the new regime wins unless you claim a lot of deductions, such as Rs 1.5 lakh under 80C plus HRA or a home loan. The calculator shows the exact gap for your numbers.</div></div><div class="faq-item" id="fi2"><button class="faq-q" onclick="tfaq(2)" aria-expanded="false" aria-controls="fa2">Why is my take-home so much lower than my CTC?</button><div class="faq-a" id="fa2" role="region">CTC includes money that never reaches your account, like your employer's PF contribution and a gratuity provision. Your own PF, professional tax and income tax come out of what is left. Depending on your salary, roughly 10% to 25% of CTC can disappear this way.</div></div><div class="faq-item" id="fi3"><button class="faq-q" onclick="tfaq(3)" aria-expanded="false" aria-controls="fa3">How do bonus and RSUs work in the India calculator?</button><div class="faq-a" id="fa3" role="region">Enter your fixed CTC in the first box and your yearly bonus and RSU value in their own boxes. We add them to your taxable income, so they are taxed at your slab rate, not a flat rate. The monthly figure averages them over 12 months.</div></div><div class="faq-item" id="fi4"><button class="faq-q" onclick="tfaq(4)" aria-expanded="false" aria-controls="fa4">What does the real cost feature do?</button><div class="faq-a" id="fa4" role="region">It subtracts what it costs you to go to work, like commute, lunch and extra health cover, and adds any side income. For example, Rs 1.2 lakh in hand minus Rs 6,000 for the commute and Rs 5,000 for lunch leaves about Rs 1.09 lakh.</div></div><div class="faq-item" id="fi5"><button class="faq-q" onclick="tfaq(5)" aria-expanded="false" aria-controls="fa5">Is my data saved or shared?</button><div class="faq-a" id="fa5" role="region">The calculation runs in your browser, and we don't ask for your email or save what you type. Like any website, our host keeps basic server logs, and ads or analytics may use cookies. The privacy policy has the details.</div></div><div class="faq-item" id="fi6"><button class="faq-q" onclick="tfaq(6)" aria-expanded="false" aria-controls="fa6">Does it work for freelancers?</button><div class="faq-a" id="fa6" role="region">Not yet. It is built for salaried employees. Freelancers are taxed differently, for example self-employment tax in the US or ITR-3 and ITR-4 in India, so treat the result as a rough guide at best.</div></div></div>
+</div>
+</section>
 </main>
-<footer role="contentinfo"><div class="fl">CTCLie</div><div class="fls"><a href="/">Calculator</a><a href="/blog/">Salary guides</a><a href="/about">About</a><a href="/privacy">Privacy</a><a href="/contact">Contact</a><a href="/support">Support ☕</a><a href="mailto:hello@ctclie.com">hello@ctclie.com</a></div><div class="fc">© 2026 CTCLie.com. For information only, not tax advice. Check with a qualified CA before you decide. Tax rules from incometax.gov.in.</div></footer>
-<script>(function(){var hb=document.getElementById("hamburger"),mm=document.getElementById("mobileMenu");if(!hb||!mm)return;
-hb.addEventListener("click",function(){var o=mm.style.display==="flex";mm.style.display=o?"none":"flex";hb.setAttribute("aria-expanded",String(!o));});
-document.addEventListener("click",function(e){if(!e.target.closest("#mobileMenu")&&!e.target.closest("#hamburger")){mm.style.display="none";hb.setAttribute("aria-expanded","false");}});})();
-function tfaq(i){document.querySelectorAll(".fi").forEach(function(el,j){var o=j===i&&!el.classList.contains("open");el.classList.toggle("open",o);el.querySelector(".fq").setAttribute("aria-expanded",o);});}
-(function(){
-  if(!window.matchMedia("(hover:none)").matches){
-    var cur=document.createElement("div");cur.className="cursor";cur.setAttribute("aria-hidden","true");document.body.appendChild(cur);
-    var mx=0,my=0,cx=0,cy=0;
-    window.addEventListener("mousemove",function(e){mx=e.clientX;my=e.clientY;},{passive:true});
-    document.addEventListener("mouseover",function(e){if(e.target.matches("a,button,input,select"))cur.classList.add("h");});
-    document.addEventListener("mouseout",function(e){if(e.target.matches("a,button,input,select"))cur.classList.remove("h");});
-    (function a(){cx+=(mx-cx)*.13;cy+=(my-cy)*.13;cur.style.transform="translate("+(cx-9)+"px,"+(cy-9)+"px)";requestAnimationFrame(a);})();
+<footer role="contentinfo">
+  <div class="foot-logo">CTCLie</div>
+  <div class="foot-links">
+    <a href="/blog/">Salary guides</a>
+    <a href="/about">About</a><a href="/methodology">Methodology</a>
+    <a href="/privacy">Privacy</a>
+    <a href="/contact">Contact</a>
+    <a href="/support">Support ☕</a>
+    <a href="mailto:hello@ctclie.com">hello@ctclie.com</a>
+  </div>
+  <div class="foot-copy">© 2026 CTCLie.com. For information only, not tax advice. Check with a qualified CA or CPA before you decide. Tax rules from incometax.gov.in, IRS.gov, HMRC, ATO and IRAS.</div>
+</footer>
+<!-- SHARE MODAL -->
+<div class="modal" id="modal" role="dialog" aria-modal="true" aria-labelledby="modal-title">
+  <div class="modal-box">
+    <button class="modal-x" onclick="closeModal()" aria-label="Close share dialog">✕</button>
+    <div class="share-inner">
+      <div class="share-logo" id="modal-title">CTCLie.com</div>
+      <div class="share-lbl">My gross / CTC</div>
+      <div class="share-ctc" id="sCTC">-</div>
+      <div class="share-arrow" aria-hidden="true">↓</div>
+      <div class="share-lbl">Real monthly take-home</div>
+      <div class="share-inhand" id="sInhand">-</div>
+      <div class="share-pct" id="sPct"></div>
+    </div>
+    <button class="share-copy" onclick="doShare()">Copy &amp; share 📋</button>
+  </div>
+</div>
+
+<div class="toast" id="toast" role="status" aria-live="polite"></div>
+
+
+<script>
+
+// ══════════════════════════════════
+// HAMBURGER MENU
+// ══════════════════════════════════
+function closeMobileMenu(){
+  document.getElementById('mobileMenu').classList.remove('open');
+  document.getElementById('hamburger').setAttribute('aria-expanded','false');
+}
+document.getElementById('hamburger').addEventListener('click',function(){
+  const menu=document.getElementById('mobileMenu');
+  const open=menu.classList.toggle('open');
+  this.setAttribute('aria-expanded', open ? 'true' : 'false');
+});
+// Close on outside click
+document.addEventListener('click',function(e){
+  if(!e.target.closest('#mobileMenu')&&!e.target.closest('#hamburger')){
+    closeMobileMenu();
   }
-  document.addEventListener("touchstart",function(e){var t=e.touches[0],r=document.createElement("div");r.className="ripple";r.setAttribute("aria-hidden","true");r.style.cssText="width:60px;height:60px;left:"+(t.clientX-30)+"px;top:"+(t.clientY-30)+"px;";document.body.appendChild(r);setTimeout(function(){r.remove()},600);},{passive:true});
-  var els=document.querySelectorAll(".hc,.ce,.insight,.cc,.tc,.acard,.relc,.fi,.rc,.assume,.vs-card,.calc-wrap,.res-side,.pc-card,.ac2");
-  if("IntersectionObserver" in window){var io=new IntersectionObserver(function(en){en.forEach(function(x){if(x.isIntersecting){x.target.classList.add("visible");io.unobserve(x.target);}});},{threshold:0.08});els.forEach(function(el){el.classList.add("reveal");io.observe(el);});}
-})();</script>
+});
+// Close on anchor click inside mobile menu
+document.querySelectorAll('.mobile-menu a[href^="#"]').forEach(a=>{
+  a.addEventListener('click', closeMobileMenu);
+});
+
+// ══════════════════════════════════
+// 3D CANVAS ENGINE
+// ══════════════════════════════════
+(function(){
+  const cv=document.getElementById('c');
+  if(!cv)return;
+  const ctx=cv.getContext('2d');
+  if(!ctx)return;
+  let W,H,mouse={x:0,y:0},camX=0,camY=0;
+
+  function rotX(p,a){const c=Math.cos(a),s=Math.sin(a);return[p[0],p[1]*c-p[2]*s,p[1]*s+p[2]*c]}
+  function rotY(p,a){const c=Math.cos(a),s=Math.sin(a);return[p[0]*c+p[2]*s,p[1],-p[0]*s+p[2]*c]}
+  function rotZ(p,a){const c=Math.cos(a),s=Math.sin(a);return[p[0]*c-p[1]*s,p[0]*s+p[1]*c,p[2]]}
+
+  const FOV=420;
+  function project(p,cx,cy){
+    const z=p[2]+280;
+    const sc=FOV/Math.max(z,0.1);
+    return[p[0]*sc+cx, p[1]*sc+cy, sc];
+  }
+
+  function buildTorusKnot(R,r,tubeSeg,radSeg,p,q){
+    const verts=[], edges=[];
+    const grid=[];
+    for(let i=0;i<=tubeSeg;i++){
+      grid[i]=[];
+      const u=(i/tubeSeg)*Math.PI*2*p;
+      const cu=Math.cos(u),su=Math.sin(u);
+      const qu=(q/p)*u;
+      const cx=(2+Math.cos(qu))*cu*R/2;
+      const cy=(2+Math.cos(qu))*su*R/2;
+      const cz=Math.sin(qu)*R/2;
+      const u2=u+0.01;
+      const cu2=Math.cos(u2),su2=Math.sin(u2);
+      const qu2=(q/p)*u2;
+      const cx2=(2+Math.cos(qu2))*cu2*R/2;
+      const cy2=(2+Math.cos(qu2))*su2*R/2;
+      const cz2=Math.sin(qu2)*R/2;
+      let T=[cx2-cx,cy2-cy,cz2-cz];
+      const tl=Math.sqrt(T[0]**2+T[1]**2+T[2]**2)||1;
+      T=T.map(v=>v/tl);
+      let N=[-T[1],T[0],0];
+      const nl=Math.sqrt(N[0]**2+N[1]**2)||1;
+      N=N.map(v=>v/nl);
+      const B=[T[1]*N[2]-T[2]*N[1], T[2]*N[0]-T[0]*N[2], T[0]*N[1]-T[1]*N[0]];
+      for(let j=0;j<radSeg;j++){
+        const v=(j/radSeg)*Math.PI*2;
+        const cv2=Math.cos(v),sv2=Math.sin(v);
+        verts.push([cx+r*(cv2*N[0]+sv2*B[0]), cy+r*(cv2*N[1]+sv2*B[1]), cz+r*(cv2*N[2]+sv2*B[2])]);
+        grid[i][j]=verts.length-1;
+      }
+    }
+    for(let i=0;i<tubeSeg;i++){
+      for(let j=0;j<radSeg;j++){
+        const a=grid[i][j], b=grid[i+1]?.[j]??grid[0][j];
+        const c2=grid[i][(j+1)%radSeg], d=grid[i+1]?.[(j+1)%radSeg]??grid[0][(j+1)%radSeg];
+        edges.push([a,b],[a,c2]);
+      }
+    }
+    return{verts,edges};
+  }
+
+  function buildSphere(R,lat,lon){
+    const verts=[], edges=[];
+    for(let i=0;i<=lat;i++){
+      const phi=(i/lat)*Math.PI;
+      for(let j=0;j<lon;j++){
+        const theta=(j/lon)*Math.PI*2;
+        verts.push([R*Math.sin(phi)*Math.cos(theta), R*Math.cos(phi), R*Math.sin(phi)*Math.sin(theta)]);
+        if(i<lat) edges.push([i*lon+j, (i+1)*lon+j]);
+        edges.push([i*lon+j, i*lon+(j+1)%lon]);
+      }
+    }
+    return{verts,edges};
+  }
+
+  let particles=[];
+  function initParticles(){
+    particles=Array.from({length:180},()=>({
+      x:(Math.random()-.5)*W*2.2,
+      y:(Math.random()-.5)*H*2.2,
+      z:(Math.random()-.5)*400,
+      vx:(Math.random()-.5)*0.18,
+      vy:(Math.random()-.5)*0.18,
+      size:Math.random()*1.4+0.4,
+    }));
+  }
+
+  // Lighter model on phones, narrow windows and low-core devices; one still frame if the visitor asks for reduced motion
+  const LOW=window.matchMedia('(hover:none)').matches||window.innerWidth<768||(navigator.hardwareConcurrency||8)<=4;
+  const REDUCED=window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  const TK=LOW?buildTorusKnot(110,8,40,6,2,3):buildTorusKnot(110,8,90,12,2,3);
+  const SP=LOW?buildSphere(60,8,12):buildSphere(60,14,20);
+
+  const objs=[
+    {geo:TK, ox:0.72, oy:0.22, z:0, rx:0,ry:0,rz:0, vrx:0.003,vry:0.006,vrz:0.002, color:'#00E5C3', alpha:0.09, scale:1},
+    {geo:SP, ox:0.18, oy:0.72, z:0, rx:0,ry:0,rz:0, vrx:-0.004,vry:0.005,vrz:0.001, color:'#0090FF', alpha:0.07, scale:1},
+  ];
+
+  let W_old=0;
+  function resize(){
+    W=cv.width=window.innerWidth;
+    H=cv.height=window.innerHeight;
+    if(W!==W_old){initParticles();W_old=W;}
+  }
+
+  // Throttle mousemove on mobile - only track on desktop
+  const isMobile=window.matchMedia('(hover:none)').matches;
+  if(!isMobile&&!REDUCED){
+    window.addEventListener('mousemove',e=>{mouse.x=e.clientX;mouse.y=e.clientY},{passive:true});
+  } else {
+    // On mobile, reduce particle count for performance
+    particles=[];
+  }
+
+  let t=0, animFrame, last=0;
+  function frame(now){
+    animFrame=requestAnimationFrame(frame);
+    if(LOW&&now-last<33)return;
+    last=now;
+    ctx.clearRect(0,0,W,H);
+    t+=0.005;
+
+    camX+=(mouse.x-W/2-camX)*0.035;
+    camY+=(mouse.y-H/2-camY)*0.028;
+    const px=camX*0.018, py=camY*0.015;
+
+    objs.forEach(o=>{
+      o.rx+=o.vrx; o.ry+=o.vry; o.rz+=o.vrz;
+      const cx=W*o.ox+px*(o.ox>0.5?1:-1)*18;
+      const cy=H*o.oy+py*(o.oy>0.5?1:-1)*14;
+
+      const projected=o.geo.verts.map(v=>{
+        let p=rotX(v,o.rx);
+        p=rotY(p,o.ry);
+        p=rotZ(p,o.rz);
+        return project(p,cx,cy);
+      });
+
+      ctx.save();
+      ctx.strokeStyle=o.color; ctx.lineWidth=0.6;
+      const amax=o.alpha*1.5, B=[[],[],[],[]];
+      o.geo.edges.forEach(([a,b])=>{
+        const pa=projected[a], pb=projected[b];
+        if(!pa||!pb)return;
+        const al=Math.min(o.alpha*(((pa[2]+pb[2])/2)*8),amax);
+        B[Math.max(0,Math.min(3,Math.floor(al/amax*4)))].push(pa[0],pa[1],pb[0],pb[1]);
+      });
+      B.forEach((arr,k)=>{
+        if(!arr.length)return;
+        ctx.globalAlpha=amax*(k+0.5)/4;
+        ctx.beginPath();
+        for(let i=0;i<arr.length;i+=4){ctx.moveTo(arr[i],arr[i+1]);ctx.lineTo(arr[i+2],arr[i+3]);}
+        ctx.stroke();
+      });
+      ctx.restore();
+    });
+
+    if(!isMobile){
+      particles.forEach(p=>{
+        p.x+=p.vx+px*0.04;
+        p.y+=p.vy+py*0.04;
+        if(p.x<-W)p.x=W; if(p.x>W)p.x=-W;
+        if(p.y<-H)p.y=H; if(p.y>H)p.y=-H;
+        const sc=FOV/Math.max(p.z+280,1);
+        const sx=p.x*sc/W*W+W/2;
+        const sy=p.y*sc/H*H+H/2;
+        ctx.beginPath();
+        ctx.arc(sx,sy,p.size*sc*0.4,0,Math.PI*2);
+        ctx.fillStyle='rgba(0,229,195,'+(0.18*sc*1.5)+')';
+        ctx.fill();
+      });
+
+      const scrPts=particles.map(p=>{
+        const sc=FOV/Math.max(p.z+280,1);
+        return[p.x*sc/W*W+W/2, p.y*sc/H*H+H/2];
+      });
+      for(let i=0;i<scrPts.length;i++){
+        for(let j=i+1;j<scrPts.length;j++){
+          const dx=scrPts[i][0]-scrPts[j][0];
+          const dy=scrPts[i][1]-scrPts[j][1];
+          const d=Math.sqrt(dx*dx+dy*dy);
+          if(d<120){
+            ctx.beginPath();
+            ctx.moveTo(scrPts[i][0],scrPts[i][1]);
+            ctx.lineTo(scrPts[j][0],scrPts[j][1]);
+            ctx.strokeStyle='rgba(0,229,195,'+(0.055*(1-d/120))+')';
+            ctx.lineWidth=0.45;
+            ctx.stroke();
+          }
+        }
+      }
+    }
+  }
+
+  window.addEventListener('resize',function(){resize(); if(REDUCED){frame();cancelAnimationFrame(animFrame);}},{passive:true});
+  resize();
+  frame();
+  if(REDUCED){cancelAnimationFrame(animFrame);}
+
+  // Pause animation when tab not visible (saves CPU/battery)
+  document.addEventListener('visibilitychange',()=>{
+    if(document.hidden){cancelAnimationFrame(animFrame);}
+    else if(!REDUCED){frame();}
+  });
+})();
+
+
+// ENGINE (shared, tested)
+/* CTCLie tax engine. Sources checked Oct 2026: US 2026 (IRS Rev. Proc. 2025-32, SSA), California FTB 2026 Schedule X,
+   NY DTF 2026 rates, UK 2026/27 (HMRC, gov.scot), Australia 2026-27 (ATO), Singapore YA2026 + CPF 2026 (IRAS, CPF Board),
+   India Tax Year 2026-27 under the Income-tax Act 2025 (slabs unchanged; HRA 8 metros and meal card Rs 200 a meal per Income-tax Rules 2026, notified 20 Mar 2026). Estimates only. */
+function bandTax(ti, bands){
+  var tax=0, prev=0;
+  for(var i=0;i<bands.length;i++){
+    var upper=bands[i][0], rate=bands[i][1];
+    if(ti>prev) tax+=(Math.min(ti,upper)-prev)*rate;
+    prev=upper;
+    if(ti<=upper) break;
+  }
+  return tax;
+}
+function topRate(ti,bands){ for(var i=0;i<bands.length;i++){ if(ti<=bands[i][0]) return bands[i][1]; } return bands[bands.length-1][1]; }
+
+/* ---------- India ---------- */
+var IN_NEW=[[400000,0],[800000,.05],[1200000,.10],[1600000,.15],[2000000,.20],[2400000,.25],[Infinity,.30]];
+var IN_OLD=[[250000,0],[500000,.05],[1000000,.20],[Infinity,.30]];
+var IN_SUR_NEW=[[5000000,.10],[10000000,.15],[20000000,.25]];
+var IN_SUR_OLD=[[5000000,.10],[10000000,.15],[20000000,.25],[50000000,.37]];
+function inTaxOnTaxable(ti, regime){
+  if(ti<=0) return 0;
+  var bands=regime==='new'?IN_NEW:IN_OLD, base=bandTax(ti,bands);
+  if(regime==='new'){ if(ti<=1200000) return 0; base=Math.min(base,ti-1200000); }
+  else if(ti<=500000) return 0;
+  var tiers=regime==='new'?IN_SUR_NEW:IN_SUR_OLD, s=0, thr=0, prevS=0;
+  for(var i=0;i<tiers.length;i++){ if(ti>tiers[i][0]){ thr=tiers[i][0]; prevS=i?tiers[i-1][1]:0; s=tiers[i][1]; } }
+  var total=base*(1+s);
+  if(s>0){ total=Math.min(total, bandTax(thr,bands)*(1+prevS)+(ti-thr)); }
+  return total*1.04;
+}
+function indiaCalc(o){
+  var ctc=o.ctc, bp=(o.basicPct==null?0.5:o.basicPct), bonus=o.bonus||0, rsus=o.rsus||0, regime=o.regime||'new', inv=o.inv80c||0;
+  var basic=ctc*bp, erPF=Math.min(basic*0.12,21600), gratuity=basic*15/26/12;
+  var grossSal=ctc-erPF-gratuity, empPF=erPF, profTax=2400;
+  /* Meal card: Income-tax Rules 2026, Rule 15(5)(a), Rs 200 a meal, both regimes. Paid as vouchers, so it is not cash. */
+  var mealCard=Math.max(o.mealMonthly||0,0)*12, mealEx=Math.min(mealCard,200*2*22*12);
+  /* HRA, old regime only: least of HRA received, rent minus 10% of basic, 50% (8 metros) or 40% of basic. HRA received is assumed to be 50% of basic. */
+  var rent=Math.max(o.rentMonthly||0,0)*12, hraEx=0;
+  if(regime==='old'&&rent>0) hraEx=Math.max(0,Math.min(basic*0.5,rent-0.1*basic,(o.hraMetro?0.5:0.4)*basic));
+  function taxFor(income){
+    income-=mealEx;
+    if(regime==='new') return inTaxOnTaxable(Math.max(income-75000,0),'new');
+    return inTaxOnTaxable(Math.max(income-50000-profTax-hraEx-Math.min(150000,empPF+inv),0),'old');
+  }
+  var taxFixed=taxFor(grossSal), taxAll=taxFor(grossSal+bonus+rsus), extra=taxAll-taxFixed, vp=bonus+rsus;
+  var bonusNet=vp?bonus-extra*bonus/vp:0, rsuNet=vp?rsus-extra*rsus/vp:0;
+  var fixedAnnual=grossSal-taxFixed-empPF-profTax-mealCard, totalAnnual=fixedAnnual+bonusNet+rsuNet, base=ctc+bonus+rsus;
+  return {basic:basic,erPF:erPF,gratuity:gratuity,grossSal:grossSal,empPF:empPF,profTax:profTax,taxFixed:taxFixed,taxAll:taxAll,extraTax:extra,
+    bonusNet:bonusNet,rsuNet:rsuNet,fixedAnnual:fixedAnnual,fixedMonthly:fixedAnnual/12,totalAnnual:totalAnnual,totalMonthly:totalAnnual/12,
+    pct:totalAnnual/base*100, fixedPct:fixedAnnual/ctc*100, hraEx:hraEx, mealEx:mealEx, mealCard:mealCard};
+}
+
+/* ---------- United States (tax year 2026) ---------- */
+var US_FED={single:[[12400,.10],[50400,.12],[105700,.22],[201775,.24],[256225,.32],[640600,.35],[Infinity,.37]],
+            married:[[24800,.10],[100800,.12],[211400,.22],[403550,.24],[512450,.32],[768700,.35],[Infinity,.37]]};
+var US_STD={single:16100,married:32200};
+var CA_BANDS=[[11456,.01],[27157,.02],[42861,.04],[59498,.06],[75197,.08],[384109,.093],[460927,.103],[768213,.113],[Infinity,.123]];
+var NY_BANDS={single:[[8500,.039],[11700,.044],[13900,.0515],[80650,.054],[215400,.059],[1077550,.0685],[5000000,.0965],[25000000,.103],[Infinity,.109]],
+              married:[[17150,.039],[23600,.044],[27900,.0515],[161550,.054],[323200,.059],[2155350,.0685],[5000000,.0965],[25000000,.103],[Infinity,.109]]};
+function caTax(gross,filing){
+  var k=filing==='married'?2:1, ti=Math.max(gross-(filing==='married'?11800:5900),0);
+  var t=bandTax(ti,CA_BANDS.map(function(b){return [b[0]*k,b[1]];}));
+  if(ti>1000000) t+=(ti-1000000)*0.01;
+  return t;
+}
+function nyTax(agi,filing){
+  var f=filing==='married'?'married':'single', bands=NY_BANDS[f], ti=Math.max(agi-(f==='married'?16050:8000),0), tax=bandTax(ti,bands);
+  if(agi>107650){
+    var t1=Math.min(ti,f==='married'?323200:215400);
+    tax+=(topRate(t1,bands)*t1-bandTax(t1,bands))*Math.min(1,(agi-107650)/50000);
+  }
+  return tax;
+}
+/* ---------- US state income tax: data-driven. A state is added only after it is checked against 2026 sources. ----------
+   Brackets b=[[upper,rate],...] on state taxable income; ded=[single,married] standard deduction; ex=[single,married] personal exemptions.
+   Sources: Tax Foundation 2026 state tables (Feb 2026) cross-checked with 2026 state-law reports; South Carolina from SC DOR Information Letter 26-20 (31 Aug 2026). */
+var US_ST={
+  PA:{b:[[Infinity,.0307]],ded:[0,0],ex:[0,0],addback:1}, /* Pennsylvania taxes 401(k) deferrals */
+  GA:{b:[[Infinity,.0499]],ded:[15000,30000],ex:[0,0]},
+  AZ:{b:[[Infinity,.025]],ded:[15750,31500],ex:[0,0]},
+  MN:{b:[[33310,.0535],[109430,.068],[203150,.0785],[Infinity,.0985]],bm:[[48700,.0535],[193480,.068],[337930,.0785],[Infinity,.0985]],ded:[15300,30600],ex:[0,0],pay:function(g){return 0.0044*Math.min(g,185000);},payName:'Minnesota paid family and medical leave'},
+  VA:{b:[[3000,.02],[5000,.03],[17000,.05],[Infinity,.0575]],ded:[8750,17500],ex:[930,1860]},
+  CO:{b:[[Infinity,.044]],ded:[16100,32200],ex:[0,0],pay:function(g){return 0.0044*Math.min(g,184500);},payName:'Colorado paid family and medical leave (FAMLI)'},
+  NJ:{b:[[20000,.014],[35000,.0175],[40000,.035],[75000,.05525],[500000,.0637],[1000000,.0897],[Infinity,.1075]],bm:[[20000,.014],[50000,.0175],[70000,.0245],[80000,.035],[150000,.05525],[500000,.0637],[1000000,.0897],[Infinity,.1075]],ded:[0,0],ex:[1000,2000],
+    pay:function(g){return 0.00425*Math.min(g,44800)+0.0019*Math.min(g,171100)+0.0023*Math.min(g,171100);},payName:'New Jersey payroll programs (unemployment, disability, family leave)'},
+  MA:{b:[[1083150,.05],[Infinity,.09]],ded:[0,0],ex:[4400,8800],pay:function(g){return 0.0046*Math.min(g,184500);},payName:'Massachusetts paid family and medical leave'},
+  NC:{b:[[Infinity,.0399]],ded:[12750,25500],ex:[0,0]},
+  IN:{b:[[Infinity,.0295]],ded:[0,0],ex:[1000,2000]},
+  KY:{b:[[Infinity,.035]],ded:[3360,3360],ex:[0,0]},
+  MI:{b:[[Infinity,.0425]],ded:[0,0],ex:[5900,11800]},
+  IL:{b:[[Infinity,.0495]],ded:[0,0],ex:[2925,5850]}
+};
+function usStateTable(w,f,st){ var R=US_ST[st], i=f==='married'?1:0; return bandTax(Math.max(w-R.ded[i]-R.ex[i],0),(i&&R.bm)?R.bm:R.b); }
+/* South Carolina 2026: starts from AGI, no federal standard deduction, SCIAD of 15,000 (single) or 30,000 (joint) that phases out; 1.99% below 30,000, then 5.21% minus 966. */
+function scTax(agi,f){
+  var m=f==='married', top=m?30000:15000, lo=m?80000:40000, hi=m?190000:95000, span=m?110000:55000;
+  var red=agi<=lo?0:(agi>=hi?top:Math.floor(top*(agi-lo)/span/10)*10), sciad=agi>=hi?0:top-red, ti=Math.max(agi-sciad,0);
+  return ti<30000?0.0199*ti:0.0521*ti-966;
+}
+/* Ohio 2026 (ORC 5747.02): nothing up to 26,050 of taxable income, then 332 plus 2.75% of the excess. Personal exemptions 2,400 / 2,150 / 1,900 by income, none from 500,000. Joint filing credit not included. */
+function ohTax(w,f){ var ex=w<=40000?2400:(w<=80000?2150:(w<500000?1900:0)), ti=Math.max(w-ex*(f==='married'?2:1),0); return ti<=26050?0:332+0.0275*(ti-26050); }
+var US_STATE_LIST=[['AK','Alaska',1],['AZ','Arizona'],['CA','California'],['CO','Colorado'],['FL','Florida',1],['GA','Georgia'],['IL','Illinois'],['IN','Indiana'],['KY','Kentucky'],['MA','Massachusetts'],['MI','Michigan'],['MN','Minnesota'],['NV','Nevada',1],['NH','New Hampshire',1],['NJ','New Jersey'],['NY','New York'],['NC','North Carolina'],['OH','Ohio'],['PA','Pennsylvania'],['SC','South Carolina'],['SD','South Dakota',1],['TN','Tennessee',1],['TX','Texas',1],['VA','Virginia'],['WA','Washington',1],['WY','Wyoming',1]];
+function usStateOptionsHTML(){ return US_STATE_LIST.map(function(s){return '<option value="'+s[0]+'"'+(s[0]==='CA'?' selected':'')+'>'+s[1]+(s[2]?' (no state income tax)':'')+'</option>';}).join(''); }
+function usCalc(o){
+  var g=o.gross, f=o.filing==='married'?'married':'single', st=o.state||'CA';
+  var k=Math.min(Math.max(o.k401||0,0),24500), w=g-k; /* 401(k) deferral lowers income tax but not Social Security or Medicare */
+  var fed=bandTax(Math.max(w-US_STD[f],0),US_FED[f]);
+  var ss=Math.min(g,184500)*0.062;
+  var medicare=g*0.0145+Math.max(g-(f==='married'?250000:200000),0)*0.009;
+  var state=0, sdi=0, sdiName='';
+  if(st==='CA'){ state=caTax(w,f); sdi=g*0.013; sdiName='California SDI'; } else if(st==='NY'){ state=nyTax(w,f); sdi=Math.min(0.00432*g,411.91)+Math.min(0.005*g,31.20); sdiName='New York disability and paid family leave'; }
+  else if(st==='WA'){ sdi=0.0113*0.7143*Math.min(g,184500)+0.0058*g; sdiName='Washington Paid Leave and WA Cares'; } else if(st==='SC') state=scTax(w,f); else if(st==='OH') state=ohTax(w,f);
+  else if(US_ST[st]){ var R=US_ST[st]; state=usStateTable(w+(R.addback?k:0),f,st); if(R.pay){ sdi=R.pay(g); sdiName=R.payName; } }
+  var total=fed+state+ss+medicare+sdi;
+  return {fed:fed,state:state,ss:ss,medicare:medicare,sdi:sdi,sdiName:sdiName,total:total,net:g-total,k401:k,cash:g-total-k};
+}
+
+/* ---------- United Kingdom (2026/27) ---------- */
+var GB_ENG=[[37700,.20],[125140,.40],[Infinity,.45]];
+var GB_SCO=[[3967,.19],[16956,.20],[31092,.21],[62430,.42],[125140,.45],[Infinity,.48]];
+function gbCalc(o){
+  var g=o.gross, pa=g>125140?0:(g>100000?Math.max(0,12570-(g-100000)/2):12570);
+  var tax=bandTax(Math.max(g-pa,0),o.region==='SCO'?GB_SCO:GB_ENG);
+  var ni=Math.max(Math.min(g,50270)-12570,0)*0.08+Math.max(g-50270,0)*0.02;
+  return {tax:tax,ni:ni,total:tax+ni,net:g-tax-ni};
+}
+
+/* ---------- Australia (2026-27, residents) ---------- */
+var AU_BANDS=[[18200,0],[45000,.15],[135000,.30],[190000,.37],[Infinity,.45]];
+function auCalc(o){
+  var g=o.gross, tax=bandTax(g,AU_BANDS);
+  var lito=g<=37500?700:(g<=45000?700-(g-37500)*0.05:(g<=66667?325-(g-45000)*0.015:0));
+  tax=Math.max(0,tax-lito);
+  var medicare=g<=28011?0:Math.min((g-28011)*0.10,g*0.02);
+  return {tax:tax,medicare:medicare,total:tax+medicare,net:g-tax-medicare};
+}
+
+/* ---------- Singapore (YA2026 rates, CPF 2026) ---------- */
+var SG_BANDS=[[20000,0],[30000,.02],[40000,.035],[80000,.07],[120000,.115],[160000,.15],[200000,.18],[240000,.19],[280000,.195],[320000,.20],[500000,.22],[1000000,.23],[Infinity,.24]];
+function sgCalc(o){
+  var g=o.gross, cpf=o.status==='citizen'?Math.min(g/12,8000)*12*0.20:0;
+  var tax=bandTax(Math.max(g-cpf-1000,0),SG_BANDS);
+  return {tax:tax,cpf:cpf,total:tax+cpf,net:g-tax-cpf};
+}
+/* ---------- Canada (2026): federal + Ontario, British Columbia, Alberta ----------
+   Sources: CRA T4032-ON (federal, CPP, CPP2, EI, Ontario), BC government tax-rates and basic-credits pages, Alberta government and CRA tax-rate pages. Checked 24 Nov 2026. */
+var CA_FED=[[58523,.14],[117045,.205],[181440,.26],[258482,.29],[Infinity,.33]];
+var CA_PROV={
+  ON:{bands:[[53891,.0505],[107785,.0915],[150000,.1116],[220000,.1216],[Infinity,.1316]],bpa:12989,rate:.0505},
+  BC:{bands:[[50363,.056],[100728,.077],[115648,.105],[140430,.1229],[190405,.147],[265545,.168],[Infinity,.205]],bpa:13216,rate:.056},
+  AB:{bands:[[61200,.08],[154259,.10],[185111,.12],[246813,.13],[370220,.14],[Infinity,.15]],bpa:22769,rate:.08}
+};
+function canBPA(ti){ return 16452-(16452-14829)*Math.min(Math.max((ti-181440)/(258482-181440),0),1); }
+function canOHP(ti){
+  if(ti<=20000) return 0;
+  if(ti<=36000) return Math.min(300,0.06*(ti-20000));
+  if(ti<=48000) return Math.min(450,300+0.06*(ti-36000));
+  if(ti<=72000) return Math.min(600,450+0.25*(ti-48000));
+  if(ti<=200000) return Math.min(750,600+0.25*(ti-72000));
+  return Math.min(900,750+0.25*(ti-200000));
+}
+/* Core tax on taxable income ti, with CPP base contributions and EI premiums as credits. */
+function canTaxes(ti,cppBase,ei,gross,prov){
+  var fed=Math.max(0,bandTax(ti,CA_FED)-0.14*(canBPA(ti)+cppBase+ei+Math.min(1501,gross)));
+  var P=CA_PROV[prov], basic=Math.max(0,bandTax(ti,P.bands)-P.rate*(P.bpa+cppBase+ei)), sur=0, ohp=0, red=0, pr;
+  if(prov==='ON'){
+    sur=0.2*Math.max(basic-5818,0)+0.36*Math.max(basic-7446,0);
+    ohp=canOHP(ti);
+    var l22=basic+sur; red=Math.min(l22,Math.max(0,600-l22));
+    pr=l22+ohp-red;
+  } else if(prov==='BC'){
+    red=Math.max(0,690-0.0356*Math.max(ti-25570,0));
+    pr=Math.max(0,basic-red);
+  } else pr=basic;
+  return {fed:fed,prov:pr,basicProv:basic,surtax:sur,ohp:ohp,reduction:red};
+}
+function canCalc(o){
+  var g=o.gross, prov=CA_PROV[o.prov]?o.prov:'ON';
+  var pe=Math.min(g,74600), cpe=Math.max(pe-3500,0), cppBase=cpe*0.0495, cppAdd=cpe*0.01;
+  var cpp2=Math.max(Math.min(g,85000)-74600,0)*0.04, ei=Math.min(g,68900)*0.0163;
+  var ti=Math.max(g-cppAdd-cpp2,0), t=canTaxes(ti,cppBase,ei,g,prov);
+  var cpp=cppBase+cppAdd, total=t.fed+t.prov+cpp+cpp2+ei;
+  return {fed:t.fed,prov:t.prov,ohp:t.ohp,cpp:cpp,cpp2:cpp2,ei:ei,ti:ti,total:total,net:g-total};
+}
+var LIMITS={k401:24500,hsa:4400,ssBase:184500};
+if(typeof module!=='undefined') module.exports={bandTax:bandTax,indiaCalc:indiaCalc,inTaxOnTaxable:inTaxOnTaxable,usCalc:usCalc,gbCalc:gbCalc,auCalc:auCalc,sgCalc:sgCalc,canCalc:canCalc,canTaxes:canTaxes,canBPA:canBPA,canOHP:canOHP,CA_FED:CA_FED,CA_PROV:CA_PROV,caTax:caTax,nyTax:nyTax,LIMITS:LIMITS};
+
+
+let country='IN', regime='new', rcOn=false;
+const CC={
+  IN:{sym:'\u20b9',name:'India',placeholder:'1500000',label:'Annual CTC'},
+  US:{sym:'$',name:'USA',placeholder:'100000',label:'Annual gross salary'},
+  CA:{sym:'C$',name:'Canada',placeholder:'90000',label:'Annual gross salary'},
+  GB:{sym:'\u00a3',name:'UK',placeholder:'60000',label:'Annual gross salary'},
+  AU:{sym:'A$',name:'Australia',placeholder:'120000',label:'Annual gross salary'},
+  SG:{sym:'S$',name:'Singapore',placeholder:'80000',label:'Annual gross salary'}
+};
+function goTo(sel){var el=document.querySelector(sel);if(el)el.scrollIntoView({behavior:'smooth'})}
+function setCountry(c,btn){
+  country=c;
+  document.querySelectorAll('.cb').forEach(function(b){b.classList.remove('on');b.setAttribute('aria-pressed','false');});
+  btn.classList.add('on'); btn.setAttribute('aria-pressed','true');
+  document.getElementById('regimeToggle').style.display=c==='IN'?'flex':'none';
+  ['rcPfx','rcPfx2','rcPfx3','rcPfx4'].forEach(function(id){var el=document.getElementById(id);if(el)el.textContent=CC[c].sym;});
+  buildInputs(); clearResults();
+}
+function setRegime(r){
+  regime=r;
+  ['New','Old','Both'].forEach(function(x){var b=document.getElementById('r'+x);b.classList.toggle('on',x.toLowerCase()===r);b.setAttribute('aria-pressed',x.toLowerCase()===r?'true':'false');});
+  var f=document.getElementById('f80c'); if(f)f.style.display=(r==='old'||r==='both')?'block':'none'; var h=document.getElementById('fHra'); if(h)h.style.display=(r==='old'||r==='both')?'block':'none';
+  onChange();
+}
+function buildInputs(){
+  const cfg=CC[country];
+  let html='<div class="field"><label for="salary">'+cfg.label+'</label><div class="iw"><span class="ip" aria-hidden="true">'+cfg.sym+'</span><input type="number" id="salary" placeholder="'+cfg.placeholder+'" min="0" inputmode="numeric" autocomplete="off" oninput="onChange()" aria-label="'+cfg.label+' in '+cfg.sym+'"></div></div>';
+  if(country==='IN'){
+    html+='<div class="field"><label for="basicPct">Basic salary %</label><select id="basicPct" onchange="onChange()"><option value="40">40%</option><option value="50" selected>50%</option><option value="60">60%</option></select></div>'
+    +'<div style="background:rgba(255,181,71,0.07);border:1px solid rgba(255,181,71,0.28);border-radius:var(--r);padding:11px 13px;margin-bottom:14px;font-size:12px;color:var(--text2);line-height:1.6"><strong style="color:#FFB547">Big tech or an RSU package?</strong> Your CTC is probably fixed pay plus a bonus plus stock. Enter your <strong style="color:var(--text)">fixed CTC only</strong> above, then add the bonus and RSUs below.</div>'
+    +'<div class="frow"><div class="field"><label for="bonus">Variable bonus (a year)</label><div class="iw"><span class="ip" aria-hidden="true">'+cfg.sym+'</span><input type="number" id="bonus" placeholder="0" min="0" inputmode="numeric" oninput="onChange()"></div></div>'
+    +'<div class="field"><label for="rsus">RSUs / ESOPs (a year)</label><div class="iw"><span class="ip" aria-hidden="true">'+cfg.sym+'</span><input type="number" id="rsus" placeholder="0" min="0" inputmode="numeric" oninput="onChange()"></div></div></div>'
+    +'<div class="field" id="f80c" style="display:none"><label for="inv80c">80C investments (a year)</label><div class="iw"><span class="ip" aria-hidden="true">'+cfg.sym+'</span><input type="number" id="inv80c" placeholder="150000" min="0" max="150000" inputmode="numeric" oninput="onChange()"></div></div>'
+    +'<div id="fHra" style="display:none"><div class="frow"><div class="field"><label for="rent">Monthly rent (HRA, old regime)</label><div class="iw"><span class="ip" aria-hidden="true">'+cfg.sym+'</span><input type="number" id="rent" placeholder="0" min="0" inputmode="numeric" oninput="onChange()"></div></div><div class="field"><label for="hraCity">City</label><select id="hraCity" onchange="onChange()"><option value="8">Delhi, Mumbai, Kolkata, Chennai, Bengaluru, Hyderabad, Pune, Ahmedabad</option><option value="0">Any other city</option></select></div></div></div>'
+    +'<div class="field"><label for="mealCard">Meal card (Rs 200 a meal limit, both regimes)</label><select id="mealCard" onchange="onChange()"><option value="0">None</option><option value="4400">Rs 4,400 a month (1 meal a day)</option><option value="8800">Rs 8,800 a month (2 meals a day)</option></select></div>';
+  } else if(country==='US'){
+    html+='<div class="field"><label for="region">State</label><select id="region" onchange="onChange()">'+usStateOptionsHTML()+'</select><p style="margin:6px 0 0;font-size:12px;color:var(--text3)">More states are added as each one is checked against its own 2026 rules. Local income taxes (cities, counties, school districts) are not included.</p></div>'
+    +'<div class="field"><label for="filing">Filing status</label><select id="filing" onchange="onChange()"><option value="single">Single</option><option value="married">Married filing jointly</option></select></div>';
+  } else if(country==='CA'){
+    html+='<div class="field"><label for="region">Province</label><select id="region" onchange="onChange()"><option value="ON">Ontario</option><option value="BC">British Columbia</option><option value="AB">Alberta</option></select></div>';
+  } else if(country==='GB'){
+    html+='<div class="field"><label for="region">Where in the UK</label><select id="region" onchange="onChange()"><option value="ENG">England, Wales or Northern Ireland</option><option value="SCO">Scotland</option></select></div>';
+  } else if(country==='SG'){
+    html+='<div class="field"><label for="sgStatus">Residency</label><select id="sgStatus" onchange="onChange()"><option value="foreign">Foreigner on an EP or S Pass (no CPF)</option><option value="citizen">Citizen or PR (CPF applies)</option></select></div>';
+  }
+  document.getElementById('inputFields').innerHTML=html;
+}
+let calcTimer=null;
+function onChange(){clearTimeout(calcTimer);calcTimer=setTimeout(calculate,450)}
+function clearResults(){
+  document.getElementById('results').innerHTML='<div class="r-empty">Enter your salary above<br>to see your real take-home</div>';
+  document.getElementById('insightBox').classList.remove('show');
+}
+function getRealCost(){
+  if(!rcOn)return 0;
+  const v=function(id){return parseFloat(document.getElementById(id)&&document.getElementById(id).value)||0};
+  return v('commute')+v('lunch')+v('health')-v('sideInc');
+}
+function fmt(n,sym){
+  const s=sym||CC[country].sym;
+  return s+Math.round(Math.abs(n)).toLocaleString(s==='\u20b9'?'en-IN':'en-US');
+}
+function fmtIN(n){
+  if(n>=10000000)return '\u20b9'+(n/10000000).toFixed(2)+' Cr';
+  if(n>=100000)return '\u20b9'+(n/100000).toFixed(2)+'L';
+  return fmt(n,'\u20b9');
+}
+function val(id){var e=document.getElementById(id);return e?(parseFloat(e.value)||0):0}
+function buildInsight(c){
+  const L=[], sym=CC[c.country].sym;
+  if(c.country==='IN'){
+    const r=c.r, a=c.hasVar?c.rn.totalMonthly:c.rn.fixedMonthly, b=c.hasVar?c.ro.totalMonthly:c.ro.fixedMonthly, d=Math.abs(a-b);
+    L.push(r.taxFixed===0?"About "+c.pct+"% of your CTC reaches your account. You pay no income tax at this level, so the gap is employer PF, gratuity, your own PF and professional tax.":"About "+c.pct+"% of your CTC reaches your account. PF and gratuity take a share, and income tax takes "+fmt(r.taxFixed/12)+" a month.");
+    L.push(a>=b?"On these numbers the new regime leaves you "+fmt(d)+" a month ahead.":"On these numbers the old regime leaves you "+fmt(d)+" a month ahead.");
+    if(c.regime==='new')L.push("The old regime figure assumes Rs 1.5 lakh in 80C. Switch to Old regime to enter your own amount.");
+    if(c.hasVar)L.push("Bonus and RSUs are taxed on top of your fixed pay, so a bigger share of them goes to tax.");
+    else if(c.regime!=='new')L.push("On the old regime you can also deduct up to Rs 50,000 paid into NPS under section 80CCD(1B).");
+    else L.push("Ask HR whether the company offers employer NPS or meal vouchers. They can lower your tax without changing your CTC.");
+  } else if(c.country==='US'){
+    L.push("About "+(100-c.pct)+"% of your pay is withheld for federal tax, "+(c.stateTaxed?"state tax, ":"")+"Social Security and Medicare.");
+    L.push("Money you put into a traditional 401(k) comes out before federal income tax, up to $"+LIMITS.k401.toLocaleString("en-US")+" in 2026. The self-only HSA limit is $"+LIMITS.hsa.toLocaleString("en-US")+".");
+    L.push("If your employer matches 401(k) contributions, take the full match first. It is free money.");
+  } else if(c.country==='GB'){
+    L.push("About "+(100-c.pct)+"% of your pay goes to income tax and National Insurance.");
+    L.push("Paying into a workplace pension through salary sacrifice cuts both tax and National Insurance. At the basic rate that is worth about 28p for every \u00a31, and about 42p at the higher rate.");
+    if(c.gross>100000&&c.gross<125140)L.push("Between \u00a3100,000 and \u00a3125,140 you lose \u00a31 of personal allowance for every \u00a32 you earn, so that slice is taxed at an effective 60%. A pension contribution can bring you back under \u00a3100,000.");
+  } else if(c.country==='CA'){
+    L.push("About "+(100-c.pct)+"% of your pay goes to federal and provincial income tax, CPP and EI.");
+    L.push("CPP is not lost. It builds your own Canada Pension Plan pension. CPP is charged up to $74,600 of pay, and CPP2 adds 4% on the next $10,400, up to $85,000. EI stops at $68,900.");
+    L.push("An RRSP contribution lowers your taxable income, but it is not included in this number. Quebec has its own system and is not covered.");
+  } else if(c.country==='AU'){
+    L.push("About "+(100-c.pct)+"% of your pay goes to income tax and the 2% Medicare levy.");
+    L.push("Employer super is paid on top of your salary, so it is not counted here.");
+    L.push("Salary sacrificing into super is taxed at 15% inside the fund, which can be less than your own tax rate.");
+  } else {
+    L.push("About "+(100-c.pct)+"% of your pay is deducted.");
+    L.push(c.sgCitizen?"Your CPF contribution is not lost. It goes into your own CPF accounts, but you cannot spend it as cash.":"With no CPF on an EP or S Pass your cash take-home is higher, but you are not building CPF savings either.");
+  }
+  if(c.rcCost>0){
+    const rcPct=Math.round(c.rcCost/c.inhandMo*100);
+    L.push("Your work costs take "+rcPct+"% of your take-home, which leaves "+fmt(c.inhandMo-c.rcCost)+" a month to spend. That is the number to budget from.");
+  }
+  return L.join(" ");
+}
+function calculate(){
+  const salEl=document.getElementById('salary'); if(!salEl)return;
+  const gross=parseFloat(salEl.value)||0; if(gross<10000)return;
+  const sym=CC[country].sym;
+  let rows=[], slices=[], inhandMo, annual, pct, ctx={country:country,gross:gross}, cmp='';
+  if(country==='IN'){
+    const bp=parseInt(document.getElementById('basicPct').value||50)/100, bonus=val('bonus'), rsus=val('rsus'), invEntered=val('inv80c');
+    const base={ctc:gross,basicPct:bp,bonus:bonus,rsus:rsus,rentMonthly:val('rent'),hraMetro:val('hraCity')===8,mealMonthly:val('mealCard')};
+    const rn=indiaCalc(Object.assign({regime:'new',inv80c:0},base)), ro=indiaCalc(Object.assign({regime:'old',inv80c:regime==='new'?150000:invEntered},base));
+    const r=regime==='old'?ro:rn, hasVar=bonus>0||rsus>0;
+    inhandMo=hasVar?r.totalMonthly:r.fixedMonthly; annual=hasVar?r.totalAnnual:r.fixedAnnual; pct=Math.round(hasVar?r.pct:r.fixedPct);
+    rows=[{n:'Salary after employer PF and gratuity',c:'#00E5C3',v:r.grossSal/12},{n:'Income tax',c:'#FF5C5C',v:-r.taxFixed/12},{n:'Your PF',c:'#FFB547',v:-r.empPF/12},{n:'Professional tax',c:'#888',v:-r.profTax/12}];
+    if(bonus>0)rows.push({n:'Bonus after tax, averaged',c:'#6B5CE7',v:r.bonusNet/12,pos:1});
+    if(rsus>0)rows.push({n:'RSUs after tax, averaged',c:'#9B59B6',v:r.rsuNet/12,pos:1});
+    if(r.mealCard>0)rows.push({n:'Meal card (vouchers, not cash)',c:'#6B5CE7',v:-r.mealCard/12});
+    slices=[{v:r.totalAnnual,c:'#00E5C3'},{v:r.taxAll,c:'#FF5C5C'},{v:r.empPF,c:'#FFB547'},{v:r.erPF,c:'#FF8A3D'},{v:r.gratuity,c:'#0090FF'},{v:r.profTax,c:'#888'}];
+    Object.assign(ctx,{r:r,rn:rn,ro:ro,hasVar:hasVar,regime:regime});
+    if(regime==='both'){
+      const A=hasVar?rn.totalMonthly:rn.fixedMonthly, Bv=hasVar?ro.totalMonthly:ro.fixedMonthly, win=A>=Bv?'new':'old';
+      cmp='<div class="rc-compare" aria-label="Tax regime comparison"><div class="rc-card'+(win==='new'?' win':'')+'"><div class="rc-card-lbl">New regime</div><div class="rc-card-val">'+fmt(A)+'/mo</div>'+(win==='new'?'<div class="rc-card-tag">Better for you</div>':'')+'</div><div class="rc-card'+(win==='old'?' win':'')+'"><div class="rc-card-lbl">Old regime</div><div class="rc-card-val">'+fmt(Bv)+'/mo</div>'+(win==='old'?'<div class="rc-card-tag">Better for you</div>':'')+'</div></div>';
+    }
+  } else if(country==='US'){
+    const st=document.getElementById('region').value, fl=document.getElementById('filing').value;
+    const u=usCalc({gross:gross,filing:fl,state:st});
+    annual=u.net; inhandMo=annual/12; pct=Math.round(annual/gross*100);
+    rows=[{n:'Gross pay',c:'#00E5C3',v:gross/12},{n:'Federal income tax',c:'#FF5C5C',v:-u.fed/12}];
+    if(u.state>0)rows.push({n:st+' state income tax',c:'#FF8A3D',v:-u.state/12});
+    rows.push({n:'Social Security',c:'#FFB547',v:-u.ss/12},{n:'Medicare',c:'#0090FF',v:-u.medicare/12});
+    if(u.sdi>0)rows.push({n:u.sdiName||'State payroll programs',c:'#888',v:-u.sdi/12});
+    slices=[{v:u.net,c:'#00E5C3'},{v:u.fed,c:'#FF5C5C'},{v:u.state,c:'#FF8A3D'},{v:u.ss,c:'#FFB547'},{v:u.medicare,c:'#0090FF'},{v:u.sdi,c:'#888'}];
+    ctx.stateTaxed=u.state>0;
+  } else if(country==='CA'){
+    const pv=document.getElementById('region').value, cn=canCalc({gross:gross,prov:pv});
+    annual=cn.net; inhandMo=annual/12; pct=Math.round(annual/gross*100);
+    rows=[{n:'Gross pay',c:'#00E5C3',v:gross/12},{n:'Federal income tax',c:'#FF5C5C',v:-cn.fed/12},{n:(pv==='ON'?'Ontario tax and health premium':pv==='BC'?'British Columbia income tax':'Alberta income tax'),c:'#FF8A3D',v:-cn.prov/12},{n:'Canada Pension Plan (CPP and CPP2)',c:'#FFB547',v:-(cn.cpp+cn.cpp2)/12},{n:'Employment Insurance (EI)',c:'#0090FF',v:-cn.ei/12}];
+    slices=[{v:cn.net,c:'#00E5C3'},{v:cn.fed,c:'#FF5C5C'},{v:cn.prov,c:'#FF8A3D'},{v:cn.cpp+cn.cpp2,c:'#FFB547'},{v:cn.ei,c:'#0090FF'}];
+  } else if(country==='GB'){
+    const g=gbCalc({gross:gross,region:document.getElementById('region').value});
+    annual=g.net; inhandMo=annual/12; pct=Math.round(annual/gross*100);
+    rows=[{n:'Gross pay',c:'#00E5C3',v:gross/12},{n:'Income tax',c:'#FF5C5C',v:-g.tax/12},{n:'National Insurance',c:'#FFB547',v:-g.ni/12}];
+    slices=[{v:g.net,c:'#00E5C3'},{v:g.tax,c:'#FF5C5C'},{v:g.ni,c:'#FFB547'}];
+  } else if(country==='AU'){
+    const a=auCalc({gross:gross});
+    annual=a.net; inhandMo=annual/12; pct=Math.round(annual/gross*100);
+    rows=[{n:'Gross pay',c:'#00E5C3',v:gross/12},{n:'Income tax',c:'#FF5C5C',v:-a.tax/12},{n:'Medicare levy',c:'#FFB547',v:-a.medicare/12}];
+    slices=[{v:a.net,c:'#00E5C3'},{v:a.tax,c:'#FF5C5C'},{v:a.medicare,c:'#FFB547'}];
+  } else {
+    const cit=document.getElementById('sgStatus').value==='citizen';
+    const s=sgCalc({gross:gross,status:cit?'citizen':'foreign'});
+    annual=s.net; inhandMo=annual/12; pct=Math.round(annual/gross*100);
+    rows=[{n:'Gross pay',c:'#00E5C3',v:gross/12},{n:'Income tax',c:'#FF5C5C',v:-s.tax/12}];
+    if(cit)rows.push({n:'CPF (your 20%, goes to your own account)',c:'#FFB547',v:-s.cpf/12});
+    slices=[{v:s.net,c:'#00E5C3'},{v:s.tax,c:'#FF5C5C'},{v:s.cpf,c:'#FFB547'}];
+    ctx.sgCitizen=cit;
+  }
+  const rcCost=getRealCost(), effMo=inhandMo-rcCost;
+  Object.assign(ctx,{pct:pct,inhandMo:inhandMo,rcCost:rcCost});
+  document.getElementById('sCTC').textContent=country==='IN'?fmtIN(gross):fmt(gross);
+  document.getElementById('sInhand').textContent=fmt(inhandMo);
+  document.getElementById('sPct').textContent=pct+'% of '+(country==='IN'?'CTC':'gross')+' \u00b7 '+CC[country].name+' \u00b7 2026';
+  let html='<div class="r-main"><div class="r-label">Monthly take-home</div><div class="r-amount">'+fmt(inhandMo)+'</div><div class="r-sub">'+(country==='IN'?fmtIN(annual):fmt(annual))+' a year, '+pct+'% of '+(country==='IN'?'your CTC':'your gross pay')+'</div></div>'
+   +'<div class="donut-wrap" role="img" aria-label="Donut chart: '+pct+'% of your pay is take-home"><canvas id="donutCanvas" width="176" height="176"></canvas><div class="donut-c" aria-hidden="true"><div class="donut-pct">'+pct+'%</div><div class="donut-tiny">take-home</div></div></div><ul class="bk" aria-label="Salary breakdown">';
+  rows.forEach(function(r){html+='<li><span class="bk-name"><span class="bk-dot" style="background:'+r.c+'" aria-hidden="true"></span>'+r.n+'</span><span class="bk-val '+(r.v<0?'neg':(r.pos?'pos':''))+'">'+(r.v<0?'-':(r.pos?'+':''))+fmt(r.v)+'/mo</span></li>';});
+  html+='</ul>'+cmp;
+  if(rcOn&&rcCost>0)html+='<div class="rct-box show" role="status"><div class="rct-title">What is left after work costs</div><div class="rct-val">'+fmt(effMo)+'/mo</div><div class="rct-sub">After taking off '+fmt(rcCost)+' a month in work costs</div></div>';
+  html+='<div class="act-row"><button class="act-btn" onclick="openModal()" aria-label="Share salary card">Share card</button><button class="act-btn" onclick="copySum()" aria-label="Copy breakdown to clipboard">Copy</button></div>';
+  document.getElementById('results').innerHTML=html;
+  setTimeout(function(){
+    const cv=document.getElementById('donutCanvas'); if(!cv)return;
+    const c=cv.getContext('2d'); c.clearRect(0,0,176,176);
+    const parts=slices.filter(function(s){return s.v>0}), total=parts.reduce(function(a,b){return a+b.v},0)||1; let start=-Math.PI/2;
+    parts.forEach(function(s){const ang=s.v/total*Math.PI*2;c.beginPath();c.moveTo(88,88);c.arc(88,88,80,start,start+ang);c.closePath();c.fillStyle=s.c;c.fill();start+=ang;});
+    c.beginPath();c.arc(88,88,52,0,Math.PI*2);c.fillStyle='#080d1a';c.fill();
+  },50);
+  document.getElementById('insightBody').textContent=buildInsight(ctx);
+  document.getElementById('insightBox').classList.add('show');
+}
+function toggleRC(){
+  rcOn=!rcOn;
+  document.getElementById('rcSwitch').classList.toggle('on',rcOn);
+  const f=document.getElementById('rcFields'); f.classList.toggle('show',rcOn); f.setAttribute('aria-hidden',rcOn?'false':'true');
+  document.getElementById('rcToggleBtn').setAttribute('aria-expanded',rcOn?'true':'false');
+  onChange();
+}
+function openModal(){document.getElementById('modal').classList.add('open');document.querySelector('.modal-x').focus();}
+function closeModal(){document.getElementById('modal').classList.remove('open')}
+document.getElementById('modal').addEventListener('click',function(e){if(e.target===e.currentTarget)closeModal()});
+document.addEventListener('keydown',function(e){if(e.key==='Escape')closeModal()});
+function doShare(){
+  const txt='My salary: '+document.getElementById('sCTC').textContent+'\nReal monthly take-home: '+document.getElementById('sInhand').textContent+'\n'+document.getElementById('sPct').textContent+'\n\nCalculated on CTCLie.com';
+  if(navigator.clipboard)navigator.clipboard.writeText(txt).then(function(){showToast('Copied')}).catch(function(){showToast('Copy failed, try selecting the text')});
+  closeModal();
+}
+function copySum(){
+  const r=document.getElementById('results');
+  if(navigator.clipboard)navigator.clipboard.writeText('CTCLie breakdown:\n'+r.innerText.replace(/\n+/g,'\n')+'\n\nCTCLie.com').then(function(){showToast('Copied')}).catch(function(){showToast('Copy failed')});
+}
+function showToast(msg){const t=document.getElementById('toast');t.textContent=msg;t.classList.add('show');setTimeout(function(){t.classList.remove('show')},2800);}
+function tfaq(i){
+  document.querySelectorAll('.faq-item').forEach(function(el,j){
+    const o=j===i&&!el.classList.contains('open'); el.classList.toggle('open',o);
+    el.querySelector('.faq-q').setAttribute('aria-expanded',o?'true':'false');
+  });
+}
+buildInputs();
+
+</script>
+
+<script>
+// ── CUSTOM CURSOR + TOUCH RIPPLE + SCROLL REVEAL ──
+(function(){
+  // Custom cursor (desktop only)
+  if(!window.matchMedia('(hover:none)').matches){
+    const cur=document.createElement('div');
+    const dot=document.createElement('div');
+    cur.className='cursor'; dot.className='cursor-dot';
+    cur.setAttribute('aria-hidden','true'); dot.setAttribute('aria-hidden','true');
+    document.body.appendChild(cur); document.body.appendChild(dot);
+    let mx=0,my=0,cx=0,cy=0;
+    window.addEventListener('mousemove',e=>{mx=e.clientX;my=e.clientY},{passive:true});
+    window.addEventListener('mousedown',()=>cur.classList.add('clicking'));
+    window.addEventListener('mouseup',()=>cur.classList.remove('clicking'));
+    document.addEventListener('mouseover',e=>{
+      if(e.target.matches('a,button,input,select,label,.feat-card,.aff-card,.faq-q,.rc-toggle,.act-btn,.cb,.rb,.go-btn,.aff-link,.nav-cta')){
+        cur.classList.add('hovering');
+      }
+    });
+    document.addEventListener('mouseout',e=>{
+      if(e.target.matches('a,button,input,select,label,.feat-card,.aff-card,.faq-q,.rc-toggle,.act-btn,.cb,.rb,.go-btn,.aff-link,.nav-cta')){
+        cur.classList.remove('hovering');
+      }
+    });
+    document.addEventListener('mousemove',e=>{
+      const card=e.target.closest('.feat-card,.aff-card');
+      if(card){
+        const r=card.getBoundingClientRect();
+        card.style.setProperty('--mx',((e.clientX-r.left)/r.width*100)+'%');
+        card.style.setProperty('--my',((e.clientY-r.top)/r.height*100)+'%');
+      }
+    },{passive:true});
+    (function anim(){
+      cx+=(mx-cx)*0.13; cy+=(my-cy)*0.13;
+      cur.style.transform='translate('+(cx-10)+'px,'+(cy-10)+'px)';
+      dot.style.transform='translate('+(mx-2.5)+'px,'+(my-2.5)+'px)';
+      requestAnimationFrame(anim);
+    })();
+  }
+
+  // Touch ripple (mobile) - passive listener for performance
+  document.addEventListener('touchstart',function(e){
+    const t=e.touches[0];
+    const r=document.createElement('div');
+    r.className='ripple';
+    r.setAttribute('aria-hidden','true');
+    const s=70;
+    r.style.cssText='width:'+s+'px;height:'+s+'px;left:'+(t.clientX-s/2)+'px;top:'+(t.clientY-s/2)+'px;';
+    document.body.appendChild(r);
+    setTimeout(function(){r.remove();},600);
+  },{passive:true});
+
+  // Scroll reveal
+  const revealEls=document.querySelectorAll('.feat-card,.aff-card,.calc-card,.insight-box,.faq-item,.hero-flags,.ticker');
+  revealEls.forEach(function(el){el.classList.add('reveal');});
+  if('IntersectionObserver' in window){
+    const io=new IntersectionObserver(function(entries){
+      entries.forEach(function(e){
+        if(e.isIntersecting){e.target.classList.add('visible');io.unobserve(e.target);}
+      });
+    },{threshold:0.08,rootMargin:'0px 0px -40px 0px'});
+    revealEls.forEach(function(el){io.observe(el);});
+  } else {
+    // Fallback for old browsers
+    revealEls.forEach(el=>el.classList.add('visible'));
+  }
+})();
+</script>
+
 </body>
 </html>
